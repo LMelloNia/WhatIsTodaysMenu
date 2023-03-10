@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--음식목록-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PersonalPojectExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q1M-2U-cpu">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cutomCell" id="wiF-tT-bNV" customClass="CustomTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="140.66667175292969"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wiF-tT-bNV" id="QBd-Iy-HOv">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="140.66667175292969"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLB-G7-jV5">
+                                                    <rect key="frame" x="10" y="10" width="373" height="120.66666666666669"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cfD-3g-xX0">
+                                                            <rect key="frame" x="20" y="21.666666666666664" width="80" height="77.666666666666686"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="80" id="Om0-Co-Q3m"/>
+                                                                <constraint firstAttribute="width" constant="80" id="wPC-gs-76T"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기본" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG1-DG-3tn">
+                                                            <rect key="frame" x="110" y="30.333333333333336" width="29.666666666666657" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYC-6c-yTz">
+                                                            <rect key="frame" x="110" y="69.333333333333329" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUP-GB-csW">
+                                                            <rect key="frame" x="326" y="8" width="47" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHf-U1-bci">
+                                                            <rect key="frame" x="326" y="77" width="47" height="35"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="❤️"/>
+                                                            <connections>
+                                                                <action selector="removeFromListButtonTapped:" destination="wiF-tT-bNV" eventType="touchUpInside" id="AO2-Mb-Wtm"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="cfD-3g-xX0" firstAttribute="leading" secondItem="GLB-G7-jV5" secondAttribute="leading" constant="20" id="8mS-hs-yav"/>
+                                                        <constraint firstItem="NYC-6c-yTz" firstAttribute="bottom" secondItem="cfD-3g-xX0" secondAttribute="bottom" constant="-10" id="BQe-LR-Bf8"/>
+                                                        <constraint firstItem="OG1-DG-3tn" firstAttribute="leading" secondItem="cfD-3g-xX0" secondAttribute="trailing" constant="10" id="BnT-1G-emY"/>
+                                                        <constraint firstAttribute="height" constant="120.33" id="JbP-Lm-Y73"/>
+                                                        <constraint firstItem="NYC-6c-yTz" firstAttribute="leading" secondItem="cfD-3g-xX0" secondAttribute="trailing" constant="10" id="Mj5-Ga-iXC"/>
+                                                        <constraint firstItem="OG1-DG-3tn" firstAttribute="top" secondItem="cfD-3g-xX0" secondAttribute="top" constant="10" id="NZc-TD-Rqs"/>
+                                                        <constraint firstItem="cfD-3g-xX0" firstAttribute="centerY" secondItem="GLB-G7-jV5" secondAttribute="centerY" id="md8-c0-MIb"/>
+                                                        <constraint firstAttribute="width" constant="363" id="xQF-kc-bZa"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GLB-G7-jV5" firstAttribute="leading" secondItem="QBd-Iy-HOv" secondAttribute="leading" constant="10" id="4Ku-Pk-d00"/>
+                                                <constraint firstAttribute="bottom" secondItem="GLB-G7-jV5" secondAttribute="bottom" constant="10" id="T3a-JR-JNW"/>
+                                                <constraint firstAttribute="trailing" secondItem="GLB-G7-jV5" secondAttribute="trailing" constant="10" id="Zf0-8E-eJ0"/>
+                                                <constraint firstItem="GLB-G7-jV5" firstAttribute="top" secondItem="QBd-Iy-HOv" secondAttribute="top" constant="10" id="k1Y-FY-OIV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="foodCategoryLabel" destination="NYC-6c-yTz" id="x3K-iT-0sT"/>
+                                            <outlet property="foodContentView" destination="GLB-G7-jV5" id="gmW-EW-6oo"/>
+                                            <outlet property="foodImageView" destination="cfD-3g-xX0" id="pW8-Tq-hBJ"/>
+                                            <outlet property="foodNameLabel" destination="OG1-DG-3tn" id="lZR-go-U4a"/>
+                                            <outlet property="isAllRandomButton" destination="IHf-U1-bci" id="Leg-un-3cq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="gmg-Z8-cZ5"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="52I-95-Gom"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="q1M-2U-cpu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OMR-vq-O10"/>
+                            <constraint firstAttribute="bottom" secondItem="q1M-2U-cpu" secondAttribute="bottom" id="Y9G-af-kgy"/>
+                            <constraint firstItem="q1M-2U-cpu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ijH-9t-Any"/>
+                            <constraint firstItem="q1M-2U-cpu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kx7-vt-htX"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="음식목록" id="nwW-OO-4Nl"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="941.22137404580144" y="22.535211267605636"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="questionmark" catalog="system" width="94" height="128"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
