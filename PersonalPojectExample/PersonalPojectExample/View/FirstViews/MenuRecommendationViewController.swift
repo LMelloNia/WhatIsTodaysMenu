@@ -14,13 +14,15 @@ class MenuRecommendationViewController: UIViewController {
     
     var target: Food?
     var randomFoods: [Food] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    
+    
     @IBAction func pressedRandomMenuButton(_ sender: Any) {
-        // MARK: - 필터메소드말고 다른 방법은?
         let randomFoods = foods.filter { Food in
             Food.isAllRandom == true
         }

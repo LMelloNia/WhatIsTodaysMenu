@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
@@ -23,7 +23,7 @@ class CustomTableViewCell: UITableViewCell {
         foodContentView.clipsToBounds = true
         foodContentView.layer.cornerRadius = 20
     }
-
+    
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
         if data?.isAllRandom ?? true {
             data?.isAllRandom = false
@@ -31,12 +31,11 @@ class CustomTableViewCell: UITableViewCell {
         } else {
             data?.isAllRandom = true
             isAllRandomButton.setTitle("❤️", for: .normal)
-            
         }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
 }

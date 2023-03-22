@@ -9,7 +9,7 @@ import UIKit
 
 @IBDesignable
 class RandomMenuButton: UIButton {
-
+    
     @IBInspectable
     var conerRadius: CGFloat {
         get {
@@ -29,5 +29,4 @@ class RandomMenuButton: UIButton {
             layer.borderWidth = newValue
         }
     }
-    
 }

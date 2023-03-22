@@ -9,7 +9,7 @@ import UIKit
 
 
 class FoodViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ extension FoodViewController: UITableViewDataSource {
         } else {
             cell.isAllRandomButton.setTitle("💔", for: .normal)
         }
-        print(#function)
+        
         return cell
     }
 }

@@ -216,6 +216,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="랜덤목록" image="list.bullet" catalog="system" id="E3P-kU-0vE"/>
+                    <connections>
+                        <outlet property="tableView" destination="dbK-rz-82W" id="diB-UY-GVR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSB-mF-Ldo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,6 +275,9 @@
                                                 <constraint firstItem="JY7-N7-C1v" firstAttribute="bottom" secondItem="XGi-3i-H2o" secondAttribute="bottomMargin" id="miW-nb-dCh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="listNameTextField" destination="JY7-N7-C1v" id="23S-bt-IgQ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodListCreatButtonTableViewCell" id="WpH-dP-m0Y" customClass="FoodListCreatButtonTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="400.33334350585938" width="393" height="57.333332061767578"/>
@@ -363,9 +369,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XS3-nO-1ev">
                                 <rect key="frame" x="0.0" y="70" width="393" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="q3W-Rw-Rzf">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="hul-n7-Jhd" id="9h8-BY-mIk"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodSelect" id="mG2-IX-50f" customClass="ThirdViewTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="140.66667175292969"/>
+                                        <rect key="frame" x="0.0" y="94" width="393" height="140.66667175292969"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mG2-IX-50f" id="vwT-8S-khQ">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="140.66667175292969"/>

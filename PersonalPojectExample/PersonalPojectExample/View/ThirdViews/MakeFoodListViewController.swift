@@ -9,16 +9,21 @@ import UIKit
 
 extension Notification.Name {
     static let select = Notification.Name("FoodList")
+    static let listName = Notification.Name("listName")
 }
 
-class MakeFoodListViewController: UIViewController {
 
+
+class MakeFoodListViewController: UIViewController {
+    
     @IBOutlet weak var tavleView: UITableView!
-    var list: [Food]?
+    
+    var list: [Food] = []
+    let foodList: FoodList = FoodList(imgae: UIImage(named: "라멘1")!, name: "목록이름입니다", description: "설명입니다", foodList: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
             if let l = Notification.userInfo?["name"] as? [Food] {
                 self.list = l
@@ -27,7 +32,13 @@ class MakeFoodListViewController: UIViewController {
         }
     }
     
+    
+    
     @IBAction func createButtonTapped(_ sender: UIButton) {
+        foodList.foodList = list
+        
+        
+        NotificationCenter.default.post(name: .list, object: nil, userInfo: ["name": foodList])
         self.presentingViewController?.dismiss(animated: true)
     }
 }
@@ -35,7 +46,6 @@ class MakeFoodListViewController: UIViewController {
 
 
 extension MakeFoodListViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         3
     }
@@ -46,12 +56,7 @@ extension MakeFoodListViewController: UITableViewDataSource {
         } else if section == 1{
             return 1
         } else {
-            if let l = list {
-                return l.count
-            } else {
-                return 0
-            }
-            
+            return list.count
         }
     }
     
@@ -67,12 +72,14 @@ extension MakeFoodListViewController: UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListContentsTableViewCell", for: indexPath) as! FoodListContentsTableViewCell
             
-            if let l = list {
-                let target = l[indexPath.row]
-                cell.foodImageView.image = target.image.first
-                cell.foodNameLabel.text = target.name
-            }
+            let target = list[indexPath.row]
+            cell.foodImageView.image = target.image.first
+            cell.foodNameLabel.text = target.name
+            
             return cell
         }
     }
+    
 }
+// MARK: 질문 목록
+// MARK: 목록이름 텍스트필드의 텍스트가 바뀌었을때 이름으로 저장하기 - 테이블뷰가 있는 뷰컨트롤러에서 해당 테이블뷰의 커스텀셀의 텍스트필드의 문자에 접근하는 방법
