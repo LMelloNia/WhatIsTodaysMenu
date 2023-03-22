@@ -9,15 +9,24 @@ import UIKit
 
 class FoodSelectViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     var list: [Food]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        list = []
     }
     
     @IBAction func completeButtonTapped(_ sender: Any) {
+        if let indexPath = tableView.indexPathsForSelectedRows {
+            indexPath.map {
+                list?.append(foods[$0.row])
+            }
+        }
+        NotificationCenter.default.post(name: .select, object: nil, userInfo: ["name": list])
         self.presentingViewController?.dismiss(animated: true)
+        
         
     }
 }
@@ -42,8 +51,13 @@ extension FoodSelectViewController: UITableViewDataSource {
     }
 }
 
+
+// -MARK: 멀티선택에서 선택을 해제하면 리스트에 추가하지 않기
 extension FoodSelectViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        list?.append(foods[indexPath.row])
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        list?.append(foods[indexPath.row])
+//    }
+    
+    
+    
 }

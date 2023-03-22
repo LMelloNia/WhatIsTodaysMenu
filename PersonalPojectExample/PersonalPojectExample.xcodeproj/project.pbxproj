@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DD0DB85429CAECB500072878 /* FoodListMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85329CAECB500072878 /* FoodListMainTableViewCell.swift */; };
 		DD0DB85629CAEDF100072878 /* FoodListCreatButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85529CAEDF100072878 /* FoodListCreatButtonTableViewCell.swift */; };
+		DD0DB85829CAEE9E00072878 /* FoodListContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85729CAEE9E00072878 /* FoodListContentsTableViewCell.swift */; };
+		DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */; };
 		DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */; };
 		DD6F1CDB29BB055800CDAD54 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDA29BB055800CDAD54 /* Country.swift */; };
 		DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDC29BB05FB00CDAD54 /* NumberOfPeople.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		DD0DB85329CAECB500072878 /* FoodListMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListMainTableViewCell.swift; sourceTree = "<group>"; };
 		DD0DB85529CAEDF100072878 /* FoodListCreatButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListCreatButtonTableViewCell.swift; sourceTree = "<group>"; };
+		DD0DB85729CAEE9E00072878 /* FoodListContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListContentsTableViewCell.swift; sourceTree = "<group>"; };
+		DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListFirstTableViewCell.swift; sourceTree = "<group>"; };
 		DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectViewController.swift; sourceTree = "<group>"; };
 		DD6F1CDA29BB055800CDAD54 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DD6F1CDC29BB05FB00CDAD54 /* NumberOfPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPeople.swift; sourceTree = "<group>"; };
@@ -152,8 +156,10 @@
 		DDC4A09029BF406400E5C973 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */,
 				DD0DB85329CAECB500072878 /* FoodListMainTableViewCell.swift */,
 				DD0DB85529CAEDF100072878 /* FoodListCreatButtonTableViewCell.swift */,
+				DD0DB85729CAEE9E00072878 /* FoodListContentsTableViewCell.swift */,
 				DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */,
 			);
 			path = Cell;
@@ -257,6 +263,8 @@
 				DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */,
 				DD6F1CE529BB0FAD00CDAD54 /* FoodListViewController.swift in Sources */,
 				DD0DB85429CAECB500072878 /* FoodListMainTableViewCell.swift in Sources */,
+				DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */,
+				DD0DB85829CAEE9E00072878 /* FoodListContentsTableViewCell.swift in Sources */,
 				DD0DB85629CAEDF100072878 /* FoodListCreatButtonTableViewCell.swift in Sources */,
 				DD927C7E29B0993200467EE9 /* SceneDelegate.swift in Sources */,
 				DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */,
