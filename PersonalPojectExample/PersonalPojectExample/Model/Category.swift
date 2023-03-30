@@ -12,7 +12,7 @@ enum Category: String {
     case spicy = "매운맛"
     case meat = "고기"
     case seafood = "해산물"
-    case noodle = "국수"
+    case noodle = "면"
     case rice = "밥"
     case soup = "국물"
     case friedFood = "튀긴음식"

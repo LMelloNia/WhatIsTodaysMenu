@@ -15,6 +15,7 @@ class Food {
     var numberOfPeoPle: [NumberOfPeople]
     var category: [Category]
     var isAllRandom: Bool
+    var isChecked: Bool = false
     
     func returnCategoryList() -> String {
         var categoryList = [""]

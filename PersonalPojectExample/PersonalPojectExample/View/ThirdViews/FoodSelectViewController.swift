@@ -11,6 +11,9 @@ class FoodSelectViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let chechImage = UIImage(systemName: "checkmark.circle.fill")!
+    let plusImage = UIImage(systemName: "plus.circle.fill")!
+    
     var list: [Food] = []
     var filteredFoods = foods
     
@@ -27,11 +30,16 @@ class FoodSelectViewController: UIViewController {
 //                list.append(filteredFoods[$0.row])
 //            }
 //        }
-        print(list)
+        filteredFoods.forEach {
+            if $0.isChecked {
+                list.append($0)
+            }
+        }
         NotificationCenter.default.post(name: .select, object: nil, userInfo: ["name": list])
         
         self.presentingViewController?.dismiss(animated: true)
     }
+    
 }
 
 
@@ -42,21 +50,23 @@ extension FoodSelectViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "foodSelect")! as! ThirdViewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ThirdViewTableViewCell")! as! ThirdViewTableViewCell
     
         if !filteredFoods.isEmpty {
-            print(filteredFoods.count, "🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍❤️")
             let target = filteredFoods[indexPath.row]
             
             cell.foodImageView.image = target.image.first
-            if list.contains(where: { Food in
-                Food.name == filteredFoods[indexPath.row].name
-            }) {
-                cell.foodNameLabel.text = "\(target.name) 선택됨"
+//            if list.contains(where: { Food in
+//                Food.name == filteredFoods[indexPath.row].name
+//            })
+            cell.foodNameLabel.text = target.name
+            if target.isChecked {
+//                cell.foodNameLabel.text = "\(target.name) 선택됨"
+                cell.foodSelectButton.setImage(chechImage, for: .highlighted)
             } else {
-                cell.foodNameLabel.text = target.name
+                
+                cell.foodSelectButton.setImage(plusImage, for: .highlighted)
             }
-            
             cell.foodCategoryLabel.text = target.returnCategoryList()
         }
         
@@ -68,7 +78,8 @@ extension FoodSelectViewController: UITableViewDataSource {
 
 extension FoodSelectViewController: UISearchBarDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        list.append(filteredFoods[indexPath.row])
+//        list.append(filteredFoods[indexPath.row])
+        filteredFoods[indexPath.row].isChecked.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     

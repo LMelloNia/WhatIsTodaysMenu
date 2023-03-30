@@ -10,24 +10,27 @@ import UIKit
 extension Notification.Name {
     static let select = Notification.Name("FoodList")
     static let listName = Notification.Name("listName")
+    static let toThirdMainView = Notification.Name("toThirdMainView")
 }
 
 
 
 class MakeFoodListViewController: UIViewController {
     
-    @IBOutlet weak var tavleView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var list: [Food] = []
     let foodList: FoodList = FoodList(imgae: UIImage(named: "라멘1")!, name: "목록이름입니다", description: "설명입니다", foodList: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        foods.forEach {
+            $0.isChecked = false
+        }
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
             if let l = Notification.userInfo?["name"] as? [Food] {
                 self.list = l
-                self.tavleView.reloadData()
+                self.tableView.reloadData()
             }
         }
     }
@@ -36,11 +39,14 @@ class MakeFoodListViewController: UIViewController {
     
     @IBAction func createButtonTapped(_ sender: UIButton) {
         foodList.foodList = list
-        let cell = tavleView.visibleCells.first as? FoodListMainTableViewCell
+        // MARK: 선택한 음식목록 저장
+        let cell = tableView.visibleCells.first as? FoodListMainTableViewCell
         foodList.name = cell?.listNameTextField.text ?? "이름"
+        // MARK: 이름저장
         
         NotificationCenter.default.post(name: .list, object: nil, userInfo: ["name": foodList])
         self.presentingViewController?.dismiss(animated: true)
+//        NotificationCenter.default.post(name: .toThirdMainView, object: nil, userInfo: ["name": list])
     }
 }
 

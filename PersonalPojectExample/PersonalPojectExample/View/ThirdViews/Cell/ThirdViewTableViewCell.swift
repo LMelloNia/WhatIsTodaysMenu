@@ -13,6 +13,8 @@ class ThirdViewTableViewCell: UITableViewCell {
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
     @IBOutlet weak var foodContentView: UIView!
+    @IBOutlet weak var foodSelectButton: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

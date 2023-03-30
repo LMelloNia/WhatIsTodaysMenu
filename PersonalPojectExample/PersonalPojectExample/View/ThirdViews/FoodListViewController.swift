@@ -17,6 +17,7 @@ class FoodListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var list = [Food]()
     var foodListList: [FoodList] = []
     
     override func viewDidLoad() {
@@ -26,17 +27,15 @@ class FoodListViewController: UIViewController {
                 self.foodListList.append(foodList)
                 
                 self.tableView.reloadData()
-//                print(#function, "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
             }
         }
+//        NotificationCenter.default.addObserver(forName: .toThirdMainView, object: nil, queue: .main) { Notification in
+//            if let l = Notification.userInfo?["name"] as? [Food] {
+//                self.list = l
+//                self.tableView.reloadData()
+//            }
+//        }
         tableView.reloadData()
-        print(#function, "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-    }
-    
-    
-    
-    @IBAction func addNewFoodList(_ sender: Any) {
-        
     }
 }
 

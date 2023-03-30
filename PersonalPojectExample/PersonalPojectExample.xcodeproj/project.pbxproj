@@ -12,6 +12,8 @@
 		DD0DB85829CAEE9E00072878 /* FoodListContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85729CAEE9E00072878 /* FoodListContentsTableViewCell.swift */; };
 		DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */; };
 		DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */; };
+		DD2951EC29D5A520000830D9 /* FoodList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2951EA29D5A520000830D9 /* FoodList.xcdatamodeld */; };
+		DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */; };
 		DD6F1CDB29BB055800CDAD54 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDA29BB055800CDAD54 /* Country.swift */; };
 		DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDC29BB05FB00CDAD54 /* NumberOfPeople.swift */; };
 		DD6F1CDF29BB061300CDAD54 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDE29BB061300CDAD54 /* Category.swift */; };
@@ -39,6 +41,8 @@
 		DD0DB85729CAEE9E00072878 /* FoodListContentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListContentsTableViewCell.swift; sourceTree = "<group>"; };
 		DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListFirstTableViewCell.swift; sourceTree = "<group>"; };
 		DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectViewController.swift; sourceTree = "<group>"; };
+		DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodList.xcdatamodel; sourceTree = "<group>"; };
+		DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD6F1CDA29BB055800CDAD54 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DD6F1CDC29BB05FB00CDAD54 /* NumberOfPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPeople.swift; sourceTree = "<group>"; };
 		DD6F1CDE29BB061300CDAD54 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				DD927C8429B0993400467EE9 /* Assets.xcassets */,
 				DD927C8629B0993400467EE9 /* LaunchScreen.storyboard */,
 				DD927C8929B0993400467EE9 /* Info.plist */,
+				DD2951EA29D5A520000830D9 /* FoodList.xcdatamodeld */,
+				DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */,
 			);
 			path = PersonalPojectExample;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 				DD6F1CE529BB0FAD00CDAD54 /* FoodListViewController.swift in Sources */,
 				DD0DB85429CAECB500072878 /* FoodListMainTableViewCell.swift in Sources */,
 				DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */,
+				DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */,
 				DD0DB85829CAEE9E00072878 /* FoodListContentsTableViewCell.swift in Sources */,
 				DD0DB85629CAEDF100072878 /* FoodListCreatButtonTableViewCell.swift in Sources */,
 				DD927C7E29B0993200467EE9 /* SceneDelegate.swift in Sources */,
@@ -275,6 +282,7 @@
 				DD6F1CDB29BB055800CDAD54 /* Country.swift in Sources */,
 				DDF458FD29B8B89900F3A29E /* FoodList.swift in Sources */,
 				DD6F1CDF29BB061300CDAD54 /* Category.swift in Sources */,
+				DD2951EC29D5A520000830D9 /* FoodList.xcdatamodeld in Sources */,
 				DDC4A08F29BF381000E5C973 /* MenuRecommendationViewController.swift in Sources */,
 				DD6F1CE329BB0E6E00CDAD54 /* MainViewController.swift in Sources */,
 			);
@@ -494,6 +502,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD2951EA29D5A520000830D9 /* FoodList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */,
+			);
+			currentVersion = DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */;
+			path = FoodList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD927C7029B0993200467EE9 /* Project object */;
 }
