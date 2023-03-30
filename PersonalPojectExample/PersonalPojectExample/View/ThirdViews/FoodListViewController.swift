@@ -26,9 +26,11 @@ class FoodListViewController: UIViewController {
                 self.foodListList.append(foodList)
                 
                 self.tableView.reloadData()
-                print(#function, "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+//                print(#function, "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
             }
         }
+        tableView.reloadData()
+        print(#function, "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
     }
     
     

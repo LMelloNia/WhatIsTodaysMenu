@@ -36,7 +36,8 @@ class MakeFoodListViewController: UIViewController {
     
     @IBAction func createButtonTapped(_ sender: UIButton) {
         foodList.foodList = list
-        
+        let cell = tavleView.visibleCells.first as? FoodListMainTableViewCell
+        foodList.name = cell?.listNameTextField.text ?? "이름"
         
         NotificationCenter.default.post(name: .list, object: nil, userInfo: ["name": foodList])
         self.presentingViewController?.dismiss(animated: true)

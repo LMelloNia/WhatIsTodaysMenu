@@ -22,12 +22,12 @@ class FoodSelectViewController: UIViewController {
     
     
     @IBAction func completeButtonTapped(_ sender: Any) {
-        if let indexPath = tableView.indexPathsForSelectedRows {
-            indexPath.forEach {
-                list.append(filteredFoods[$0.row])
-            }
-        }
-        
+//        if let indexPath = tableView.indexPathsForSelectedRows {
+//            indexPath.forEach {
+//                list.append(filteredFoods[$0.row])
+//            }
+//        }
+        print(list)
         NotificationCenter.default.post(name: .select, object: nil, userInfo: ["name": list])
         
         self.presentingViewController?.dismiss(animated: true)
@@ -43,13 +43,20 @@ extension FoodSelectViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodSelect")! as! ThirdViewTableViewCell
-        
+    
         if !filteredFoods.isEmpty {
             print(filteredFoods.count, "🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍❤️")
             let target = filteredFoods[indexPath.row]
             
             cell.foodImageView.image = target.image.first
-            cell.foodNameLabel.text = target.name
+            if list.contains(where: { Food in
+                Food.name == filteredFoods[indexPath.row].name
+            }) {
+                cell.foodNameLabel.text = "\(target.name) 선택됨"
+            } else {
+                cell.foodNameLabel.text = target.name
+            }
+            
             cell.foodCategoryLabel.text = target.returnCategoryList()
         }
         
@@ -60,6 +67,11 @@ extension FoodSelectViewController: UITableViewDataSource {
 
 
 extension FoodSelectViewController: UISearchBarDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        list.append(filteredFoods[indexPath.row])
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
     func filter(with keyword: String) {
         if keyword.count > 0 {
             filteredFoods = foods.filter { $0.name.contains(keyword) }
