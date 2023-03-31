@@ -20,7 +20,10 @@ class MakeFoodListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var list: [Food] = []
-    let foodList: FoodList = FoodList(imgae: UIImage(named: "라멘1")!, name: "목록이름입니다", description: "설명입니다", foodList: [])
+    var editeMode: Bool = false
+    var foodList: FoodList = FoodList(imgae: UIImage(named: "라멘1")!, name: "목록이름입니다", description: "설명입니다", foodList: [])
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +73,7 @@ extension MakeFoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListMainTableViewCell", for: indexPath) as! FoodListMainTableViewCell
-            
+            cell.listNameTextField.text = foodList.name
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListCreatButtonTableViewCell", for: indexPath) as! FoodListCreatButtonTableViewCell

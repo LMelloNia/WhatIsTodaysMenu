@@ -34,9 +34,10 @@ class MenuRecommendationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recommendToFoodListList" {
             if let vc = segue.destination.children.first as? FoodListViewController {
-                print(self.foodListList)
+                
                 vc.foodListList = self.foodListList
-                print(vc.foodListList)
+                vc.target = target
+                dump(target)
             }
         }
     }

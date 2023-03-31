@@ -187,6 +187,7 @@
                                             <outlet property="foodListDescriptionLabel" destination="Vdl-NP-PCH" id="6Ry-G5-j9Z"/>
                                             <outlet property="foodListImageView" destination="SBu-HM-z3i" id="Ucs-xz-FfI"/>
                                             <outlet property="foodListNameLabel" destination="onG-Rj-3GV" id="J7q-hQ-EZA"/>
+                                            <segue destination="gsa-55-yJp" kind="presentation" identifier="cellToFoodList" id="NUw-7I-PKv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -275,14 +276,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodListCreatButtonTableViewCell" id="WpH-dP-m0Y" customClass="FoodListCreatButtonTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="412.33334350585938" width="393" height="66.666664123535156"/>
+                                        <rect key="frame" x="0.0" y="412.33334350585938" width="393" height="67.333335876464844"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WpH-dP-m0Y" id="vu7-Vh-zEX">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="66.666664123535156"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="67.333335876464844"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uos-fs-Gq9">
-                                                    <rect key="frame" x="20" y="15.999999999999996" width="113" height="34.666666666666657"/>
+                                                    <rect key="frame" x="20" y="16.000000000000004" width="113" height="35.333333333333343"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system" title="음식 추가"/>
                                                     <connections>
@@ -298,7 +299,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodListContentsTableViewCell" id="uAO-5F-d2J" customClass="FoodListContentsTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="479.00000762939453" width="393" height="52.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="479.66667938232422" width="393" height="52.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uAO-5F-d2J" id="WLx-AS-Xry">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="52.333332061767578"/>
@@ -389,6 +390,7 @@
                                                             <rect key="frame" x="20" y="20" width="80" height="123"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="fst-hT-dKa"/>
+                                                                <constraint firstAttribute="height" constant="80" id="u4A-Bw-sBj"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기본" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jig-Xn-KqX">
@@ -418,7 +420,6 @@
                                                         <constraint firstAttribute="bottomMargin" secondItem="OUS-rN-VaM" secondAttribute="bottom" constant="12" id="RHn-Gt-cL7"/>
                                                         <constraint firstItem="OUS-rN-VaM" firstAttribute="leading" secondItem="8IA-Td-nhD" secondAttribute="leadingMargin" constant="12" id="cPR-rx-6fx"/>
                                                         <constraint firstItem="Jig-Xn-KqX" firstAttribute="top" secondItem="OUS-rN-VaM" secondAttribute="top" id="dDQ-Yb-5J7"/>
-                                                        <constraint firstAttribute="height" constant="120" id="oJJ-mT-p9Q"/>
                                                         <constraint firstItem="yCK-Yk-CVU" firstAttribute="bottom" secondItem="OUS-rN-VaM" secondAttribute="bottom" id="rot-Fk-xE6"/>
                                                         <constraint firstItem="OUS-rN-VaM" firstAttribute="top" secondItem="8IA-Td-nhD" secondAttribute="topMargin" constant="12" id="tli-SH-Jdt"/>
                                                     </constraints>
@@ -642,6 +643,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="wyO-bz-pCR"/>
+        <segue reference="NUw-7I-PKv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
