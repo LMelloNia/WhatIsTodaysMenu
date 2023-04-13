@@ -55,7 +55,11 @@ extension FoodSelectViewController: UITableViewDataSource {
         if !filteredFoods.isEmpty {
             let target = filteredFoods[indexPath.row]
             
-            cell.foodImageView.image = target.image.first
+            if let imageName = target.imageName.first {
+                cell.foodImageView.image = UIImage(named: imageName)!
+            }
+//            cell.foodImageView.image = target.imageName.first
+            
 //            if list.contains(where: { Food in
 //                Food.name == filteredFoods[indexPath.row].name
 //            })
@@ -67,7 +71,9 @@ extension FoodSelectViewController: UITableViewDataSource {
                 
                 cell.foodSelectButton.setImage(plusImage, for: .highlighted)
             }
-            cell.foodCategoryLabel.text = target.returnCategoryList()
+            // MARK: 둘중 하나는 수정
+//            cell.foodCategoryLabel.text = target.returnCategoryList()
+            cell.foodCategoryLabel.text = target.categoryList
         }
         
         return cell

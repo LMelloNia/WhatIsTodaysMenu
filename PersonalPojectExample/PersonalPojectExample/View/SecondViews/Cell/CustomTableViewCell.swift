@@ -15,7 +15,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var foodContentView: UIView!
     @IBOutlet weak var isAllRandomButton: UIButton!
     
-    var data: Food?
+//    var data: Food?
+    var isAllRandom: Bool?
+    var foodEntity: FoodEntity?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,12 +27,18 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
-        if data?.isAllRandom ?? true {
-            data?.isAllRandom = false
+        guard let foodEntity else { return }
+        guard let isAllRandom else { return }
+        if isAllRandom {
+            self.isAllRandom = false
             isAllRandomButton.setTitle("💔", for: .normal)
+            
+            CoreDataManager.shared.updateIsAllRandom(food: foodEntity, isAllRandom: !isAllRandom)
         } else {
-            data?.isAllRandom = true
+            self.isAllRandom = true
             isAllRandomButton.setTitle("❤️", for: .normal)
+            
+            CoreDataManager.shared.updateIsAllRandom(food: foodEntity, isAllRandom: !isAllRandom)
         }
     }
     

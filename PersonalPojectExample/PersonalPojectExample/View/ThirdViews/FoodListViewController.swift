@@ -11,8 +11,6 @@ extension Notification.Name {
     static let list = Notification.Name("FoodList")
 }
 
-
-
 class FoodListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +19,6 @@ class FoodListViewController: UIViewController {
     var foodListList: [FoodList] = []
     var target: Food?
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +29,22 @@ class FoodListViewController: UIViewController {
             }
         }
         tableView.reloadData()
-        let id = UUID().uuidString
-//        NotificationCenter.default.addObserver(forName: .toThirdMainView, object: nil, queue: .main) { Notification in
-//            if let l = Notification.userInfo?["name"] as? [Food] {
-//                self.list = l
-//                self.tableView.reloadData()
-//            }
-//        }
+//        let id = UUID().uuidString
+        //        NotificationCenter.default.addObserver(forName: .toThirdMainView, object: nil, queue: .main) { Notification in
+        //            if let l = Notification.userInfo?["name"] as? [Food] {
+        //                self.list = l
+        //                self.tableView.reloadData()
+        //            }
+        //        }
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard !foodListList.isEmpty else { return }
         if segue.identifier == "cellToFoodList" {
             if let cell = sender as? FoodListFirstTableViewCell {
                 if let indexPath = tableView.indexPath(for: cell) {
-                    if let vc = segue.destination as? MakeFoodListViewController {
+                    if let vc = segue.destination as? MakeFoodRecommendationListTableViewController {
                         vc.editeMode = true
                         vc.foodList = foodListList[indexPath.row]
                         vc.list = foodListList[indexPath.row].foodList
@@ -53,7 +52,7 @@ class FoodListViewController: UIViewController {
                 }
             }
         } else {
-            if let vc = segue.destination as? MakeFoodListViewController {
+            if let vc = segue.destination as? MakeFoodRecommendationListTableViewController {
                 vc.editeMode = false
             }
         }
@@ -64,10 +63,10 @@ class FoodListViewController: UIViewController {
 
 extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if foodListList.count == 0 {
-            return 1
-        } else {
+        if foodListList.count > 1 {
             return foodListList.count
+        } else {
+            return 1
         }
     }
     

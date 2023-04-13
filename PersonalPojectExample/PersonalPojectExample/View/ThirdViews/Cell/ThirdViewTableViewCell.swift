@@ -14,11 +14,14 @@ class ThirdViewTableViewCell: UITableViewCell {
     @IBOutlet weak var foodCategoryLabel: UILabel!
     @IBOutlet weak var foodContentView: UIView!
     @IBOutlet weak var foodSelectButton: UIButton!
-    
+    @IBOutlet weak var foodDetailView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
+//        foodContentView.clipsToBounds = true
+//        foodDetailView.backgroundColor = .yellow
+        foodDetailView.layer.cornerRadius = 15
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

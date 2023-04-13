@@ -18,7 +18,6 @@ class MenuRecommendationViewController: UIViewController {
     var foodListList: [FoodList] = []
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: 옵저버 두번째 추가한 부분
@@ -29,29 +28,28 @@ class MenuRecommendationViewController: UIViewController {
         }
     }
     
-    
-    
+    // MARK: 추천한 메뉴를 음식추천목록에 추가
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recommendToFoodListList" {
             if let vc = segue.destination.children.first as? FoodListViewController {
-                
                 vc.foodListList = self.foodListList
                 vc.target = target
-                dump(target)
             }
         }
     }
-    
-    
+    // MARK: 랜덤 버튼을 눌렀을때 isAllRandom이 설정되어있는 것들중에서 랜덤으로 추천
     @IBAction func pressedRandomMenuButton(_ sender: Any) {
         let randomFoods = foods.filter { Food in
             Food.isAllRandom == true
         }
         
-        target = randomFoods.randomElement()
-        randomMenuImageView.image = target?.image.randomElement()
+        if let target = randomFoods.randomElement() {
+            if let imageName = target.imageName.randomElement() {
+                randomMenuImageView.image = UIImage(named: imageName)
+            }
+        }
     }
-    
+    // MARK: isAllRandom속성을 false로 만들어 전체 랜덤에서 추천되지 않게 하는것
     @IBAction func removeAllRandom(_ sender: Any) {
         if let target = foods.first(where: { Food in
             Food.name == target?.name

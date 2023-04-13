@@ -10,24 +10,72 @@ import CoreData
 
 class CoreDataManager {
     
-    let shared = CoreDataManager()
+    static let shared = CoreDataManager()
     
     var mainContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
     
-    var FoodList = [FoodListEntity]()
+    private init() {
+        insertDefaultData()
+    }
     
-    func fetch() {
-        let request = FoodListEntity.fetchRequest()
+    var foodEntitys = [FoodEntity]()
+    var foodRecommendationList = [FoodRecommendationListEntity]()
+//    var categoryList = [CategoryEntity]()
+    
+    func insertDefaultData() {
+        let request = FoodEntity.fetchRequest()
+        
         do {
-            FoodList = try mainContext.fetch(request)
+            if try mainContext.count(for: request) == 0 {
+                foods.forEach { createFood(imageName: $0.imageName.joined(separator: ", "), name: $0.name, country: $0.country ?? [], numberOfPeople: $0.numberOfPeoPle, categories: $0.categoryList, isAllRandom: $0.isAllRandom, isChecked: $0.isChecked) }
+            }
         } catch {
             print(error)
         }
     }
     
-    func create() {
+    func fetchFoods() {
+        let request = FoodEntity.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        do {
+            foodEntitys = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchFoodRecommendationList() {
+        let request = FoodRecommendationListEntity.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        do {
+            foodRecommendationList = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
+    
+//    func fetchCategory() {
+//        let request = CategoryEntity.fetchRequest()
+//        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+//        do {
+//            categoryList = try mainContext.fetch(request)
+//        } catch {
+//            print(error)
+//        }
+//    }
+    
+    
+    func createFood(imageName: String, name: String, country: [Country] = [], numberOfPeople: [NumberOfPeople] = [], categories: String? = nil, isAllRandom: Bool = true, isChecked: Bool = false ) {
+        let newEntity = FoodEntity(context: mainContext)
+        newEntity.imageName = imageName
+        newEntity.name = name
+        newEntity.isAllRandom = isAllRandom
+        newEntity.isChecked = isChecked
+        newEntity.country = country.map { $0.rawValue }.joined(separator: ", ")
+        newEntity.numberOfProple = numberOfPeople.map { "\($0.rawValue)" }.joined(separator: ", ")
+        newEntity.categories = categories
         
         do {
             try mainContext.save()
@@ -35,6 +83,19 @@ class CoreDataManager {
             print(error)
         }
     }
+    
+    func updateIsAllRandom(food:FoodEntity, isAllRandom: Bool) {
+        food.isAllRandom = isAllRandom
+        do {
+            try mainContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    
+    
     // MARK: - Core Data stack
     
     // (SQLite, memory, XML) <-Coredata-> code

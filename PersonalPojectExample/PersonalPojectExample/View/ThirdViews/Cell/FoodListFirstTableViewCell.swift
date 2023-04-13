@@ -9,12 +9,16 @@ import UIKit
 
 class FoodListFirstTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var foodListMainView: UIView!
     @IBOutlet weak var foodListImageView: UIImageView!
     @IBOutlet weak var foodListNameLabel: UILabel!
     @IBOutlet weak var foodListDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        foodListMainView.layer.cornerRadius = 15
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
