@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FoodList {
+class FoodRecommendationList {
     var imgae: UIImage // 이미지의 url
     var name: String
     var description: String

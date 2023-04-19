@@ -11,7 +11,8 @@
         <relationship name="foodRecommendationList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FoodRecommendationList" inverseName="foods" inverseEntity="FoodRecommendationList"/>
     </entity>
     <entity name="FoodRecommendationList" representedClassName="FoodRecommendationListEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="discription" optional="YES" attributeType="String"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="listDescription" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="foodRecommendationList" inverseEntity="Food"/>
     </entity>

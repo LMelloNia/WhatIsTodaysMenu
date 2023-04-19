@@ -15,14 +15,14 @@ class MenuRecommendationViewController: UIViewController {
     
     var target: Food?
     var randomFoods: [Food] = []
-    var foodListList: [FoodList] = []
+    var foodListList: [FoodRecommendationList] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: 옵저버 두번째 추가한 부분
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
-            if let foodList = Notification.userInfo?["name"] as? FoodList {
+            if let foodList = Notification.userInfo?["name"] as? FoodRecommendationList {
                 self.foodListList.append(foodList)
             }
         }
@@ -32,7 +32,7 @@ class MenuRecommendationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recommendToFoodListList" {
             if let vc = segue.destination.children.first as? FoodListViewController {
-                vc.foodListList = self.foodListList
+                vc.foodRecommendationListList = self.foodListList
                 vc.target = target
             }
         }

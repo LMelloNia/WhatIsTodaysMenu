@@ -21,7 +21,7 @@ class CoreDataManager {
     }
     
     var foodEntitys = [FoodEntity]()
-    var foodRecommendationList = [FoodRecommendationListEntity]()
+    var foodRecommendationEntityList = [FoodRecommendationListEntity]()
 //    var categoryList = [CategoryEntity]()
     
     func insertDefaultData() {
@@ -50,7 +50,7 @@ class CoreDataManager {
         let request = FoodRecommendationListEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         do {
-            foodRecommendationList = try mainContext.fetch(request)
+            foodRecommendationEntityList = try mainContext.fetch(request)
         } catch {
             print(error)
         }
@@ -84,6 +84,19 @@ class CoreDataManager {
         }
     }
     
+    func createFoodRecommendationList(name: String, description: String, foods: [FoodEntity]) {
+        let newEntity = FoodRecommendationListEntity(context: mainContext)
+        newEntity.name = name
+        newEntity.listDescription = description
+        newEntity.foods = Set(foods) as NSSet
+        
+        do {
+            try mainContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
     func updateIsAllRandom(food:FoodEntity, isAllRandom: Bool) {
         food.isAllRandom = isAllRandom
         do {
@@ -93,6 +106,18 @@ class CoreDataManager {
         }
     }
     
+    
+    func removeFoodRecommendationList(target: FoodRecommendationListEntity) {
+        mainContext.delete(target)
+        do {
+            try mainContext.save()
+            foodRecommendationEntityList.removeAll { FoodRecommendationListEntity in
+                FoodRecommendationListEntity == target
+            }
+        } catch {
+            print(error)
+        }
+    }
     
     
     

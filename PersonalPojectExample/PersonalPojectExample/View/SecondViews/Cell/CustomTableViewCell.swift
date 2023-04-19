@@ -24,6 +24,8 @@ class CustomTableViewCell: UITableViewCell {
         
         foodContentView.clipsToBounds = true
         foodContentView.layer.cornerRadius = 20
+        foodImageView.clipsToBounds = true
+        foodImageView.layer.cornerRadius = 10
     }
     
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
