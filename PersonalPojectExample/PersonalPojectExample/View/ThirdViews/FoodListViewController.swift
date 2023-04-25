@@ -36,14 +36,14 @@ class FoodListViewController: UIViewController {
         if segue.identifier == "cellToFoodList" {
             if let cell = sender as? FoodListFirstTableViewCell {
                 if let indexPath = tableView.indexPath(for: cell) {
-                    if let vc = segue.destination as? MakeFoodRecommendationListTableViewController {
+                    if let vc = segue.destination.children.first as? MakeFoodRecommendationListTableViewController {
                         vc.editeMode = true
                         vc.foodRecommendationEntity = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]
                     }
                 }
             }
         } else {
-            if let vc = segue.destination as? MakeFoodRecommendationListTableViewController {
+            if let vc = segue.destination.children.first as? MakeFoodRecommendationListTableViewController {
                 vc.editeMode = false
             }
         }
@@ -75,6 +75,7 @@ extension FoodListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         CoreDataManager.shared.removeFoodRecommendationList(target: CoreDataManager.shared.foodRecommendationEntityList[indexPath.row])
+        
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }

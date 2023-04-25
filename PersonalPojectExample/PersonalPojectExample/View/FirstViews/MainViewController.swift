@@ -11,12 +11,12 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var randomButton: UIButton!
     @IBOutlet weak var chooseListButton: UIButton!
-    
+    @IBOutlet weak var gradationView: UIView!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
     
     let colors = [
-        UIColor.black.cgColor,
+        UIColor.green.cgColor,
         UIColor.white.cgColor
     ]
     
@@ -30,13 +30,59 @@ class MainViewController: UIViewController {
         view.layer.addSublayer(gradient)
     }
     
+    func createBasicListLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25),
+                                              heightDimension: .fractionalHeight(1.0))
+        
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
+      
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                               heightDimension: .fractionalHeight(0.15))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                         subitems: [item])
+//        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                                                                            heightDimension: .estimated(150)),
+                                                                         elementKind: UICollectionView.elementKindSectionHeader,
+                                                                         alignment: .topLeading,
+                                                                         absoluteOffset: CGPoint(x: 0, y: 50))
+                
+        section.boundarySupplementaryItems = [header]
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        return layout
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CoreDataManager.shared.fetchFoods()
         
+        mainCollectionView.collectionViewLayout = createBasicListLayout()
+        gradation(view: gradationView)
+        CoreDataManager.shared.fetchFoods()
+//        mainCollectionView.layer.backgroundColor = UIColor.black.cgColor
         //        setUpUI()
     }
+    
+//    func setUp() {
+//        gradationView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        self.view.addSubview(gradationView)
+//
+//        gradationView.topAnchor.constraint(equalTo: mainCollectionView.topAnchor).isActive = true
+//        gradationView.bottomAnchor.constraint(equalTo: mainCollectionView.bottomAnchor).isActive = true
+//        gradationView.leadingAnchor.constraint(equalTo: mainCollectionView.leadingAnchor).isActive = true
+//        gradationView.trailingAnchor.constraint(equalTo: mainCollectionView.trailingAnchor).isActive = true
+//    }
+    
 //    let layout = UICollectionViewFlowLayout()
 //    layout.minimumLineSpacing = 10
 //    layout.minimumInteritemSpacing = 10
@@ -60,9 +106,12 @@ class MainViewController: UIViewController {
 
 
 extension MainViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-        //        return Category.allCases.count
+//        return 4
+                return Category.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,7 +130,11 @@ extension MainViewController: UICollectionViewDataSource {
         header.categoryTitle.text = "카테고리를 고르세요"
         
         
-        gradation(view: header.testView)
         return header
     }
+}
+
+
+
+extension MainViewController: UICollectionViewDelegateFlowLayout {
 }

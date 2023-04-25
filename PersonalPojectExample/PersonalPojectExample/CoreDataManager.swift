@@ -21,6 +21,7 @@ class CoreDataManager {
     }
     
     var foodEntitys = [FoodEntity]()
+    var isAllRandomFoods = [FoodEntity]()
     var foodRecommendationEntityList = [FoodRecommendationListEntity]()
 //    var categoryList = [CategoryEntity]()
     
@@ -51,6 +52,18 @@ class CoreDataManager {
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         do {
             foodRecommendationEntityList = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func fetchIsAllRandom() {
+        let request = FoodEntity.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "isAllRandom == TRUE")
+        
+        do {
+            isAllRandomFoods = try mainContext.fetch(request)
         } catch {
             print(error)
         }

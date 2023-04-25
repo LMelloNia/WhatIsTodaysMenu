@@ -34,13 +34,17 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        entitysChangeToInstance()
+//        dump(foodRecommendationEntity?.foods!)
         foods.forEach {
             $0.isChecked = false
         }
+        
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
             if let list = Notification.userInfo?["name"] as? [Food] {
-                self.list = list
+                self.list.append(contentsOf: list)
                 self.editTableView.reloadData()
+                dump(self.list)
             }
         }
 
@@ -52,8 +56,12 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
 
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true)
+    }
     
-    @IBAction func createButtonTapped(_ sender: Any) {
+    
+    @IBAction func completeButtonTapped(_ sender: Any) {
 //  1      foodRecommendationList.foodList = list
         
         // MARK: 이름 저장
@@ -90,24 +98,51 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         
         self.presentingViewController?.dismiss(animated: true)
     }
+    
+    func entitysChangeToInstance() {
+        guard let foodEntitys = foodRecommendationEntity?.foods as? Set<FoodEntity> else { return }
+        
+        foodEntitys.forEach { foodEntity in
+            let food = foods.first { food in
+                food.name == foodEntity.name
+            }
+            
+            guard let food else { return }
+            list.append(food)
+        }
+    }
+    
+    
+    // MARK: 마지막 뷰에 이미 리스트에 있는 음식들을 넘겨주기
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FoodSelectViewController {
+            guard !list.isEmpty else { return }
+            vc.alreadyHaveFoods = list
+        }
+    }
+    
+    
+    
     // MARK: 저장된 이름과 설명 텍스트 필드에 띄우기
 
-    
-    
-    
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count + 3
+        if false {
+            if let count = foodRecommendationEntity?.foods?.count {
+                return count + 3
+            }
+            return 3
+        } else {
+            return list.count + 3
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListMainTableViewCell", for: indexPath) as! FoodRecommendationListMainTableViewCell
             // MARK: 이름과 설명의 텍스트가 초기화 되는 현상을 방지하기 위해서 새로만드는게 아닌 만들어놨던걸로 전달하는 경우에만 텍스트 초기화
             if editeMode {
                 cell.titleField.text = foodRecommendationEntity?.name
-                print(foodRecommendationEntity?.name)
-//   1             cell.titleField.text = foodRecommendationList.name
             }
             
             return cell
@@ -116,8 +151,6 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             
             if editeMode {
                 cell.descriptionField.text = foodRecommendationEntity?.listDescription
-                
-//  1              cell.descriptionField.text = foodRecommendationList.description
             }
             
             return cell
@@ -128,14 +161,31 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListFoodTableViewCell", for: indexPath) as! FoodRecommendationListFoodTableViewCell
             
-            let target = list[indexPath.row - 3]
-            if let imageName = target.imageName.randomElement() {
-                cell.foodImageView.image = UIImage(named: imageName)!
+            if false {
+                let set = foodRecommendationEntity?.foods as! Set<FoodEntity>
+                
+                let target = Array(set)[indexPath.row - 3]
+        
+                
+                if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
+                    cell.foodImageView.image = UIImage(named: imageName)!
+                }
+                
+                cell.foodNameLabel.text = target.name
+                
+                return cell
+            } else {
+                let target = list[indexPath.row - 3]
+                
+                
+                if let imageName = target.imageName.randomElement() {
+                    cell.foodImageView.image = UIImage(named: imageName)!
+                }
+                
+                cell.foodNameLabel.text = target.name
+                
+                return cell
             }
-            
-            cell.foodNameLabel.text = target.name
-            
-            return cell
         }
     }
     

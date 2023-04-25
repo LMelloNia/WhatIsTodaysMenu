@@ -32,6 +32,8 @@
 		DDC4A09429BF51AA00E5C973 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A09329BF51AA00E5C973 /* MainTabBarController.swift */; };
 		DDE1DEA829EFF5A700F3D737 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEA729EFF5A700F3D737 /* CategoryCollectionViewCell.swift */; };
 		DDE1DEAA29EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEA929EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift */; };
+		DDE1DEEE29F65BEF00F3D737 /* FoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */; };
+		DDE1DEF029F65C7D00F3D737 /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */; };
 		DDF458FD29B8B89900F3A29E /* FoodRecommendationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF458FC29B8B89900F3A29E /* FoodRecommendationList.swift */; };
 		DDF458FF29B8BE1E00F3A29E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF458FE29B8BE1E00F3A29E /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		DDC4A09329BF51AA00E5C973 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DDE1DEA729EFF5A700F3D737 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDE1DEA929EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
 		DDF458FC29B8B89900F3A29E /* FoodRecommendationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecommendationList.swift; sourceTree = "<group>"; };
 		DDF458FE29B8BE1E00F3A29E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF458FE29B8BE1E00F3A29E /* CustomTableViewCell.swift */,
+				DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				DD927C7F29B0993200467EE9 /* FoodViewController.swift */,
+				DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */,
 				DD14059F29BF055C00FCBFEC /* Cell */,
 			);
 			path = SecondViews;
@@ -282,6 +288,7 @@
 				DDE1DEAA29EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift in Sources */,
 				DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */,
 				DD927C7E29B0993200467EE9 /* SceneDelegate.swift in Sources */,
+				DDE1DEEE29F65BEF00F3D737 /* FoodsCollectionViewCell.swift in Sources */,
 				DDA21C1E29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift in Sources */,
 				DD9C789C29E5674100CADBC9 /* MakeFoodRecommendationListTableViewController.swift in Sources */,
 				DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */,
@@ -294,6 +301,7 @@
 				DDA21C1C29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift in Sources */,
 				DDF458FD29B8B89900F3A29E /* FoodRecommendationList.swift in Sources */,
 				DD6F1CDF29BB061300CDAD54 /* Category.swift in Sources */,
+				DDE1DEF029F65C7D00F3D737 /* FoodsViewController.swift in Sources */,
 				DD2951EC29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld in Sources */,
 				DDC4A08F29BF381000E5C973 /* MenuRecommendationViewController.swift in Sources */,
 				DD6F1CE329BB0E6E00CDAD54 /* MainViewController.swift in Sources */,

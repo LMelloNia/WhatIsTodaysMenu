@@ -14,12 +14,17 @@ class FoodSelectViewController: UIViewController {
     let chechImage = UIImage(systemName: "checkmark.circle.fill")!
     let plusImage = UIImage(systemName: "plus.circle.fill")!
     
-    var list: [Food] = []
+    var list = [Food]()
     var filteredFoods = foods
+    var alreadyHaveFoods = [Food]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        foods.forEach {
+            $0.isChecked = false
+        }
     }
     
     
@@ -40,13 +45,26 @@ class FoodSelectViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true)
     }
     
+    
+    func actionSheet() {
+        let alertController = UIAlertController(title: nil, message: "이 음식은 이미 추가되어 있습니다.", preferredStyle: .alert)
+        
+        let addAgain = UIAlertAction(title: "다시 추가", style: .default)
+        
+        let skip = UIAlertAction(title: "건너뛰기", style: .default) { _ in return }
+        
+        alertController.addAction(addAgain)
+        alertController.addAction(skip)
+        
+        present(alertController, animated: true)
+    }
 }
 
 
 
 extension FoodSelectViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredFoods.count
+        return filteredFoods.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,8 +103,20 @@ extension FoodSelectViewController: UITableViewDataSource {
 extension FoodSelectViewController: UISearchBarDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        list.append(filteredFoods[indexPath.row])
-        filteredFoods[indexPath.row].isChecked.toggle()
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        let target = filteredFoods[indexPath.row]
+        
+        if let a = alreadyHaveFoods.first { food in
+            food.name == target.name
+        } {
+            actionSheet()
+            target.isChecked = true
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            target.isChecked.toggle()
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        
     }
     
     func filter(with keyword: String) {

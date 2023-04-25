@@ -20,6 +20,9 @@ class MenuRecommendationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CoreDataManager.shared.fetchIsAllRandom()
+        
         // MARK: 옵저버 두번째 추가한 부분
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
             if let foodList = Notification.userInfo?["name"] as? FoodRecommendationList {
@@ -37,11 +40,12 @@ class MenuRecommendationViewController: UIViewController {
             }
         }
     }
+    
     // MARK: 랜덤 버튼을 눌렀을때 isAllRandom이 설정되어있는 것들중에서 랜덤으로 추천
     @IBAction func pressedRandomMenuButton(_ sender: Any) {
-        let randomFoods = foods.filter { Food in
-            Food.isAllRandom == true
-        }
+        
+        randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.isAllRandom) }
+        
         
         if let target = randomFoods.randomElement() {
             if let imageName = target.imageName.randomElement() {
@@ -49,6 +53,7 @@ class MenuRecommendationViewController: UIViewController {
             }
         }
     }
+    
     // MARK: isAllRandom속성을 false로 만들어 전체 랜덤에서 추천되지 않게 하는것
     @IBAction func removeAllRandom(_ sender: Any) {
         if let target = foods.first(where: { Food in
