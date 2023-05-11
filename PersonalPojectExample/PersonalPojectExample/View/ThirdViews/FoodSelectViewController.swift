@@ -46,12 +46,12 @@ class FoodSelectViewController: UIViewController {
     }
     
     
-    func actionSheet() {
+    func actionSheet(complition: @escaping (String?) -> ()) {
         let alertController = UIAlertController(title: nil, message: "이 음식은 이미 추가되어 있습니다.", preferredStyle: .alert)
         
-        let addAgain = UIAlertAction(title: "다시 추가", style: .default)
+        let addAgain = UIAlertAction(title: "다시 추가", style: .default) { action in complition(action.title) }
         
-        let skip = UIAlertAction(title: "건너뛰기", style: .default) { _ in return }
+        let skip = UIAlertAction(title: "건너뛰기", style: .default) { action in complition(action.title) }
         
         alertController.addAction(addAgain)
         alertController.addAction(skip)
@@ -105,12 +105,19 @@ extension FoodSelectViewController: UISearchBarDelegate {
 //        list.append(filteredFoods[indexPath.row])
         let target = filteredFoods[indexPath.row]
         
+        // MARK: 중복선택시 다시추가할지 말지
         if let a = alreadyHaveFoods.first { food in
             food.name == target.name
         } {
-            actionSheet()
-            target.isChecked = true
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            actionSheet { title in
+                if let title, title == "건너뛰기" {
+                    return
+                } else if title == "다시 추가" {
+                    target.isChecked = true
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                    return
+                }
+            }
         } else {
             target.isChecked.toggle()
             tableView.reloadRows(at: [indexPath], with: .automatic)

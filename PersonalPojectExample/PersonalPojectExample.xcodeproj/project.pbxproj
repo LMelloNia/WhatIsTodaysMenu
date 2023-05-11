@@ -19,7 +19,6 @@
 		DD6F1CE529BB0FAD00CDAD54 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CE429BB0FAD00CDAD54 /* FoodListViewController.swift */; };
 		DD927C7C29B0993200467EE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD927C7B29B0993200467EE9 /* AppDelegate.swift */; };
 		DD927C7E29B0993200467EE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD927C7D29B0993200467EE9 /* SceneDelegate.swift */; };
-		DD927C8029B0993200467EE9 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD927C7F29B0993200467EE9 /* FoodViewController.swift */; };
 		DD927C8329B0993200467EE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD927C8129B0993200467EE9 /* Main.storyboard */; };
 		DD927C8529B0993400467EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD927C8429B0993400467EE9 /* Assets.xcassets */; };
 		DD927C8829B0993400467EE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD927C8629B0993400467EE9 /* LaunchScreen.storyboard */; };
@@ -27,6 +26,8 @@
 		DD9C789E29E56C0400CADBC9 /* FoodRecommendationListMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C789D29E56C0400CADBC9 /* FoodRecommendationListMainTableViewCell.swift */; };
 		DDA21C1C29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA21C1B29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift */; };
 		DDA21C1E29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA21C1D29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift */; };
+		DDACC2092A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACC2082A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift */; };
+		DDACC20B2A0D121F009F21EC /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACC20A2A0D121F009F21EC /* HashTagCollectionViewCell.swift */; };
 		DDC4A08F29BF381000E5C973 /* MenuRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A08E29BF381000E5C973 /* MenuRecommendationViewController.swift */; };
 		DDC4A09229BF409F00E5C973 /* ThirdViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */; };
 		DDC4A09429BF51AA00E5C973 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A09329BF51AA00E5C973 /* MainTabBarController.swift */; };
@@ -35,7 +36,6 @@
 		DDE1DEEE29F65BEF00F3D737 /* FoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */; };
 		DDE1DEF029F65C7D00F3D737 /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */; };
 		DDF458FD29B8B89900F3A29E /* FoodRecommendationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF458FC29B8B89900F3A29E /* FoodRecommendationList.swift */; };
-		DDF458FF29B8BE1E00F3A29E /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF458FE29B8BE1E00F3A29E /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,6 @@
 		DD927C7829B0993200467EE9 /* PersonalPojectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalPojectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD927C7B29B0993200467EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD927C7D29B0993200467EE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD927C7F29B0993200467EE9 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		DD927C8229B0993200467EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD927C8429B0993400467EE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD927C8729B0993400467EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +60,8 @@
 		DD9C789D29E56C0400CADBC9 /* FoodRecommendationListMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecommendationListMainTableViewCell.swift; sourceTree = "<group>"; };
 		DDA21C1B29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecommendationListFoodTableViewCell.swift; sourceTree = "<group>"; };
 		DDA21C1D29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecommendationListDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		DDACC2082A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDACC20A2A0D121F009F21EC /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDC4A08E29BF381000E5C973 /* MenuRecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRecommendationViewController.swift; sourceTree = "<group>"; };
 		DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewTableViewCell.swift; sourceTree = "<group>"; };
 		DDC4A09329BF51AA00E5C973 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
 		DDF458FC29B8B89900F3A29E /* FoodRecommendationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecommendationList.swift; sourceTree = "<group>"; };
-		DDF458FE29B8BE1E00F3A29E /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 		DD14059F29BF055C00FCBFEC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				DDF458FE29B8BE1E00F3A29E /* CustomTableViewCell.swift */,
 				DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */,
+				DDACC20A2A0D121F009F21EC /* HashTagCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -95,7 +95,6 @@
 		DD1405A029BF05C600FCBFEC /* SecondViews */ = {
 			isa = PBXGroup;
 			children = (
-				DD927C7F29B0993200467EE9 /* FoodViewController.swift */,
 				DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */,
 				DD14059F29BF055C00FCBFEC /* Cell */,
 			);
@@ -184,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				DDE1DEA729EFF5A700F3D737 /* CategoryCollectionViewCell.swift */,
+				DDACC2082A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -279,8 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD927C8029B0993200467EE9 /* FoodViewController.swift in Sources */,
-				DDF458FF29B8BE1E00F3A29E /* CustomTableViewCell.swift in Sources */,
 				DD927C7C29B0993200467EE9 /* AppDelegate.swift in Sources */,
 				DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */,
 				DD6F1CE529BB0FAD00CDAD54 /* FoodListViewController.swift in Sources */,
@@ -291,6 +289,8 @@
 				DDE1DEEE29F65BEF00F3D737 /* FoodsCollectionViewCell.swift in Sources */,
 				DDA21C1E29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift in Sources */,
 				DD9C789C29E5674100CADBC9 /* MakeFoodRecommendationListTableViewController.swift in Sources */,
+				DDACC2092A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift in Sources */,
+				DDACC20B2A0D121F009F21EC /* HashTagCollectionViewCell.swift in Sources */,
 				DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */,
 				DDC4A09229BF409F00E5C973 /* ThirdViewTableViewCell.swift in Sources */,
 				DD6F1CE129BB063200CDAD54 /* Food.swift in Sources */,
