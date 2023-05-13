@@ -9,7 +9,6 @@ import UIKit
 
 class CategoryHeaderCollectionReusableView: UICollectionReusableView {
         
-    
     @IBOutlet weak var categoryTitle: UILabel!
     
 }

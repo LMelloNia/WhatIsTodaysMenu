@@ -17,7 +17,6 @@ class HashTagCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         hashTagLabel.clipsToBounds = true
-        hashTagLabel.layer.cornerRadius = 5
-        hashTagLabel.layer.borderWidth = 2
+        hashTagLabel.layer.cornerRadius = 20
     }
 }

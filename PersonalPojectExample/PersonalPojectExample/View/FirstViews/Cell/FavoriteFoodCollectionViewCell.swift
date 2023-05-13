@@ -12,33 +12,48 @@ class FavoriteFoodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
-    @IBOutlet weak var foodContentView: UIView!
     @IBOutlet weak var isAllRandomButton: UIButton!
+    @IBOutlet weak var gradationView: UIView!
 
-    var isAllRandom: Bool?
+
+    var love: Bool?
     var foodEntity: FoodEntity?
+
+    let colors = [
+        UIColor.clear.cgColor,
+        UIColor.black.cgColor
+    ]
+
+    func gradation(view: UIView) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.colors = colors
+        gradient.type = .axial
+        view.layer.addSublayer(gradient)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 20
-        foodImageView.clipsToBounds = true
-        foodImageView.layer.cornerRadius = 60
+        gradation(view: gradationView)
     }
 
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
         guard let foodEntity else { return }
-        guard let isAllRandom else { return }
-        if isAllRandom {
-            self.isAllRandom = false
-            isAllRandomButton.setTitle("💔", for: .normal)
+        guard let love else { return }
+        if love {
+            self.love = false
+            self.isAllRandomButton.setImage(UIImage(systemName: "heart"), for: .normal)
 
-            CoreDataManager.shared.updateIsAllRandom(food: foodEntity, isAllRandom: !isAllRandom)
+            CoreDataManager.shared.updateLove(food: foodEntity, love: !love)
         } else {
-            self.isAllRandom = true
-            isAllRandomButton.setTitle("❤️", for: .normal)
+            self.love = true
+            self.isAllRandomButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
 
-            CoreDataManager.shared.updateIsAllRandom(food: foodEntity, isAllRandom: !isAllRandom)
+            CoreDataManager.shared.updateLove(food: foodEntity, love: !love)
         }
     }
 }

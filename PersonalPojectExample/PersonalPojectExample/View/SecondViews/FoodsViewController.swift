@@ -11,12 +11,19 @@ class FoodsViewController: UIViewController {
 
     @IBOutlet weak var foodsCollectionView: UICollectionView!
 
-    var hashTagItem: [FoodEntity]?
+    var hashTagItems: [FoodEntity] = []
+
+    let colors = [
+        UIColor(red: 244/255, green: 251/255, blue: 254/255, alpha: 1.0),
+        UIColor(red: 244/255, green: 259/255, blue: 253/255, alpha: 1.0),
+        UIColor(red: 243/255, green: 242/255, blue: 250/255, alpha: 1.0),
+        UIColor(red: 246/255, green: 248/255, blue: 239/255, alpha: 1.0)
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        CoreDataManager.shared.fetchFoods()
-        hashTagItem = CoreDataManager.shared.foodEntitys
+
+        hashTagItems = CoreDataManager.shared.foodEntitys
         foodsCollectionView.collectionViewLayout = createLayout()
     }
 
@@ -30,19 +37,20 @@ class FoodsViewController: UIViewController {
 
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-//                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
-
                 let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(50),
                                                        heightDimension: .fractionalHeight(0.05))
 
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                subitems: [item])
 
-//                group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
+//                group.interItemSpacing = .flexible(100)
 
                 let section = NSCollectionLayoutSection(group: group)
 
-                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+                section.interGroupSpacing = 15
+
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 0)
+
 
                 section.orthogonalScrollingBehavior = .continuous
 
@@ -56,7 +64,7 @@ class FoodsViewController: UIViewController {
                 item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalHeight(0.32))
+                                                       heightDimension: .fractionalHeight(0.22))
 
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                subitems: [item])
@@ -97,7 +105,8 @@ class FoodsViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        hashTagItem = CoreDataManager.shared.foodEntitys
+        super.viewWillAppear(animated)
+        hashTagItems = CoreDataManager.shared.foodEntitys
         foodsCollectionView.reloadData()
     }
 }
@@ -114,8 +123,7 @@ extension FoodsViewController: UICollectionViewDataSource {
         if section == 0 {
             return Category.allCases.count
         } else {
-//            return CoreDataManager.shared.foodEntitys.count
-            return hashTagItem!.count
+            return hashTagItems.count
         }
     }
     
@@ -126,16 +134,16 @@ extension FoodsViewController: UICollectionViewDataSource {
 
             cell.hashTagLabel.text = "# \(Category.allCases[indexPath.item].rawValue)     "
 
+            cell.hashTagLabel.backgroundColor = colors[indexPath.item % colors.count]
+
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FoodsCollectionViewCell
 
-//            let target = CoreDataManager.shared.foodEntitys[indexPath.item]
-
-            let target = hashTagItem![indexPath.item]
+            let target = hashTagItems[indexPath.item]
 
             cell.foodEntity = target
-            cell.isAllRandom = target.isAllRandom
+            cell.love = target.love
             if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
                 cell.foodImageView.image = UIImage(named: imageName)!
             }
@@ -144,9 +152,9 @@ extension FoodsViewController: UICollectionViewDataSource {
 
             cell.foodCategoryLabel.text = target.categories
 
-            if target.isAllRandom { cell.isAllRandomButton.setTitle("❤️", for: .normal)
+            if target.love { cell.isLoveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             } else {
-                cell.isAllRandomButton.setTitle("💔", for: .normal)
+                cell.isLoveButton.setImage(UIImage(systemName: "heart"), for: .normal)
             }
             return cell
         }
@@ -157,7 +165,7 @@ extension FoodsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let name = Category.allCases[indexPath.item].rawValue
-            hashTagItem = CoreDataManager.shared.foodEntitys.filter { FoodEntity in
+            hashTagItems = CoreDataManager.shared.foodEntitys.filter { FoodEntity in
                 FoodEntity.categories?.contains(name) ?? false
             }
             foodsCollectionView.reloadSections(IndexSet(integer: 1))

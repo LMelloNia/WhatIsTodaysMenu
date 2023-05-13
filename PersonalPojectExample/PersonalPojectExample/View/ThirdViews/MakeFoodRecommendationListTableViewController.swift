@@ -10,7 +10,6 @@ import UIKit
 extension Notification.Name {
     static let select = Notification.Name("FoodList")
     static let listName = Notification.Name("listName")
-//    static let toThirdMainView = Notification.Name("toThirdMainView")
 }
 
 class MakeFoodRecommendationListTableViewController: UITableViewController {
@@ -35,7 +34,6 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         entitysChangeToInstance()
-//        dump(foodRecommendationEntity?.foods!)
         foods.forEach {
             $0.isChecked = false
         }
@@ -47,13 +45,6 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 dump(self.list)
             }
         }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem
-
     }
     
     @IBAction func cancel(_ sender: Any) {

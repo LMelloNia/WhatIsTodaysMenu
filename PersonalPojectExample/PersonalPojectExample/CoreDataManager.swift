@@ -20,8 +20,14 @@ class CoreDataManager {
         insertDefaultData()
     }
     
-    var foodEntitys = [FoodEntity]()
+    var foodEntitys = [FoodEntity]() {
+        didSet {
+            print(foodEntitys)
+        }
+    }
     var isAllRandomFoods = [FoodEntity]()
+    var loveFoods = [FoodEntity]()
+    var likeFoods = [FoodEntity]()
     var foodRecommendationEntityList = [FoodRecommendationListEntity]()
 //    var categoryList = [CategoryEntity]()
     
@@ -46,7 +52,17 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
+    func fetchFoodsForLikeCount() {
+        let request = FoodEntity.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "likeCount", ascending: true)]
+        do {
+            likeFoods = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
+
     func fetchFoodRecommendationList() {
         let request = FoodRecommendationListEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -68,7 +84,30 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
+    func fetchCategory(category: String) {
+        let request = FoodEntity.fetchRequest()
+
+        request.predicate = NSPredicate(format: "categories CONTAINS %@", category)
+
+        do {
+            isAllRandomFoods = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
+
+    func fetchLove() {
+        let request = FoodEntity.fetchRequest()
+
+        request.predicate = NSPredicate(format: "love == TRUE")
+
+        do {
+            loveFoods = try mainContext.fetch(request)
+        } catch {
+            print(error)
+        }
+    }
 //    func fetchCategory() {
 //        let request = CategoryEntity.fetchRequest()
 //        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -80,16 +119,17 @@ class CoreDataManager {
 //    }
     
     
-    func createFood(imageName: String, name: String, country: [Country] = [], numberOfPeople: [NumberOfPeople] = [], categories: String? = nil, isAllRandom: Bool = true, isChecked: Bool = false ) {
+    func createFood(imageName: String, name: String, country: [Country] = [], numberOfPeople: [NumberOfPeople] = [], categories: String? = nil, isAllRandom: Bool = true, isChecked: Bool = false, love: Bool = false, likeCount: Int = 0) {
         let newEntity = FoodEntity(context: mainContext)
         newEntity.imageName = imageName
         newEntity.name = name
-        newEntity.isAllRandom = isAllRandom
+        newEntity.love = isAllRandom
         newEntity.isChecked = isChecked
         newEntity.country = country.map { $0.rawValue }.joined(separator: ", ")
         newEntity.numberOfProple = numberOfPeople.map { "\($0.rawValue)" }.joined(separator: ", ")
         newEntity.categories = categories
-        
+        newEntity.love = love
+        newEntity.likeCount = Int16(likeCount)
         do {
             try mainContext.save()
         } catch {
@@ -111,14 +151,22 @@ class CoreDataManager {
     }
     
     func updateIsAllRandom(food:FoodEntity, isAllRandom: Bool) {
-        food.isAllRandom = isAllRandom
+        food.love = isAllRandom
         do {
             try mainContext.save()
         } catch {
             print(error)
         }
     }
-    
+
+    func updateLove(food:FoodEntity, love: Bool) {
+        food.love = love
+        do {
+            try mainContext.save()
+        } catch {
+            print(error)
+        }
+    }
     
     func removeFoodRecommendationList(target: FoodRecommendationListEntity) {
         mainContext.delete(target)

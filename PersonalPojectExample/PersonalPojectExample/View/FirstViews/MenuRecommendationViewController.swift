@@ -12,7 +12,8 @@ class MenuRecommendationViewController: UIViewController {
     @IBOutlet weak var randomMenuImageView: UIImageView!
     @IBOutlet weak var randomMenuButton: UIButton!
     @IBOutlet weak var foodListAddButton: UIButton!
-    
+
+    var category: String?
     var target: Food?
     var randomFoods: [Food] = []
     var foodListList: [FoodRecommendationList] = []
@@ -20,8 +21,9 @@ class MenuRecommendationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        CoreDataManager.shared.fetchIsAllRandom()
+        randomMenuImageView.clipsToBounds = true
+        randomMenuImageView.layer.cornerRadius = 20
+
         
         // MARK: 옵저버 두번째 추가한 부분
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
@@ -44,7 +46,7 @@ class MenuRecommendationViewController: UIViewController {
     // MARK: 랜덤 버튼을 눌렀을때 isAllRandom이 설정되어있는 것들중에서 랜덤으로 추천
     @IBAction func pressedRandomMenuButton(_ sender: Any) {
         
-        randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.isAllRandom) }
+        randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.love) }
         
         
         if let target = randomFoods.randomElement() {
@@ -62,5 +64,13 @@ class MenuRecommendationViewController: UIViewController {
             target.isAllRandom = false
             print(target.isAllRandom)
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        guard let category else {
+            CoreDataManager.shared.fetchIsAllRandom()
+            return
+        }
+        CoreDataManager.shared.fetchCategory(category: category)
     }
 }

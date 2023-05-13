@@ -106,9 +106,9 @@ extension FoodSelectViewController: UISearchBarDelegate {
         let target = filteredFoods[indexPath.row]
         
         // MARK: 중복선택시 다시추가할지 말지
-        if let a = alreadyHaveFoods.first { food in
+        if let a = alreadyHaveFoods.first(where: { food in
             food.name == target.name
-        } {
+        }) {
             actionSheet { title in
                 if let title, title == "건너뛰기" {
                     return
