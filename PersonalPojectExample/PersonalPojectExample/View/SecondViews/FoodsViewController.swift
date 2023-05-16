@@ -138,12 +138,12 @@ extension FoodsViewController: UICollectionViewDataSource {
 
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FoodsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodsCollectionViewCell", for: indexPath) as! FoodsCollectionViewCell
 
             let target = hashTagItems[indexPath.item]
 
             cell.foodEntity = target
-            cell.love = target.love
+            cell.favorite = target.favorite
             if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
                 cell.foodImageView.image = UIImage(named: imageName)!
             }
@@ -152,9 +152,9 @@ extension FoodsViewController: UICollectionViewDataSource {
 
             cell.foodCategoryLabel.text = target.categories
 
-            if target.love { cell.isLoveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            if target.favorite { cell.isfavoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
             } else {
-                cell.isLoveButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.isfavoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
             }
             return cell
         }

@@ -106,7 +106,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
     
     // MARK: 마지막 뷰에 이미 리스트에 있는 음식들을 넘겨주기
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? FoodSelectViewController {
+        if let vc = segue.destination.children.first as? FoodChooseViewController {
             guard !list.isEmpty else { return }
             vc.alreadyHaveFoods = list
         }

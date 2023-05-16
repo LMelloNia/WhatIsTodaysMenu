@@ -11,6 +11,8 @@
 		DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */; };
 		DD2951EC29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2951EA29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld */; };
 		DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */; };
+		DD37543F2A131E94001C414D /* FoodChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37543E2A131E94001C414D /* FoodChooseViewController.swift */; };
+		DD3754412A131ECC001C414D /* FoodChooseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3754402A131ECC001C414D /* FoodChooseCollectionViewCell.swift */; };
 		DD6F1CDB29BB055800CDAD54 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDA29BB055800CDAD54 /* Country.swift */; };
 		DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDC29BB05FB00CDAD54 /* NumberOfPeople.swift */; };
 		DD6F1CDF29BB061300CDAD54 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F1CDE29BB061300CDAD54 /* Category.swift */; };
@@ -43,6 +45,8 @@
 		DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectViewController.swift; sourceTree = "<group>"; };
 		DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodList.xcdatamodel; sourceTree = "<group>"; };
 		DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DD37543E2A131E94001C414D /* FoodChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodChooseViewController.swift; sourceTree = "<group>"; };
+		DD3754402A131ECC001C414D /* FoodChooseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodChooseCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD6F1CDA29BB055800CDAD54 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DD6F1CDC29BB05FB00CDAD54 /* NumberOfPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPeople.swift; sourceTree = "<group>"; };
 		DD6F1CDE29BB061300CDAD54 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				DD6F1CE429BB0FAD00CDAD54 /* FoodListViewController.swift */,
 				DD9C789B29E5674100CADBC9 /* MakeFoodRecommendationListTableViewController.swift */,
 				DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */,
+				DD37543E2A131E94001C414D /* FoodChooseViewController.swift */,
 				DDC4A09029BF406400E5C973 /* Cell */,
 			);
 			path = ThirdViews;
@@ -175,6 +180,7 @@
 				DDA21C1D29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift */,
 				DDA21C1B29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift */,
 				DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */,
+				DD3754402A131ECC001C414D /* FoodChooseCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -280,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD927C7C29B0993200467EE9 /* AppDelegate.swift in Sources */,
+				DD37543F2A131E94001C414D /* FoodChooseViewController.swift in Sources */,
 				DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */,
 				DD6F1CE529BB0FAD00CDAD54 /* FoodListViewController.swift in Sources */,
 				DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */,
@@ -303,6 +310,7 @@
 				DD6F1CDF29BB061300CDAD54 /* Category.swift in Sources */,
 				DDE1DEF029F65C7D00F3D737 /* FoodsViewController.swift in Sources */,
 				DD2951EC29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld in Sources */,
+				DD3754412A131ECC001C414D /* FoodChooseCollectionViewCell.swift in Sources */,
 				DDC4A08F29BF381000E5C973 /* MenuRecommendationViewController.swift in Sources */,
 				DD6F1CE329BB0E6E00CDAD54 /* MainViewController.swift in Sources */,
 			);
@@ -457,6 +465,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -485,6 +494,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

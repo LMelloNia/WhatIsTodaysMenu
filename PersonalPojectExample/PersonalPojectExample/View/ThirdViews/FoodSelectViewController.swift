@@ -101,31 +101,6 @@ extension FoodSelectViewController: UITableViewDataSource {
 
 
 extension FoodSelectViewController: UISearchBarDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        list.append(filteredFoods[indexPath.row])
-        let target = filteredFoods[indexPath.row]
-        
-        // MARK: 중복선택시 다시추가할지 말지
-        if let a = alreadyHaveFoods.first(where: { food in
-            food.name == target.name
-        }) {
-            actionSheet { title in
-                if let title, title == "건너뛰기" {
-                    return
-                } else if title == "다시 추가" {
-                    target.isChecked = true
-                    tableView.reloadRows(at: [indexPath], with: .automatic)
-                    return
-                }
-            }
-        } else {
-            target.isChecked.toggle()
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        }
-        
-        
-    }
-    
     func filter(with keyword: String) {
         if keyword.count > 0 {
             filteredFoods = foods.filter { $0.name.contains(keyword) }
@@ -148,7 +123,27 @@ extension FoodSelectViewController: UISearchBarDelegate {
 
 
 extension FoodSelectViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let target = filteredFoods[indexPath.row]
+
+        // MARK: 중복선택시 다시추가할지 말지
+        if let a = alreadyHaveFoods.first(where: { food in
+            food.name == target.name
+        }) {
+            actionSheet { title in
+                if let title, title == "건너뛰기" {
+                    return
+                } else if title == "다시 추가" {
+                    target.isChecked = true
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                    return
+                }
+            }
+        } else {
+            target.isChecked.toggle()
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
 // MARK: 질문 리스트
 // MARK: 멀티선택에서 선택을 해제하면 리스트에 추가하지 않기

@@ -150,12 +150,13 @@ class MainViewController: UIViewController {
         
         mainCollectionView.collectionViewLayout = createLayout()
         CoreDataManager.shared.fetchFoods()
-        CoreDataManager.shared.fetchLove()
+        CoreDataManager.shared.fetchfavorite()
+        CoreDataManager.shared.RecommenedFoodArray()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        CoreDataManager.shared.fetchLove()
+        CoreDataManager.shared.fetchfavorite()
         mainCollectionView.reloadData()
     }
 
@@ -177,11 +178,11 @@ extension MainViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return Category.allCases.count
+            return Category.allCases.count + 1
         } else if section == 1 {
-            return CoreDataManager.shared.loveFoods.count
+            return CoreDataManager.shared.favoriteFoods.count
         } else {
-            return CoreDataManager.shared.foodEntitys.count
+            return CoreDataManager.shared.recommendedFoods.count
         }
     }
     
@@ -189,19 +190,25 @@ extension MainViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
 
-            let target = Category.allCases[indexPath.item].rawValue
+            if indexPath.item == 0 {
+                cell.categoryImageView.image = UIImage(systemName: "questionmark")
+                cell.nameLabel.text = "랜덤"
+                return cell
+            } else {
+                let target = Category.allCases[indexPath.item - 1].rawValue
 
-            cell.categoryImageView.image = UIImage(named: target)
-            cell.nameLabel.text = target
+                cell.categoryImageView.image = UIImage(named: target)
+                cell.nameLabel.text = target
 
-            return cell
+                return cell
+            }
         } else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFoodCollectionViewCell", for: indexPath) as! FavoriteFoodCollectionViewCell
 
-            let target = CoreDataManager.shared.loveFoods[indexPath.item]
+            let target = CoreDataManager.shared.favoriteFoods[indexPath.item]
 
             cell.foodEntity = target
-            cell.love = target.love
+            cell.favorite = target.favorite
             if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
                 cell.foodImageView.image = UIImage(named: imageName)!
             }
@@ -209,19 +216,19 @@ extension MainViewController: UICollectionViewDataSource {
             cell.foodNameLabel.text = target.name
 
             cell.foodCategoryLabel.text = target.categories
-            if target.love { cell.isAllRandomButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            if target.favorite { cell.isAllRandomButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
             } else {
-                cell.isAllRandomButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.isAllRandomButton.setImage(UIImage(systemName: "star"), for: .normal)
             }
 
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFoodCollectionViewCell", for: indexPath) as! FavoriteFoodCollectionViewCell
 
-            let target = CoreDataManager.shared.foodEntitys[indexPath.item]
+            let target = CoreDataManager.shared.recommendedFoods[indexPath.item]
 
             cell.foodEntity = target
-            cell.love = target.love
+            cell.favorite = target.favorite
             if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
                 cell.foodImageView.image = UIImage(named: imageName)!
             }
@@ -230,9 +237,9 @@ extension MainViewController: UICollectionViewDataSource {
 
             // MARK: 둘중 하나는 수정
             cell.foodCategoryLabel.text = target.categories
-            if target.love { cell.isAllRandomButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            if target.favorite { cell.isAllRandomButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
             } else {
-                cell.isAllRandomButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                cell.isAllRandomButton.setImage(UIImage(systemName: "star"), for: .normal)
             }
 
             return cell
@@ -245,9 +252,9 @@ extension MainViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             header.categoryTitle.text = "카테고리를 고르세요"
         } else if indexPath.section == 1 {
-            header.categoryTitle.text = "좋아하는 음식"
+            header.categoryTitle.text = "즐겨찾는 음식"
         } else {
-            header.categoryTitle.text = "좋아요 순위"
+            header.categoryTitle.text = "이런 메뉴들은 어떠세요?"
         }
         return header
     }

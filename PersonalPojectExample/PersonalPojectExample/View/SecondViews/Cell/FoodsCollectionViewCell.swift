@@ -12,10 +12,10 @@ class FoodsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
-    @IBOutlet weak var isLoveButton: UIButton!
+    @IBOutlet weak var isfavoriteButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
 
-    var love: Bool?
+    var favorite: Bool?
     var foodEntity: FoodEntity?
 
     let colors = [
@@ -43,17 +43,17 @@ class FoodsCollectionViewCell: UICollectionViewCell {
     
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
         guard let foodEntity else { return }
-        guard let love else { return }
-        if love {
-            self.love = false
-            self.isLoveButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        guard let favorite else { return }
+        if favorite {
+            self.favorite = false
+            self.isfavoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
 
-            CoreDataManager.shared.updateLove(food: foodEntity, love: !love)
+            CoreDataManager.shared.updatefavorite(food: foodEntity, favorite: !favorite)
         } else {
-            self.love = true
-            self.isLoveButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            self.favorite = true
+            self.isfavoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
 
-            CoreDataManager.shared.updateLove(food: foodEntity, love: !love)
+            CoreDataManager.shared.updatefavorite(food: foodEntity, favorite: !favorite)
         }
     }
 }

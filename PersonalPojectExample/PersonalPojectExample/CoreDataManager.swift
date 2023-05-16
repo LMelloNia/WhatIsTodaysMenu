@@ -22,13 +22,13 @@ class CoreDataManager {
     
     var foodEntitys = [FoodEntity]() {
         didSet {
-            print(foodEntitys)
         }
     }
     var isAllRandomFoods = [FoodEntity]()
-    var loveFoods = [FoodEntity]()
+    var favoriteFoods = [FoodEntity]()
     var likeFoods = [FoodEntity]()
     var foodRecommendationEntityList = [FoodRecommendationListEntity]()
+    var recommendedFoods = [FoodEntity]()
 //    var categoryList = [CategoryEntity]()
     
     func insertDefaultData() {
@@ -97,13 +97,13 @@ class CoreDataManager {
         }
     }
 
-    func fetchLove() {
+    func fetchfavorite() {
         let request = FoodEntity.fetchRequest()
 
-        request.predicate = NSPredicate(format: "love == TRUE")
+        request.predicate = NSPredicate(format: "favorite == TRUE")
 
         do {
-            loveFoods = try mainContext.fetch(request)
+            favoriteFoods = try mainContext.fetch(request)
         } catch {
             print(error)
         }
@@ -119,16 +119,16 @@ class CoreDataManager {
 //    }
     
     
-    func createFood(imageName: String, name: String, country: [Country] = [], numberOfPeople: [NumberOfPeople] = [], categories: String? = nil, isAllRandom: Bool = true, isChecked: Bool = false, love: Bool = false, likeCount: Int = 0) {
+    func createFood(imageName: String, name: String, country: [Country] = [], numberOfPeople: [NumberOfPeople] = [], categories: String? = nil, isAllRandom: Bool = true, isChecked: Bool = false, favorite: Bool = false, likeCount: Int = 0) {
         let newEntity = FoodEntity(context: mainContext)
         newEntity.imageName = imageName
         newEntity.name = name
-        newEntity.love = isAllRandom
+        newEntity.favorite = isAllRandom
         newEntity.isChecked = isChecked
         newEntity.country = country.map { $0.rawValue }.joined(separator: ", ")
         newEntity.numberOfProple = numberOfPeople.map { "\($0.rawValue)" }.joined(separator: ", ")
         newEntity.categories = categories
-        newEntity.love = love
+        newEntity.favorite = favorite
         newEntity.likeCount = Int16(likeCount)
         do {
             try mainContext.save()
@@ -151,7 +151,7 @@ class CoreDataManager {
     }
     
     func updateIsAllRandom(food:FoodEntity, isAllRandom: Bool) {
-        food.love = isAllRandom
+        food.favorite = isAllRandom
         do {
             try mainContext.save()
         } catch {
@@ -159,8 +159,8 @@ class CoreDataManager {
         }
     }
 
-    func updateLove(food:FoodEntity, love: Bool) {
-        food.love = love
+    func updatefavorite(food:FoodEntity, favorite: Bool) {
+        food.favorite = favorite
         do {
             try mainContext.save()
         } catch {
@@ -180,7 +180,16 @@ class CoreDataManager {
         }
     }
     
-    
+    func RecommenedFoodArray() {
+        var set = Set<FoodEntity>()
+        while set.count < 5 {
+            set.insert(foodEntitys.randomElement()!)
+        }
+
+        let array = set.sorted { $0.name ?? "" < $1.name ?? "" }
+        print("배열호출")
+        recommendedFoods = array
+    }
     
     // MARK: - Core Data stack
     

@@ -21,9 +21,9 @@ class MenuRecommendationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         randomMenuImageView.clipsToBounds = true
         randomMenuImageView.layer.cornerRadius = 20
-
         
         // MARK: 옵저버 두번째 추가한 부분
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
@@ -31,6 +31,16 @@ class MenuRecommendationViewController: UIViewController {
                 self.foodListList.append(foodList)
             }
         }
+        
+        randomMenuImageView.animationImages = CoreDataManager.shared.foodEntitys.map({ foodEntity in
+            guard let imageName = foodEntity.imageName?.components(separatedBy: ", ").randomElement() else {
+                return UIImage(systemName: "star")!
+            }
+            return UIImage(named: imageName)!
+        })
+        randomMenuImageView.animationDuration = 2.0
+        randomMenuImageView.animationRepeatCount = 0
+        randomMenuImageView.startAnimating()
     }
     
     // MARK: 추천한 메뉴를 음식추천목록에 추가
@@ -45,9 +55,9 @@ class MenuRecommendationViewController: UIViewController {
     
     // MARK: 랜덤 버튼을 눌렀을때 isAllRandom이 설정되어있는 것들중에서 랜덤으로 추천
     @IBAction func pressedRandomMenuButton(_ sender: Any) {
-        
-        randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.love) }
-        
+        randomMenuImageView.stopAnimating()
+        dump(CoreDataManager.shared.isAllRandomFoods)
+        randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }
         
         if let target = randomFoods.randomElement() {
             if let imageName = target.imageName.randomElement() {
@@ -67,7 +77,7 @@ class MenuRecommendationViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        guard let category else {
+        guard let category, category != "랜덤" else {
             CoreDataManager.shared.fetchIsAllRandom()
             return
         }

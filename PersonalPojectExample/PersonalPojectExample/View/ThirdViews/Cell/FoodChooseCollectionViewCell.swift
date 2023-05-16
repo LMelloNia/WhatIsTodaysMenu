@@ -1,23 +1,19 @@
 //
-//  FavoriteFoodCollectionViewCell.swift
+//  FoodChooseCollectionViewCell.swift
 //  PersonalPojectExample
 //
-//  Created by 김시훈 on 2023/05/11.
+//  Created by 김시훈 on 2023/05/16.
 //
 
 import UIKit
 
-class FavoriteFoodCollectionViewCell: UICollectionViewCell {
-
+class FoodChooseCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
     @IBOutlet weak var isAllRandomButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
-
-
-    var favorite: Bool?
-    var foodEntity: FoodEntity?
 
     let colors = [
         UIColor.clear.cgColor,
@@ -39,21 +35,5 @@ class FavoriteFoodCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 20
         gradation(view: gradationView)
-    }
-
-    @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
-        guard let foodEntity else { return }
-        guard let favorite else { return }
-        if favorite {
-            self.favorite = false
-            self.isAllRandomButton.setImage(UIImage(systemName: "star"), for: .normal)
-
-            CoreDataManager.shared.updatefavorite(food: foodEntity, favorite: !favorite)
-        } else {
-            self.favorite = true
-            self.isAllRandomButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-
-            CoreDataManager.shared.updatefavorite(food: foodEntity, favorite: !favorite)
-        }
     }
 }

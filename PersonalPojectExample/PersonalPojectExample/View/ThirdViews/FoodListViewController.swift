@@ -24,8 +24,8 @@ class FoodListViewController: UIViewController {
         super.viewDidLoad()
         CoreDataManager.shared.fetchFoodRecommendationList()
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
-                CoreDataManager.shared.fetchFoodRecommendationList()
-                self.tableView.reloadData()
+            CoreDataManager.shared.fetchFoodRecommendationList()
+            self.tableView.reloadData()
         }
     }
     
@@ -54,18 +54,14 @@ class FoodListViewController: UIViewController {
 
 extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if CoreDataManager.shared.foodRecommendationEntityList.count > 1 {
-            return CoreDataManager.shared.foodRecommendationEntityList.count
-        } else {
-            return 1
-        }
+        return CoreDataManager.shared.foodRecommendationEntityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListFirstTableViewCell", for: indexPath) as! FoodListFirstTableViewCell
         if !CoreDataManager.shared.foodRecommendationEntityList.isEmpty {
             let target = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]
-//            cell.foodListImageView.image = target.imgae
+            //            cell.foodListImageView.image = target.imgae
             cell.foodListNameLabel.text = target.name
             cell.foodListDescriptionLabel.text = target.listDescription
         }
