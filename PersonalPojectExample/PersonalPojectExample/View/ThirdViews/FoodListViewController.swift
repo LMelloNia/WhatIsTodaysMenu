@@ -61,7 +61,11 @@ extension FoodListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListFirstTableViewCell", for: indexPath) as! FoodListFirstTableViewCell
         if !CoreDataManager.shared.foodRecommendationEntityList.isEmpty {
             let target = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]
-            //            cell.foodListImageView.image = target.imgae
+            if let set = target.foods as? Set<FoodEntity> {
+                let array = set.sorted { $0.name ?? "" > $1.name ?? ""}
+
+                cell.foodListImageView.image = UIImage(named: array.first?.imageName?.components(separatedBy: ", ").first ?? "고기")
+            }
             cell.foodListNameLabel.text = target.name
             cell.foodListDescriptionLabel.text = target.listDescription
         }

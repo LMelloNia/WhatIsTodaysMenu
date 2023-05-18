@@ -168,20 +168,20 @@
                                                     <rect key="frame" x="20" y="11" width="353" height="106"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SBu-HM-z3i">
-                                                            <rect key="frame" x="18" y="19.333333333333336" width="50" height="47.666666666666664"/>
+                                                            <rect key="frame" x="13" y="14.333333333333336" width="50" height="47.666666666666671"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Evb-4T-vr4"/>
                                                                 <constraint firstAttribute="width" constant="50" id="e5j-I1-St0"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="목록 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onG-Rj-3GV">
-                                                            <rect key="frame" x="78" y="18" width="64" height="21"/>
+                                                            <rect key="frame" x="73" y="13" width="64" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdl-NP-PCH">
-                                                            <rect key="frame" x="78" y="47" width="30" height="21"/>
+                                                            <rect key="frame" x="73" y="42" width="30" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -189,12 +189,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="SBu-HM-z3i" firstAttribute="top" secondItem="a6d-fq-qlY" secondAttribute="topMargin" constant="10" id="5wY-lW-C92"/>
-                                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="SBu-HM-z3i" secondAttribute="bottom" constant="10" id="Atw-ff-Jtl"/>
+                                                        <constraint firstItem="SBu-HM-z3i" firstAttribute="top" secondItem="a6d-fq-qlY" secondAttribute="topMargin" constant="5" id="5wY-lW-C92"/>
+                                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="SBu-HM-z3i" secondAttribute="bottom" constant="5" id="Atw-ff-Jtl"/>
                                                         <constraint firstItem="Vdl-NP-PCH" firstAttribute="bottom" secondItem="SBu-HM-z3i" secondAttribute="bottom" id="Egt-YV-e5S"/>
                                                         <constraint firstItem="onG-Rj-3GV" firstAttribute="top" secondItem="SBu-HM-z3i" secondAttribute="top" id="Sbp-Fm-h1G"/>
                                                         <constraint firstItem="onG-Rj-3GV" firstAttribute="leading" secondItem="SBu-HM-z3i" secondAttribute="trailing" constant="10" id="VPZ-BO-dFg"/>
-                                                        <constraint firstItem="SBu-HM-z3i" firstAttribute="leading" secondItem="a6d-fq-qlY" secondAttribute="leadingMargin" constant="10" id="jU1-7V-xZl"/>
+                                                        <constraint firstItem="SBu-HM-z3i" firstAttribute="leading" secondItem="a6d-fq-qlY" secondAttribute="leadingMargin" constant="5" id="jU1-7V-xZl"/>
                                                         <constraint firstItem="Vdl-NP-PCH" firstAttribute="leading" secondItem="SBu-HM-z3i" secondAttribute="trailing" constant="10" id="wYp-Yy-ykJ"/>
                                                     </constraints>
                                                 </view>
@@ -627,6 +627,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bOd-qW-z6j">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="dOn-nw-y2N">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="uGB-ki-nDu" id="bt6-pD-hqb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="완료" id="LFA-BY-c01">
                             <connections>
                                 <action selector="completeButtonTapped:" destination="uGB-ki-nDu" id="xez-cX-yK1"/>

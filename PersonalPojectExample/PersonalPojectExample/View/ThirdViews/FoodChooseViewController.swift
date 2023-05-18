@@ -76,6 +76,11 @@ class FoodChooseViewController: UIViewController {
         foodListCollectionView.collectionViewLayout = createLayout()
     }
 
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
+
     @IBAction func completeButtonTapped(_ sender: Any) {
 //        if let indexPath = tableView.indexPathsForSelectedRows {
 //            indexPath.forEach {
@@ -132,9 +137,11 @@ extension FoodChooseViewController: UICollectionViewDataSource {
             if target.isChecked {
 //                cell.foodNameLabel.text = "\(target.name) 선택됨"
 //                cell.foodSelectButton.setImage(chechImage, for: .highlighted)
+                cell.contentView.layer.borderWidth = 3
             } else {
 
 //                cell.foodSelectButton.setImage(plusImage, for: .highlighted)
+                cell.contentView.layer.borderWidth = 0
             }
             // MARK: 둘중 하나는 수정
 //            cell.foodCategoryLabel.text = target.returnCategoryList()
@@ -152,8 +159,8 @@ extension FoodChooseViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let target = filteredFoods[indexPath.item]
 
-        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
-        cell.contentView.layer.borderWidth = 3
+//        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+//        cell.contentView.layer.borderWidth = 3
 //        cell.layer.borderColor = UIColor.black.cgColor
 
         // MARK: 중복선택시 다시추가할지 말지

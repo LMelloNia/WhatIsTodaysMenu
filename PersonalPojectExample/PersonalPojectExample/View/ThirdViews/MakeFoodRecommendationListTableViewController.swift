@@ -83,7 +83,13 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             entityList.append(foodEntity)
         }
 
-        CoreDataManager.shared.createFoodRecommendationList(name: name, description: listDescription, foods: entityList)
+        if editeMode {
+            guard let foodRecommendationEntity else { return }
+            CoreDataManager.shared.updateFoodRecommendationList(name: name, description: listDescription, foods: entityList, foodRecommendationList: foodRecommendationEntity)
+        } else {
+            CoreDataManager.shared.createFoodRecommendationList(name: name, description: listDescription, foods: entityList)
+        }
+
         
         NotificationCenter.default.post(name: .list, object: nil)
         

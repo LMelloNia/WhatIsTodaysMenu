@@ -149,7 +149,19 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
+    func updateFoodRecommendationList(name: String, description: String, foods: [FoodEntity], foodRecommendationList: FoodRecommendationListEntity) {
+        foodRecommendationList.name = name
+        foodRecommendationList.listDescription = description
+        foodRecommendationList.foods = Set(foods) as NSSet
+
+        do {
+            try mainContext.save()
+        } catch {
+            print(error)
+        }
+    }
+
     func updateIsAllRandom(food:FoodEntity, isAllRandom: Bool) {
         food.favorite = isAllRandom
         do {
