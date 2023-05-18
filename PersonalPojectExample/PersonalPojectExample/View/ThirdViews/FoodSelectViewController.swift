@@ -27,8 +27,7 @@ class FoodSelectViewController: UIViewController {
         }
     }
     
-    
-    
+
     @IBAction func completeButtonTapped(_ sender: Any) {
 //        if let indexPath = tableView.indexPathsForSelectedRows {
 //            indexPath.forEach {

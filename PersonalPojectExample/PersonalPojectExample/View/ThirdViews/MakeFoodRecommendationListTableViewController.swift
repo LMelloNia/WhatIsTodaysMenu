@@ -27,8 +27,8 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
     var listDescription: String = ""
     
     var foodRecommendationEntity: FoodRecommendationListEntity?
-    
-    var foodRecommendationList: FoodRecommendationList = FoodRecommendationList(imgae: UIImage(named: "라멘1")!, name: "2", description: "1", foodList: [])
+
+    var foodRecommendationList: FoodRecommendationList = FoodRecommendationList(imgae: UIImage(systemName: "questionmark")!, name: "2", description: "1", foodList: [])
     
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         foods.forEach {
             $0.isChecked = false
         }
-        
+
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
             if let list = Notification.userInfo?["name"] as? [Food] {
                 self.list.append(contentsOf: list)
@@ -138,7 +138,13 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListMainTableViewCell", for: indexPath) as! FoodRecommendationListMainTableViewCell
             // MARK: 이름과 설명의 텍스트가 초기화 되는 현상을 방지하기 위해서 새로만드는게 아닌 만들어놨던걸로 전달하는 경우에만 텍스트 초기화
+            if let target = foodRecommendationEntity, let set = target.foods as? Set<FoodEntity> {
+                let array = set.sorted { $0.name ?? "" > $1.name ?? ""}
+
+                cell.mainImageView.image = UIImage(named: array.first?.imageName?.components(separatedBy: ", ").first ?? "고기")
+            }
             if editeMode {
+                
                 cell.titleField.text = foodRecommendationEntity?.name
             }
             

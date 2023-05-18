@@ -59,6 +59,7 @@ extension FoodListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListFirstTableViewCell", for: indexPath) as! FoodListFirstTableViewCell
+        cell.contentView.backgroundColor = view.backgroundColor
         if !CoreDataManager.shared.foodRecommendationEntityList.isEmpty {
             let target = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]
             if let set = target.foods as? Set<FoodEntity> {
@@ -77,5 +78,15 @@ extension FoodListViewController: UITableViewDataSource {
         CoreDataManager.shared.removeFoodRecommendationList(target: CoreDataManager.shared.foodRecommendationEntityList[indexPath.row])
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+}
+
+
+
+extension FoodListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            cell.isSelected = false
+        }
     }
 }
