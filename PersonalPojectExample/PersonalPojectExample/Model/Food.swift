@@ -16,7 +16,7 @@ class Food {
     var category: [Category]
     var isAllRandom: Bool
     var isChecked: Bool = false
-    
+    var favorite: Bool
     var categoryList: String {
         var categoryList = [""]
         let characterSet: CharacterSet = [" "]
@@ -35,13 +35,14 @@ class Food {
 //        return categoryList.sorted().joined(separator: " ").trimmingCharacters(in: characterSet)
 //    }
     
-    init(image: [String] = [], name: String, country: [Country], numberOfPeoPle: [NumberOfPeople] = [.alone], category: [Category] = [.spicy], isAllRandom: Bool = true) {
+    init(image: [String] = [], name: String, country: [Country], numberOfPeoPle: [NumberOfPeople] = [.alone], category: [Category] = [.spicy], isAllRandom: Bool = true, favorite: Bool = false) {
         self.imageName = image
         self.name = name
         self.country = country
         self.numberOfPeoPle = numberOfPeoPle
         self.category = category
         self.isAllRandom = isAllRandom
+        self.favorite = favorite
     }
 }
 
@@ -50,9 +51,9 @@ class Food {
     
 
 var foods = [
-    Food(image: ["samgyeopsal1", "samgyeopsal2", "samgyeopsal3"] ,name: "삼겹살", country: [.korean], numberOfPeoPle: [.couple, .family], category: [.meat]),
-    Food(image: ["Jajangmyeon1", "Jajangmyeon2", "Jajangmyeon3"], name: "짜장면", country: [.chinese], numberOfPeoPle: [.alone, .couple, .family], category: [.noodle]),
-    Food(image: ["라멘1", "라멘2", "라멘3"], name: "라멘", country: [.japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.noodle, .meat, .spicy, .soup]),
+    Food(image: ["samgyeopsal1", "samgyeopsal2", "samgyeopsal3"] ,name: "삼겹살", country: [.korean], numberOfPeoPle: [.couple, .family], category: [.meat], favorite: true),
+    Food(image: ["Jajangmyeon1", "Jajangmyeon2", "Jajangmyeon3"], name: "짜장면", country: [.chinese], numberOfPeoPle: [.alone, .couple, .family], category: [.noodle], favorite: true),
+    Food(image: ["라멘1", "라멘2", "라멘3"], name: "라멘", country: [.japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.noodle, .meat, .spicy, .soup], favorite: true),
     Food(image: ["돈까스1", "돈까스2", "돈까스3"] ,name: "돈까스", country: [.korean, .japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.meat, .friedFood]),
     Food(image: ["치즈돈까스1", "치즈돈까스2", "치즈돈까스3"], name: "치즈돈까스", country: [.korean, .japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.meat, .friedFood, .cheese]),
     Food(image: ["비빔밥1", "비빔밥2", "비빔밥3"], name: "비빔밥", country: [.korean], numberOfPeoPle: [.alone, .couple, .family], category: [.rice, .vegetable, .spicy]),

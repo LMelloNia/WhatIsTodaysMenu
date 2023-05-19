@@ -14,6 +14,7 @@ class FoodChooseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var foodCategoryLabel: UILabel!
     @IBOutlet weak var isAllRandomButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
+    @IBOutlet weak var checkImageView: UIImageView!
 
     let colors = [
         UIColor.clear.cgColor,
@@ -35,5 +36,6 @@ class FoodChooseCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 20
         gradation(view: gradationView)
+        gradationView.alpha = 0.8
     }
 }

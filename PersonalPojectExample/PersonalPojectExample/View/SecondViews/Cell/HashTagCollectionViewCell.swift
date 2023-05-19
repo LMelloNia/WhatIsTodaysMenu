@@ -16,7 +16,7 @@ class HashTagCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        hashTagLabel.clipsToBounds = true
-        hashTagLabel.layer.cornerRadius = 20
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 20
     }
 }

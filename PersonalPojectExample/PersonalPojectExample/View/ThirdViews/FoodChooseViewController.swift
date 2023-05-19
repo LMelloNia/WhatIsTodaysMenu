@@ -12,6 +12,7 @@ class FoodChooseViewController: UIViewController {
     var list = [Food]()
     var filteredFoods = foods
     var alreadyHaveFoods = [Food]()
+    @IBOutlet weak var searchBar: UISearchBar!
 
     @IBOutlet weak var foodListCollectionView: UICollectionView!
 
@@ -73,7 +74,10 @@ class FoodChooseViewController: UIViewController {
         foods.forEach {
             $0.isChecked = false
         }
+
         foodListCollectionView.collectionViewLayout = createLayout()
+
+        searchBar.searchBarStyle = .minimal
     }
 
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -107,6 +111,8 @@ class FoodChooseViewController: UIViewController {
         alertController.addAction(addAgain)
         alertController.addAction(skip)
 
+
+
         present(alertController, animated: true)
     }
 }
@@ -128,23 +134,15 @@ extension FoodChooseViewController: UICollectionViewDataSource {
             if let imageName = target.imageName.first {
                 cell.foodImageView.image = UIImage(named: imageName)!
             }
-//            cell.foodImageView.image = target.imageName.first
-
-//            if list.contains(where: { Food in
-//                Food.name == filteredFoods[indexPath.row].name
-//            })
             cell.foodNameLabel.text = target.name
             if target.isChecked {
-//                cell.foodNameLabel.text = "\(target.name) 선택됨"
-//                cell.foodSelectButton.setImage(chechImage, for: .highlighted)
-                cell.contentView.layer.borderWidth = 3
+                cell.checkImageView.image = UIImage(systemName: "checkmark.circle")
+                cell.checkImageView.tintColor = .green
             } else {
-
-//                cell.foodSelectButton.setImage(plusImage, for: .highlighted)
-                cell.contentView.layer.borderWidth = 0
+                cell.checkImageView.image = UIImage(systemName: "plus.circle")
+                cell.checkImageView.tintColor = .tintColor
             }
             // MARK: 둘중 하나는 수정
-//            cell.foodCategoryLabel.text = target.returnCategoryList()
             cell.foodCategoryLabel.text = target.categoryList
         }
 
@@ -158,11 +156,6 @@ extension FoodChooseViewController: UICollectionViewDataSource {
 extension FoodChooseViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let target = filteredFoods[indexPath.item]
-
-//        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
-//        cell.contentView.layer.borderWidth = 3
-//        cell.layer.borderColor = UIColor.black.cgColor
-
         // MARK: 중복선택시 다시추가할지 말지
         if let a = alreadyHaveFoods.first(where: { food in
             food.name == target.name

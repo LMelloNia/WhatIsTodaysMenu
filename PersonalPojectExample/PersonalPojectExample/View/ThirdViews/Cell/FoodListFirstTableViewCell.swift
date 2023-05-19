@@ -16,8 +16,7 @@ class FoodListFirstTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        foodListImageView.clipsToBounds = true
-        foodListImageView.layer.cornerRadius = 5
+        foodListImageView.alpha = 0.7
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

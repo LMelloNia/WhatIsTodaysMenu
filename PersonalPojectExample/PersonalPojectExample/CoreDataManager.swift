@@ -36,7 +36,7 @@ class CoreDataManager {
         
         do {
             if try mainContext.count(for: request) == 0 {
-                foods.forEach { createFood(imageName: $0.imageName.joined(separator: ", "), name: $0.name, country: $0.country ?? [], numberOfPeople: $0.numberOfPeoPle, categories: $0.categoryList, isAllRandom: $0.isAllRandom, isChecked: $0.isChecked) }
+                foods.forEach { createFood(imageName: $0.imageName.joined(separator: ", "), name: $0.name, country: $0.country ?? [], numberOfPeople: $0.numberOfPeoPle, categories: $0.categoryList, isAllRandom: $0.isAllRandom, isChecked: $0.isChecked, favorite: $0.favorite) }
             }
         } catch {
             print(error)

@@ -90,8 +90,8 @@
 		DD14059F29BF055C00FCBFEC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */,
 				DDACC20A2A0D121F009F21EC /* HashTagCollectionViewCell.swift */,
+				DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

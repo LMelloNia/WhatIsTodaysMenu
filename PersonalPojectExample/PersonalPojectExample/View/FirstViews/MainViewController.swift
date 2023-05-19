@@ -14,19 +14,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
 
     let colors = [
-        UIColor.clear.cgColor,
-        UIColor.gray.cgColor
+        UIColor(red: 200/255, green: 251/255, blue: 254/255, alpha: 0.5),
+        UIColor(red: 200/255, green: 259/255, blue: 200/255, alpha: 0.5),
+        UIColor(red: 200/255, green: 200/255, blue: 250/255, alpha: 0.5),
+        UIColor(red: 246/255, green: 248/255, blue: 200/255, alpha: 0.5)
     ]
-    
-    func gradation(view: UIView) {
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
-        gradient.colors = colors
-        gradient.type = .axial
-        view.layer.addSublayer(gradient)
-    }
 
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { section, layoutEnv in
@@ -40,14 +32,14 @@ class MainViewController: UIViewController {
                 item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalHeight(0.15))
+                                                       heightDimension: .fractionalHeight(0.16))
 
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                subitems: [item])
 
                 let section = NSCollectionLayoutSection(group: group)
 
-                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 10, trailing: 5)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 15, trailing: 5)
 
                 section.orthogonalScrollingBehavior = .groupPaging
 
@@ -75,7 +67,7 @@ class MainViewController: UIViewController {
 
                 let section = NSCollectionLayoutSection(group: group)
 
-                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 5)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 10, bottom: 15, trailing: 5)
 
                 section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
 
@@ -193,13 +185,14 @@ extension MainViewController: UICollectionViewDataSource {
             if indexPath.item == 0 {
                 cell.categoryImageView.image = UIImage(systemName: "questionmark")
                 cell.nameLabel.text = "랜덤"
+                cell.colorBackgroundView.backgroundColor = colors[indexPath.item % colors.count]
                 return cell
             } else {
                 let target = Category.allCases[indexPath.item - 1].rawValue
 
                 cell.categoryImageView.image = UIImage(named: target)
                 cell.nameLabel.text = target
-
+                cell.colorBackgroundView.backgroundColor = colors[indexPath.item % colors.count]
                 return cell
             }
         } else if indexPath.section == 1 {
@@ -258,9 +251,4 @@ extension MainViewController: UICollectionViewDataSource {
         }
         return header
     }
-}
-
-
-
-extension MainViewController: UICollectionViewDelegateFlowLayout {
 }

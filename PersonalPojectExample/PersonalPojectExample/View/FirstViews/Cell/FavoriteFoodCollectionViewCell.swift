@@ -39,6 +39,7 @@ class FavoriteFoodCollectionViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 20
         gradation(view: gradationView)
+        gradationView.alpha = 0.8
     }
 
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {

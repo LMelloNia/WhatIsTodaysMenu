@@ -29,15 +29,32 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
     var foodRecommendationEntity: FoodRecommendationListEntity?
 
     var foodRecommendationList: FoodRecommendationList = FoodRecommendationList(imgae: UIImage(systemName: "questionmark")!, name: "2", description: "1", foodList: [])
-    
-    
+
+    lazy var actions : [UIAction] = {
+        return [
+            UIAction(title: "편집", image: UIImage(systemName: "pencil")) { [self] _ in
+                self.editeMode = true
+                navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료")
+                navigationItem.rightBarButtonItem?.action = #selector(completeButtonTapped)
+                self.settingNav()
+            },
+            UIAction(title: "삭제", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+            }]
+    }()
+
+    lazy var menu: UIMenu = {
+        return UIMenu(title: "", children: actions)
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         entitysChangeToInstance()
         foods.forEach {
             $0.isChecked = false
         }
-
+        if !editeMode {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis"),  menu: menu)
+        }
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
             if let list = Notification.userInfo?["name"] as? [Food] {
                 self.list.append(contentsOf: list)
@@ -46,14 +63,18 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             }
         }
     }
-    
+
+    func settingNav() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료")
+    }
+
     @IBAction func cancel(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
     
     
     @IBAction func completeButtonTapped(_ sender: Any) {
-//  1      foodRecommendationList.foodList = list
+        //  1      foodRecommendationList.foodList = list
         
         // MARK: 이름 저장
         if let cell = editTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FoodRecommendationListMainTableViewCell {
@@ -61,7 +82,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             if let foodRecommendationEntity {
                 foodRecommendationEntity.name = name
             }
-// 1           foodRecommendationList.name = name
+            // 1           foodRecommendationList.name = name
             self.name = name
         }
         // MARK: 설명 저장
@@ -70,7 +91,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             if let foodRecommendationEntity {
                 foodRecommendationEntity.listDescription = description
             }
-//  1          foodRecommendationList.description =  description
+            //  1          foodRecommendationList.description =  description
             self.listDescription = description
         }
         
@@ -168,7 +189,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 let set = foodRecommendationEntity?.foods as! Set<FoodEntity>
                 
                 let target = Array(set)[indexPath.row - 3]
-        
+
                 
                 if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
                     cell.foodImageView.image = UIImage(named: imageName)!

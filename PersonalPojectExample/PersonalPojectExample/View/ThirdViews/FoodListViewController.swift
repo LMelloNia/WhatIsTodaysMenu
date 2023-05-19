@@ -37,7 +37,7 @@ class FoodListViewController: UIViewController {
             if let cell = sender as? FoodListFirstTableViewCell {
                 if let indexPath = tableView.indexPath(for: cell) {
                     if let vc = segue.destination.children.first as? MakeFoodRecommendationListTableViewController {
-                        vc.editeMode = true
+//                        vc.editeMode = true
                         vc.foodRecommendationEntity = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]
                     }
                 }

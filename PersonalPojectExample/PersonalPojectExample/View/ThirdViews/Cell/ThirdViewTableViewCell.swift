@@ -19,8 +19,6 @@ class ThirdViewTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-//        foodContentView.clipsToBounds = true
-//        foodDetailView.backgroundColor = .yellow
         foodDetailView.layer.cornerRadius = 15
     }
 

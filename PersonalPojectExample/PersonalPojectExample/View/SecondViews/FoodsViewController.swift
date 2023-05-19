@@ -14,10 +14,10 @@ class FoodsViewController: UIViewController {
     var hashTagItems: [FoodEntity] = []
 
     let colors = [
-        UIColor(red: 244/255, green: 251/255, blue: 254/255, alpha: 1.0),
-        UIColor(red: 244/255, green: 259/255, blue: 253/255, alpha: 1.0),
-        UIColor(red: 243/255, green: 242/255, blue: 250/255, alpha: 1.0),
-        UIColor(red: 246/255, green: 248/255, blue: 239/255, alpha: 1.0)
+        UIColor(red: 200/255, green: 251/255, blue: 254/255, alpha: 0.5),
+        UIColor(red: 200/255, green: 259/255, blue: 200/255, alpha: 0.5),
+        UIColor(red: 200/255, green: 200/255, blue: 250/255, alpha: 0.5),
+        UIColor(red: 246/255, green: 248/255, blue: 200/255, alpha: 0.5)
     ]
 
     override func viewDidLoad() {
@@ -71,7 +71,7 @@ class FoodsViewController: UIViewController {
 
                 let section = NSCollectionLayoutSection(group: group)
 
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5)
 
                 return section
             default:
