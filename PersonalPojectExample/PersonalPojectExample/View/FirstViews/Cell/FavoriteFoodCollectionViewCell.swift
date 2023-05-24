@@ -15,7 +15,6 @@ class FavoriteFoodCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var isAllRandomButton: UIButton!
     @IBOutlet weak var gradationView: UIView!
 
-
     var favorite: Bool?
     var foodEntity: FoodEntity?
 
@@ -23,16 +22,6 @@ class FavoriteFoodCollectionViewCell: UICollectionViewCell {
         UIColor.clear.cgColor,
         UIColor.black.cgColor
     ]
-
-    func gradation(view: UIView) {
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
-        gradient.colors = colors
-        gradient.type = .axial
-        view.layer.addSublayer(gradient)
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,5 +45,15 @@ class FavoriteFoodCollectionViewCell: UICollectionViewCell {
 
             CoreDataManager.shared.updatefavorite(food: foodEntity, favorite: !favorite)
         }
+    }
+
+    func gradation(view: UIView) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradient.colors = colors
+        gradient.type = .axial
+        view.layer.addSublayer(gradient)
     }
 }

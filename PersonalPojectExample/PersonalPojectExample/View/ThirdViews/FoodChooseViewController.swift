@@ -9,64 +9,12 @@ import UIKit
 
 class FoodChooseViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var foodListCollectionView: UICollectionView!
+
     var list = [Food]()
     var filteredFoods = foods
     var alreadyHaveFoods = [Food]()
-    @IBOutlet weak var searchBar: UISearchBar!
-
-    @IBOutlet weak var foodListCollectionView: UICollectionView!
-
-    func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { section, layoutEnv in
-            switch section {
-            case 0:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                                      heightDimension: .fractionalHeight(1))
-
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-                item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalHeight(0.285))
-
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                               subitems: [item])
-
-                let section = NSCollectionLayoutSection(group: group)
-
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-
-                return section
-            default:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.25),
-                                                      heightDimension: .fractionalHeight(1.0))
-
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5)
-
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalHeight(0.15))
-
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                               subitems: [item])
-
-                let section = NSCollectionLayoutSection(group: group)
-
-                section.orthogonalScrollingBehavior = .groupPaging
-
-                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                                            heightDimension: .estimated(150)),
-                                                                         elementKind: UICollectionView.elementKindSectionHeader,
-                                                                         alignment: .topLeading,
-                                                                         absoluteOffset: CGPoint(x: 0, y: 50))
-
-                section.boundarySupplementaryItems = [header]
-                return section
-            }
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,13 +32,7 @@ class FoodChooseViewController: UIViewController {
         dismiss(animated: true)
     }
 
-
     @IBAction func completeButtonTapped(_ sender: Any) {
-//        if let indexPath = tableView.indexPathsForSelectedRows {
-//            indexPath.forEach {
-//                list.append(filteredFoods[$0.row])
-//            }
-//        }
         filteredFoods.forEach {
             if $0.isChecked {
                 list.append($0)
@@ -114,6 +56,29 @@ class FoodChooseViewController: UIViewController {
 
 
         present(alertController, animated: true)
+    }
+
+    func createLayout() -> UICollectionViewCompositionalLayout {
+        UICollectionViewCompositionalLayout { section, layoutEnv in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                                  heightDimension: .fractionalHeight(1))
+
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+            item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                   heightDimension: .fractionalHeight(0.285))
+
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                           subitems: [item])
+
+            let section = NSCollectionLayoutSection(group: group)
+
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+
+            return section
+        }
     }
 }
 

@@ -21,6 +21,14 @@ class FoodChooseCollectionViewCell: UICollectionViewCell {
         UIColor.black.cgColor
     ]
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 20
+        gradation(view: gradationView)
+        gradationView.alpha = 0.8
+    }
+
     func gradation(view: UIView) {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -29,13 +37,5 @@ class FoodChooseCollectionViewCell: UICollectionViewCell {
         gradient.colors = colors
         gradient.type = .axial
         view.layer.addSublayer(gradient)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.clipsToBounds = true
-        contentView.layer.cornerRadius = 20
-        gradation(view: gradationView)
-        gradationView.alpha = 0.8
     }
 }

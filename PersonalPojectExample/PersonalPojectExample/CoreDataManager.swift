@@ -97,6 +97,11 @@ class CoreDataManager {
         }
     }
 
+    func fetchWithFoodRecommendationListEntity(target: FoodRecommendationListEntity) {
+        let foodSet = target.foods as! Set<FoodEntity>
+        isAllRandomFoods = Array(foodSet)
+    }
+
     func fetchfavorite() {
         let request = FoodEntity.fetchRequest()
 

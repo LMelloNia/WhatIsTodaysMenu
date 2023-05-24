@@ -12,7 +12,6 @@ class FoodRecommendationListMainTableViewCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
 

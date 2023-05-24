@@ -20,6 +20,30 @@ class MainViewController: UIViewController {
         UIColor(red: 246/255, green: 248/255, blue: 200/255, alpha: 0.5)
     ]
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mainCollectionView.collectionViewLayout = createLayout()
+        CoreDataManager.shared.fetchFoods()
+        CoreDataManager.shared.fetchfavorite()
+        CoreDataManager.shared.RecommenedFoodArray()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        CoreDataManager.shared.fetchfavorite()
+        mainCollectionView.reloadData()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? CategoryCollectionViewCell {
+            if let vc = segue.destination as? MenuRecommendationViewController {
+                guard let category = cell.nameLabel.text else { return }
+                vc.category = category
+            }
+        }
+    }
+
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { section, layoutEnv in
             switch section {
@@ -133,30 +157,6 @@ class MainViewController: UIViewController {
 
                 section.boundarySupplementaryItems = [header]
                 return section
-            }
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        mainCollectionView.collectionViewLayout = createLayout()
-        CoreDataManager.shared.fetchFoods()
-        CoreDataManager.shared.fetchfavorite()
-        CoreDataManager.shared.RecommenedFoodArray()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        CoreDataManager.shared.fetchfavorite()
-        mainCollectionView.reloadData()
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? CategoryCollectionViewCell {
-            if let vc = segue.destination as? MenuRecommendationViewController {
-                guard let category = cell.nameLabel.text else { return }
-                vc.category = category
             }
         }
     }

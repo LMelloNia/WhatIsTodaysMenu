@@ -257,18 +257,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="366"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GwI-5m-8RL">
-                                            <rect key="frame" x="0.0" y="1.6666666666666572" width="393" height="363"/>
-                                            <color key="tintColor" systemColor="systemGray2Color"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="150" id="kcX-JB-hb9"/>
-                                            </constraints>
-                                        </imageView>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="목록 이름" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YuV-ta-zsc">
                                             <rect key="frame" x="20" y="329" width="353" height="26"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GwI-5m-8RL">
+                                            <rect key="frame" x="0.0" y="1.6666666666666572" width="393" height="147"/>
+                                            <color key="tintColor" systemColor="systemGray2Color"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="kcX-JB-hb9"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="YuV-ta-zsc" secondAttribute="trailing" id="GQs-Ic-TZQ"/>
@@ -277,7 +277,7 @@
                                         <constraint firstItem="YuV-ta-zsc" firstAttribute="centerX" secondItem="dhu-da-yBb" secondAttribute="centerX" id="VxH-fF-QFa"/>
                                         <constraint firstItem="GwI-5m-8RL" firstAttribute="leading" secondItem="dhu-da-yBb" secondAttribute="leading" id="Wfk-Xi-Ep8"/>
                                         <constraint firstAttribute="trailing" secondItem="GwI-5m-8RL" secondAttribute="trailing" id="Zlg-OE-y7o"/>
-                                        <constraint firstAttribute="bottom" secondItem="GwI-5m-8RL" secondAttribute="bottom" id="pED-ch-G6S"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GwI-5m-8RL" secondAttribute="bottom" id="pED-ch-G6S"/>
                                         <constraint firstItem="YuV-ta-zsc" firstAttribute="leading" secondItem="dhu-da-yBb" secondAttribute="leadingMargin" id="zPe-eA-bXp"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -319,6 +319,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34I-We-POk">
                                             <rect key="frame" x="10" y="11" width="113" height="47"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system" title="음식 추가"/>
                                             <connections>
@@ -366,6 +367,29 @@
                                     <outlet property="foodImageView" destination="HCI-m9-IEF" id="z6g-iH-6oI"/>
                                     <outlet property="foodNameLabel" destination="Xzu-Yd-PhY" id="pxr-vt-708"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DummyCell" rowHeight="77" id="CEw-5m-fh0">
+                                <rect key="frame" x="0.0" y="639" width="393" height="77"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CEw-5m-fh0" id="oH8-jC-jdd">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="77"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV2-5j-B1U">
+                                            <rect key="frame" x="141" y="21" width="111" height="35"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="gray" image="play.fill" catalog="system" title=" 랜덤 재생"/>
+                                            <connections>
+                                                <segue destination="Ycz-fd-agd" kind="show" id="R0s-JC-sIS"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="qV2-5j-B1U" firstAttribute="centerX" secondItem="oH8-jC-jdd" secondAttribute="centerX" id="MRl-Op-fzH"/>
+                                        <constraint firstItem="qV2-5j-B1U" firstAttribute="centerY" secondItem="oH8-jC-jdd" secondAttribute="centerY" id="tmN-2H-DCf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -833,11 +857,11 @@
             <objects>
                 <viewController id="Ycz-fd-agd" customClass="MenuRecommendationViewController" customModule="PersonalPojectExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uBt-pW-p2U">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Jy-VK4">
-                                <rect key="frame" x="152.66666666666666" y="559" width="88" height="35"/>
+                                <rect key="frame" x="152.66666666666666" y="554" width="88" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메뉴 추천"/>
                                 <connections>
@@ -845,7 +869,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwl-bz-Oza">
-                                <rect key="frame" x="274.66666666666669" y="266" width="47" height="35"/>
+                                <rect key="frame" x="274.66666666666669" y="261" width="47" height="35"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system"/>
@@ -854,14 +878,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samgyeopsal1" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-Fc-Brq">
-                                <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
+                                <rect key="frame" x="71.666666666666686" y="296" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="UiE-E8-JBX"/>
                                     <constraint firstAttribute="width" constant="250" id="ibl-8w-mos"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-t2-pC5">
-                                <rect key="frame" x="227.66666666666666" y="266" width="46.999999999999972" height="35"/>
+                                <rect key="frame" x="227.66666666666666" y="261" width="46.999999999999972" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                 <connections>
@@ -1009,8 +1033,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hSx-Cr-RnU"/>
+        <segue reference="X3z-Jb-2KG"/>
         <segue reference="fzU-Cr-Y4A"/>
+        <segue reference="R0s-JC-sIS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Jajangmyeon1" width="400" height="400"/>
@@ -1020,11 +1045,15 @@
         <image name="list.bullet.clipboard.fill" catalog="system" width="103" height="128"/>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="questionmark" catalog="system" width="94" height="128"/>
         <image name="samgyeopsal1" width="400" height="400"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

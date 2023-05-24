@@ -19,7 +19,6 @@ class FoodListViewController: UIViewController {
     var foodRecommendationListList: [FoodRecommendationList] = []
     var target: Food?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         CoreDataManager.shared.fetchFoodRecommendationList()
@@ -29,7 +28,6 @@ class FoodListViewController: UIViewController {
         }
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard !CoreDataManager.shared.foodRecommendationEntityList.isEmpty else { return }
@@ -37,14 +35,13 @@ class FoodListViewController: UIViewController {
             if let cell = sender as? FoodListFirstTableViewCell {
                 if let indexPath = tableView.indexPath(for: cell) {
                     if let vc = segue.destination.children.first as? MakeFoodRecommendationListTableViewController {
-//                        vc.editeMode = true
                         vc.foodRecommendationEntity = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]
                     }
                 }
             }
         } else {
             if let vc = segue.destination.children.first as? MakeFoodRecommendationListTableViewController {
-                vc.editeMode = false
+                vc.editeMode = true
             }
         }
     }
