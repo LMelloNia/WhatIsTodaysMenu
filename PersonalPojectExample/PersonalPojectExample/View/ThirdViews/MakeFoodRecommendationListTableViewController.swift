@@ -30,13 +30,19 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
 
     var foodRecommendationList: FoodRecommendationList = FoodRecommendationList(imgae: UIImage(systemName: "questionmark")!, name: "2", description: "1", foodList: [])
 
+    lazy var completeButton: UIBarButtonItem = {
+        let btn = UIBarButtonItem(title: "완료")
+        btn.action = #selector(save)
+        return btn
+    }()
+
     lazy var actions : [UIAction] = {
         return [
             UIAction(title: "편집", image: UIImage(systemName: "pencil")) { [self] _ in
                 self.editeMode = true
                 navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료")
                 navigationItem.rightBarButtonItem?.action = #selector(completeButtonTapped)
-                self.settingNav()
+//                self.settingNav()
             },
             UIAction(title: "삭제", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             }]
@@ -68,12 +74,58 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "완료")
     }
 
+    @objc func save() {
+        print("asdasd-------------------")
+        //  1      foodRecommendationList.foodList = list
+
+        // MARK: 이름 저장
+        if let cell = editTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FoodRecommendationListMainTableViewCell {
+            guard let name = cell.titleField.text, name != "" else { return }
+            if let foodRecommendationEntity {
+                foodRecommendationEntity.name = name
+            }
+            // 1           foodRecommendationList.name = name
+            self.name = name
+        }
+        // MARK: 설명 저장
+        if let cell = editTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? FoodRecommendationListDescriptionTableViewCell {
+            guard let description = cell.descriptionField.text else { return }
+            if let foodRecommendationEntity {
+                foodRecommendationEntity.listDescription = description
+            }
+            //  1          foodRecommendationList.description =  description
+            self.listDescription = description
+        }
+
+        // MARK: 음식추천리스트 엔티티 생성
+        list.forEach { Food in
+            let foodEntity = CoreDataManager.shared.foodEntitys.first { FoodEntity in
+                FoodEntity.name == Food.name
+            }
+            guard let foodEntity else { return }
+            entityList.append(foodEntity)
+        }
+
+        if editeMode {
+            guard let foodRecommendationEntity else { return }
+            CoreDataManager.shared.updateFoodRecommendationList(name: name, description: listDescription, foods: entityList, foodRecommendationList: foodRecommendationEntity)
+        } else {
+            CoreDataManager.shared.createFoodRecommendationList(name: name, description: listDescription, foods: entityList)
+        }
+
+
+        NotificationCenter.default.post(name: .list, object: nil)
+
+        self.presentingViewController?.dismiss(animated: true)
+    }
+
     @IBAction func cancel(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
     
     
-    @IBAction func completeButtonTapped(_ sender: Any) {
+    @IBAction @objc func completeButtonTapped(_ sender: Any) {
+        print("asdasd-------------------")
         //  1      foodRecommendationList.foodList = list
         
         // MARK: 이름 저장
@@ -164,19 +216,19 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
 
                 cell.mainImageView.image = UIImage(named: array.first?.imageName?.components(separatedBy: ", ").first ?? "고기")
             }
-            if editeMode {
-                
+//            if editeMode {
+//
+//                cell.titleField.text = foodRecommendationEntity?.name
+//            }
                 cell.titleField.text = foodRecommendationEntity?.name
-            }
-            
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListDescriptionTableViewCell", for: indexPath) as! FoodRecommendationListDescriptionTableViewCell
             
-            if editeMode {
-                cell.descriptionField.text = foodRecommendationEntity?.listDescription
-            }
-            
+//            if editeMode {
+//                cell.descriptionField.text = foodRecommendationEntity?.listDescription
+//            }
+            cell.descriptionField.text = foodRecommendationEntity?.listDescription
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListAddTableViewCell", for: indexPath)

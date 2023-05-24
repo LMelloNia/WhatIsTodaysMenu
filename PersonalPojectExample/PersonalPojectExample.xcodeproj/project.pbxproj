@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */; };
-		DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */; };
 		DD2951EC29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2951EA29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld */; };
 		DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */; };
 		DD37543F2A131E94001C414D /* FoodChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37543E2A131E94001C414D /* FoodChooseViewController.swift */; };
@@ -31,7 +30,6 @@
 		DDACC2092A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACC2082A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift */; };
 		DDACC20B2A0D121F009F21EC /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDACC20A2A0D121F009F21EC /* HashTagCollectionViewCell.swift */; };
 		DDC4A08F29BF381000E5C973 /* MenuRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A08E29BF381000E5C973 /* MenuRecommendationViewController.swift */; };
-		DDC4A09229BF409F00E5C973 /* ThirdViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */; };
 		DDC4A09429BF51AA00E5C973 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4A09329BF51AA00E5C973 /* MainTabBarController.swift */; };
 		DDE1DEA829EFF5A700F3D737 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEA729EFF5A700F3D737 /* CategoryCollectionViewCell.swift */; };
 		DDE1DEAA29EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEA929EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift */; };
@@ -42,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListFirstTableViewCell.swift; sourceTree = "<group>"; };
-		DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectViewController.swift; sourceTree = "<group>"; };
 		DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodList.xcdatamodel; sourceTree = "<group>"; };
 		DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD37543E2A131E94001C414D /* FoodChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodChooseViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +64,6 @@
 		DDACC2082A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDACC20A2A0D121F009F21EC /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDC4A08E29BF381000E5C973 /* MenuRecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRecommendationViewController.swift; sourceTree = "<group>"; };
-		DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewTableViewCell.swift; sourceTree = "<group>"; };
 		DDC4A09329BF51AA00E5C973 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DDE1DEA729EFF5A700F3D737 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDE1DEA929EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -132,7 +128,6 @@
 			children = (
 				DD6F1CE429BB0FAD00CDAD54 /* FoodListViewController.swift */,
 				DD9C789B29E5674100CADBC9 /* MakeFoodRecommendationListTableViewController.swift */,
-				DD14050A29BB1B7500FCBFEC /* FoodSelectViewController.swift */,
 				DD37543E2A131E94001C414D /* FoodChooseViewController.swift */,
 				DDC4A09029BF406400E5C973 /* Cell */,
 			);
@@ -179,7 +174,6 @@
 				DD9C789D29E56C0400CADBC9 /* FoodRecommendationListMainTableViewCell.swift */,
 				DDA21C1D29E5810800EE1B9C /* FoodRecommendationListDescriptionTableViewCell.swift */,
 				DDA21C1B29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift */,
-				DDC4A09129BF409F00E5C973 /* ThirdViewTableViewCell.swift */,
 				DD3754402A131ECC001C414D /* FoodChooseCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -287,7 +281,6 @@
 			files = (
 				DD927C7C29B0993200467EE9 /* AppDelegate.swift in Sources */,
 				DD37543F2A131E94001C414D /* FoodChooseViewController.swift in Sources */,
-				DD14050B29BB1B7500FCBFEC /* FoodSelectViewController.swift in Sources */,
 				DD6F1CE529BB0FAD00CDAD54 /* FoodListViewController.swift in Sources */,
 				DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */,
 				DDE1DEAA29EFF83800F3D737 /* CategoryHeaderCollectionReusableView.swift in Sources */,
@@ -299,7 +292,6 @@
 				DDACC2092A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift in Sources */,
 				DDACC20B2A0D121F009F21EC /* HashTagCollectionViewCell.swift in Sources */,
 				DD6F1CDD29BB05FB00CDAD54 /* NumberOfPeople.swift in Sources */,
-				DDC4A09229BF409F00E5C973 /* ThirdViewTableViewCell.swift in Sources */,
 				DD6F1CE129BB063200CDAD54 /* Food.swift in Sources */,
 				DDC4A09429BF51AA00E5C973 /* MainTabBarController.swift in Sources */,
 				DD9C789E29E56C0400CADBC9 /* FoodRecommendationListMainTableViewCell.swift in Sources */,
