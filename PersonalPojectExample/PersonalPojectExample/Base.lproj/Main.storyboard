@@ -376,7 +376,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV2-5j-B1U">
-                                            <rect key="frame" x="141" y="21" width="111" height="35"/>
+                                            <rect key="frame" x="20" y="21" width="353" height="35"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" image="play.fill" catalog="system" title=" 랜덤 재생"/>
@@ -386,7 +386,9 @@
                                         </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="qV2-5j-B1U" firstAttribute="leading" secondItem="oH8-jC-jdd" secondAttribute="leadingMargin" id="BMh-jX-duA"/>
                                         <constraint firstItem="qV2-5j-B1U" firstAttribute="centerX" secondItem="oH8-jC-jdd" secondAttribute="centerX" id="MRl-Op-fzH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="qV2-5j-B1U" secondAttribute="trailing" id="k3x-hK-EbY"/>
                                         <constraint firstItem="qV2-5j-B1U" firstAttribute="centerY" secondItem="oH8-jC-jdd" secondAttribute="centerY" id="tmN-2H-DCf"/>
                                     </constraints>
                                 </tableViewCellContentView>

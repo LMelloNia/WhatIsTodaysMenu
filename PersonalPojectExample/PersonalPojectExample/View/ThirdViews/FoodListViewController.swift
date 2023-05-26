@@ -25,6 +25,7 @@ class FoodListViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
             CoreDataManager.shared.fetchFoodRecommendationList()
             self.tableView.reloadData()
+
         }
     }
     
