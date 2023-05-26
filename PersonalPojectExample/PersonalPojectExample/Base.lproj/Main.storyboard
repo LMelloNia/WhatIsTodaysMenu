@@ -149,11 +149,11 @@
             <objects>
                 <viewController id="Xci-0p-mAZ" customClass="FoodListViewController" customModule="PersonalPojectExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJx-Yg-rY6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dbK-rz-82W">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodListFirstTableViewCell" rowHeight="128" id="Yd9-DX-I4v" customClass="FoodListFirstTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
@@ -379,7 +379,7 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" image="play.fill" catalog="system" title=" 랜덤 재생"/>
                                             <connections>
-                                                <segue destination="Ycz-fd-agd" kind="show" id="R0s-JC-sIS"/>
+                                                <segue destination="Ycz-fd-agd" kind="show" identifier="random" id="R0s-JC-sIS"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -857,11 +857,11 @@
             <objects>
                 <viewController id="Ycz-fd-agd" customClass="MenuRecommendationViewController" customModule="PersonalPojectExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uBt-pW-p2U">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Jy-VK4">
-                                <rect key="frame" x="152.66666666666666" y="559" width="88" height="35"/>
+                                <rect key="frame" x="152.66666666666666" y="554" width="88" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메뉴 추천"/>
                                 <connections>
@@ -869,7 +869,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwl-bz-Oza">
-                                <rect key="frame" x="274.66666666666669" y="266" width="47" height="35"/>
+                                <rect key="frame" x="274.66666666666669" y="261" width="47" height="35"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system"/>
@@ -878,14 +878,14 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samgyeopsal1" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-Fc-Brq">
-                                <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
+                                <rect key="frame" x="71.666666666666686" y="296" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="UiE-E8-JBX"/>
                                     <constraint firstAttribute="width" constant="250" id="ibl-8w-mos"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-t2-pC5">
-                                <rect key="frame" x="227.66666666666666" y="266" width="46.999999999999972" height="35"/>
+                                <rect key="frame" x="227.66666666666666" y="261" width="46.999999999999972" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                 <connections>
@@ -944,7 +944,7 @@
                     <tabBarItem key="tabBarItem" title="랜덤목록" image="list.bullet" catalog="system" id="E3P-kU-0vE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7WL-vN-vxN">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1034,8 +1034,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="X3z-Jb-2KG"/>
-        <segue reference="fzU-Cr-Y4A"/>
-        <segue reference="gjv-Ir-eG6"/>
+        <segue reference="wyO-bz-pCR"/>
+        <segue reference="R0s-JC-sIS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Jajangmyeon1" width="400" height="400"/>

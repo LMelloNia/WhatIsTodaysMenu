@@ -17,7 +17,7 @@ class MenuRecommendationViewController: UIViewController {
     var target: Food?
     var randomFoods: [Food] = []
     var foodListList: [FoodRecommendationList] = []
-    
+    var foodRecommendationListEntity: FoodRecommendationListEntity?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +76,10 @@ class MenuRecommendationViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        if let foodRecommendationListEntity {
+            CoreDataManager.shared.fetchWithFoodRecommendationListEntity(target: foodRecommendationListEntity)
+            return
+        }
         guard let category, category != "랜덤" else {
             CoreDataManager.shared.fetchIsAllRandom()
             return
