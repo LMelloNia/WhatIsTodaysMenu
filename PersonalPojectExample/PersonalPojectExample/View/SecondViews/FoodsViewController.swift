@@ -12,6 +12,7 @@ class FoodsViewController: UIViewController {
     @IBOutlet weak var foodsCollectionView: UICollectionView!
 
     var hashTagItems: [FoodEntity] = []
+    var savedIndexPath: IndexPath?
 
     let colors = [
         UIColor(red: 200/255, green: 251/255, blue: 254/255, alpha: 0.5),
@@ -164,15 +165,19 @@ extension FoodsViewController: UICollectionViewDataSource {
 extension FoodsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            if let savedIndexPath, let cell = collectionView.cellForItem(at: savedIndexPath) {
+                cell.contentView.layer.borderWidth = 0
+            }
             let name = Category.allCases[indexPath.item].rawValue
             hashTagItems = CoreDataManager.shared.foodEntitys.filter { FoodEntity in
                 FoodEntity.categories?.contains(name) ?? false
             }
-            foodsCollectionView.reloadSections(IndexSet(integer: 1))
+            foodsCollectionView.reloadSections([1])
+
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.contentView.layer.borderWidth = 2
+                savedIndexPath = indexPath
+            }
         }
     }
-}
-
-extension FoodsViewController: UICollectionViewDelegateFlowLayout {
-
 }
