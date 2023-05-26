@@ -61,7 +61,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             print("send")
             if let listInfo = Notification.userInfo?["name"] as? [Food] {
                 self.list.append(contentsOf: listInfo)
-                self.editTableView.reloadData()
+                self.editTableView.reloadSections([1], with: .automatic)
                 dump(self.list)
             }
         }
@@ -185,62 +185,61 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    // MARK: 저장된 이름과 설명 텍스트 필드에 띄우기
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if editeMode {
-//            if let count = foodRecommendationEntity?.foods?.count {
-//                return list.count + 3
-//            }
-//            return list.count + 3
-//        } else {
-            return list.count + 3
-//        }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListMainTableViewCell", for: indexPath) as! FoodRecommendationListMainTableViewCell
-            // MARK: 이름과 설명의 텍스트가 초기화 되는 현상을 방지하기 위해서 새로만드는게 아닌 만들어놨던걸로 전달하는 경우에만 텍스트 초기화
-            if editeMode {
-                cell.titleField.isEnabled = true
-            } else {
-                cell.titleField.isEnabled = false
-            }
-            if let target = foodRecommendationEntity, let set = target.foods as? Set<FoodEntity> {
-                let array = set.sorted { $0.name ?? "" > $1.name ?? ""}
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 3
+        } else {
+            return list.count
+        }
+    }
 
-                cell.mainImageView.image = UIImage(named: array.first?.imageName?.components(separatedBy: ", ").first ?? "고기")
-            }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // MARK: 저장된 이름과 설명 텍스트 필드에 띄우기
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListMainTableViewCell", for: indexPath) as! FoodRecommendationListMainTableViewCell
+                // MARK: 이름과 설명의 텍스트가 초기화 되는 현상을 방지하기 위해서 새로만드는게 아닌 만들어놨던걸로 전달하는 경우에만 텍스트 초기화
+                if editeMode {
+                    cell.titleField.isEnabled = true
+                } else {
+                    cell.titleField.isEnabled = false
+                }
+                if let target = foodRecommendationEntity, let set = target.foods as? Set<FoodEntity> {
+                    let array = set.sorted { $0.name ?? "" > $1.name ?? ""}
+
+                    cell.mainImageView.image = UIImage(named: array.first?.imageName?.components(separatedBy: ", ").first ?? "고기")
+                }
                 cell.titleField.text = foodRecommendationEntity?.name
-            return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListDescriptionTableViewCell", for: indexPath) as! FoodRecommendationListDescriptionTableViewCell
-            if editeMode {
-                cell.descriptionField.isEnabled = true
-            } else {
-                cell.descriptionField.isEnabled = false
-            }
-            cell.descriptionField.text = foodRecommendationEntity?.listDescription
-            return cell
-        } else if indexPath.row == 2 {
-            //#MARK: 편집 모드일때만 음식추가 버튼 보이기
-            if editeMode {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListAddTableViewCell", for: indexPath)
+                return cell
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListDescriptionTableViewCell", for: indexPath) as! FoodRecommendationListDescriptionTableViewCell
+                if editeMode {
+                    cell.descriptionField.isEnabled = true
+                } else {
+                    cell.descriptionField.isEnabled = false
+                }
+                cell.descriptionField.text = foodRecommendationEntity?.listDescription
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "DummyCell", for: indexPath)
-                return cell
+                //#MARK: 편집 모드일때만 음식추가 버튼 보이기
+                if editeMode {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListAddTableViewCell", for: indexPath)
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "DummyCell", for: indexPath)
+                    return cell
+                }
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListFoodTableViewCell", for: indexPath) as! FoodRecommendationListFoodTableViewCell
             if false {
                 let set = foodRecommendationEntity?.foods as! Set<FoodEntity>
                 
-                let target = Array(set)[indexPath.row - 3]
+                let target = Array(set)[indexPath.row]
 
                 
                 if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
@@ -251,7 +250,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 
                 return cell
             } else {
-                let target = list[indexPath.row - 3]
+                let target = list[indexPath.row ]
                 print(#function, list.count)
                 
                 if let imageName = target.imageName.randomElement() {
