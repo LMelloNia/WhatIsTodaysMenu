@@ -109,6 +109,13 @@ class FoodsViewController: UIViewController {
         super.viewWillAppear(animated)
         hashTagItems = CoreDataManager.shared.foodEntitys
         foodsCollectionView.reloadData()
+        savedIndexPath = nil
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        if let savedIndexPath, let cell = foodsCollectionView.cellForItem(at: savedIndexPath) {
+            cell.contentView.layer.borderWidth = 0
+        }
     }
 }
 
