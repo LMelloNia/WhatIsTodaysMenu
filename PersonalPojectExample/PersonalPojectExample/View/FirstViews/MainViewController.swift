@@ -14,10 +14,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
 
     let colors = [
+        UIColor(red: 246/255, green: 248/255, blue: 200/255, alpha: 0.5),
         UIColor(red: 200/255, green: 251/255, blue: 254/255, alpha: 0.5),
         UIColor(red: 200/255, green: 259/255, blue: 200/255, alpha: 0.5),
-        UIColor(red: 200/255, green: 200/255, blue: 250/255, alpha: 0.5),
-        UIColor(red: 246/255, green: 248/255, blue: 200/255, alpha: 0.5)
+        UIColor(red: 200/255, green: 200/255, blue: 250/255, alpha: 0.5)
     ]
 
     override func viewDidLoad() {
@@ -185,7 +185,7 @@ extension MainViewController: UICollectionViewDataSource {
             if indexPath.item == 0 {
                 cell.categoryImageView.image = UIImage(systemName: "questionmark")
                 cell.nameLabel.text = "랜덤"
-                cell.colorBackgroundView.backgroundColor = colors[indexPath.item % colors.count]
+                cell.colorBackgroundView.backgroundColor = .lightGray
                 return cell
             } else {
                 let target = Category.allCases[indexPath.item - 1].rawValue

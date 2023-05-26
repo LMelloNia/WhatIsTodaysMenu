@@ -45,12 +45,7 @@ class FoodChooseViewController: UIViewController {
 
     func actionSheet(complition: @escaping (String?) -> ()) {
         let alertController = UIAlertController(title: nil, message: "이 음식은 이미 추가되어 있습니다.", preferredStyle: .alert)
-
-        let addAgain = UIAlertAction(title: "다시 추가", style: .default) { action in complition(action.title) }
-
-        let skip = UIAlertAction(title: "건너뛰기", style: .default) { action in complition(action.title) }
-
-        alertController.addAction(addAgain)
+        let skip = UIAlertAction(title: "확인", style: .default) { action in complition(action.title) }
         alertController.addAction(skip)
 
 
@@ -101,10 +96,10 @@ extension FoodChooseViewController: UICollectionViewDataSource {
             }
             cell.foodNameLabel.text = target.name
             if target.isChecked {
-                cell.checkImageView.image = UIImage(systemName: "checkmark.circle")
-                cell.checkImageView.tintColor = .green
+                cell.checkImageView.image = UIImage(systemName: "circle.fill")
+                cell.checkImageView.tintColor = .tintColor
             } else {
-                cell.checkImageView.image = UIImage(systemName: "plus.circle")
+                cell.checkImageView.image = UIImage(systemName: "circle")
                 cell.checkImageView.tintColor = .tintColor
             }
             // MARK: 둘중 하나는 수정
@@ -126,13 +121,13 @@ extension FoodChooseViewController: UICollectionViewDelegate {
             food.name == target.name
         }) {
             actionSheet { title in
-                if let title, title == "건너뛰기" {
+//                if let title, title == "확인" {
                     return
-                } else if title == "다시 추가" {
-                    target.isChecked = true
-                    collectionView.reloadItems(at: [indexPath])
-                    return
-                }
+//                } else if title == "다시 추가" {
+//                    target.isChecked = true
+//                    collectionView.reloadItems(at: [indexPath])
+//                    return
+//                }
             }
         } else {
             target.isChecked.toggle()

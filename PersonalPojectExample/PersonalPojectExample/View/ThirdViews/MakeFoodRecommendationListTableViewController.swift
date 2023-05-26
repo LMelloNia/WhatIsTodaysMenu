@@ -263,4 +263,17 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             }
         }
     }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        list.remove(at: indexPath.item)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if editeMode && indexPath.section == 1 {
+            return true
+        } else {
+             return false
+        }
+    }
 }
