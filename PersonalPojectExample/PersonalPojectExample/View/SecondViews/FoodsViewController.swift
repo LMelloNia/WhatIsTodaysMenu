@@ -113,6 +113,7 @@ class FoodsViewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+
         if let savedIndexPath, let cell = foodsCollectionView.cellForItem(at: savedIndexPath) {
             cell.contentView.layer.borderWidth = 0
         }

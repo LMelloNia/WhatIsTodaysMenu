@@ -149,11 +149,11 @@
             <objects>
                 <viewController id="Xci-0p-mAZ" customClass="FoodListViewController" customModule="PersonalPojectExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJx-Yg-rY6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dbK-rz-82W">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodListFirstTableViewCell" rowHeight="128" id="Yd9-DX-I4v" customClass="FoodListFirstTableViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
@@ -860,62 +860,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Jy-VK4">
-                                <rect key="frame" x="152.66666666666666" y="554" width="88" height="35"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9hu-I9-MZH">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DNF-LS-mv8">
+                                    <size key="itemSize" width="384" height="724"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RandomFoodsCollectionViewCell" id="koe-3f-XLA" customClass="RandomFoodsCollectionViewCell" customModule="PersonalPojectExample" customModuleProvider="target">
+                                        <rect key="frame" x="4.666666666666667" y="0.0" width="384" height="724"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ov7-K5-Flt">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="724"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samgyeopsal1" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-Fc-Brq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="724"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwl-bz-Oza">
+                                                    <rect key="frame" x="125" y="197" width="47" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-t2-pC5">
+                                                    <rect key="frame" x="249" y="226" width="47" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="DBO-Fc-Brq" secondAttribute="bottom" id="9VG-Y6-mzd"/>
+                                                <constraint firstItem="DBO-Fc-Brq" firstAttribute="top" secondItem="ov7-K5-Flt" secondAttribute="top" id="E7p-Ud-stG"/>
+                                                <constraint firstAttribute="trailing" secondItem="DBO-Fc-Brq" secondAttribute="trailing" id="FFl-ZT-Sba"/>
+                                                <constraint firstItem="DBO-Fc-Brq" firstAttribute="leading" secondItem="ov7-K5-Flt" secondAttribute="leading" id="HfB-BR-e0f"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="384" height="724"/>
+                                        <connections>
+                                            <outlet property="foodListAddButton" destination="aDa-t2-pC5" id="BCs-7M-42H"/>
+                                            <outlet property="randomMenuImageView" destination="DBO-Fc-Brq" id="dMS-ph-Lcc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ycz-fd-agd" id="z0H-DU-YIf"/>
+                                    <outlet property="delegate" destination="Ycz-fd-agd" id="N5M-7i-SvM"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Jy-VK4">
+                                <rect key="frame" x="67" y="713" width="88" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메뉴 추천"/>
                                 <connections>
-                                    <action selector="pressedRandomMenuButton:" destination="Ycz-fd-agd" eventType="touchUpInside" id="Sqe-b8-SP7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwl-bz-Oza">
-                                <rect key="frame" x="274.66666666666669" y="261" width="47" height="35"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system"/>
-                                <connections>
-                                    <action selector="removeAllRandom:" destination="Ycz-fd-agd" eventType="touchUpInside" id="ukq-B5-BVZ"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samgyeopsal1" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-Fc-Brq">
-                                <rect key="frame" x="71.666666666666686" y="296" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="UiE-E8-JBX"/>
-                                    <constraint firstAttribute="width" constant="250" id="ibl-8w-mos"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-t2-pC5">
-                                <rect key="frame" x="227.66666666666666" y="261" width="46.999999999999972" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
-                                <connections>
-                                    <segue destination="zfG-zL-yb0" kind="presentation" identifier="recommendToFoodListList" id="wyO-bz-pCR"/>
+                                    <action selector="pressedRandomMenuButton:" destination="Ycz-fd-agd" eventType="touchUpInside" id="WPv-kT-EX7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4X0-Vf-JgB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2yP-Jy-VK4" firstAttribute="centerX" secondItem="DBO-Fc-Brq" secondAttribute="centerX" id="7Qq-Bh-yJL"/>
-                            <constraint firstItem="2yP-Jy-VK4" firstAttribute="top" secondItem="DBO-Fc-Brq" secondAttribute="bottom" constant="8" symbolic="YES" id="GS7-9O-5Xg"/>
-                            <constraint firstItem="DBO-Fc-Brq" firstAttribute="top" secondItem="kwl-bz-Oza" secondAttribute="bottom" id="GTf-IO-9an"/>
-                            <constraint firstItem="kwl-bz-Oza" firstAttribute="leading" secondItem="aDa-t2-pC5" secondAttribute="trailing" id="iXL-cS-HYD"/>
-                            <constraint firstItem="DBO-Fc-Brq" firstAttribute="centerX" secondItem="uBt-pW-p2U" secondAttribute="centerX" id="k9c-Me-ybo"/>
-                            <constraint firstItem="DBO-Fc-Brq" firstAttribute="centerY" secondItem="uBt-pW-p2U" secondAttribute="centerY" id="nz7-Yg-Ynm"/>
-                            <constraint firstItem="kwl-bz-Oza" firstAttribute="trailing" secondItem="DBO-Fc-Brq" secondAttribute="trailing" id="p3h-a8-quG"/>
-                            <constraint firstItem="DBO-Fc-Brq" firstAttribute="top" secondItem="aDa-t2-pC5" secondAttribute="bottom" id="v3B-eB-3Uk"/>
+                            <constraint firstItem="9hu-I9-MZH" firstAttribute="leading" secondItem="4X0-Vf-JgB" secondAttribute="leading" id="5Xj-8r-QUH"/>
+                            <constraint firstItem="9hu-I9-MZH" firstAttribute="top" secondItem="uBt-pW-p2U" secondAttribute="top" id="P6C-P0-upc"/>
+                            <constraint firstItem="4X0-Vf-JgB" firstAttribute="bottom" secondItem="9hu-I9-MZH" secondAttribute="bottom" id="Uoy-2H-YBm"/>
+                            <constraint firstItem="4X0-Vf-JgB" firstAttribute="trailing" secondItem="9hu-I9-MZH" secondAttribute="trailing" id="YwJ-rH-SR5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Pff-aE-8Gq"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Pff-aE-8Gq"/>
                     <connections>
-                        <outlet property="foodListAddButton" destination="aDa-t2-pC5" id="5IM-6D-ClG"/>
-                        <outlet property="randomMenuButton" destination="2yP-Jy-VK4" id="5Up-kv-ibM"/>
-                        <outlet property="randomMenuImageView" destination="DBO-Fc-Brq" id="ek6-fd-9tg"/>
+                        <outlet property="randomFoodsCollectionView" destination="9hu-I9-MZH" id="V1c-dv-oVH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoB-0B-t3Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657" y="-1275"/>
+            <point key="canvasLocation" x="2655.7251908396947" y="-1275.3521126760563"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="4qt-08-QLZ">
@@ -944,7 +968,7 @@
                     <tabBarItem key="tabBarItem" title="랜덤목록" image="list.bullet" catalog="system" id="E3P-kU-0vE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="7WL-vN-vxN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1034,7 +1058,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="X3z-Jb-2KG"/>
-        <segue reference="wyO-bz-pCR"/>
         <segue reference="R0s-JC-sIS"/>
     </inferredMetricsTieBreakers>
     <resources>

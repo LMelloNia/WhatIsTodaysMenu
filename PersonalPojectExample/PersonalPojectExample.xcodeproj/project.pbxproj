@@ -36,6 +36,7 @@
 		DDE1DEEE29F65BEF00F3D737 /* FoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */; };
 		DDE1DEF029F65C7D00F3D737 /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */; };
 		DDF458FD29B8B89900F3A29E /* FoodRecommendationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF458FC29B8B89900F3A29E /* FoodRecommendationList.swift */; };
+		DDF4AD282A209C4400BCA3BB /* RandomFoodsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF4AD272A209C4400BCA3BB /* RandomFoodsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		DDE1DEED29F65BEF00F3D737 /* FoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDE1DEEF29F65C7D00F3D737 /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
 		DDF458FC29B8B89900F3A29E /* FoodRecommendationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecommendationList.swift; sourceTree = "<group>"; };
+		DDF4AD272A209C4400BCA3BB /* RandomFoodsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomFoodsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				DDE1DEA729EFF5A700F3D737 /* CategoryCollectionViewCell.swift */,
 				DDACC2082A0CDE5A009F21EC /* FavoriteFoodCollectionViewCell.swift */,
+				DDF4AD272A209C4400BCA3BB /* RandomFoodsCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				DD6F1CE129BB063200CDAD54 /* Food.swift in Sources */,
 				DDC4A09429BF51AA00E5C973 /* MainTabBarController.swift in Sources */,
 				DD9C789E29E56C0400CADBC9 /* FoodRecommendationListMainTableViewCell.swift in Sources */,
+				DDF4AD282A209C4400BCA3BB /* RandomFoodsCollectionViewCell.swift in Sources */,
 				DD6F1CDB29BB055800CDAD54 /* Country.swift in Sources */,
 				DDE1DEA829EFF5A700F3D737 /* CategoryCollectionViewCell.swift in Sources */,
 				DDA21C1C29E57CA300EE1B9C /* FoodRecommendationListFoodTableViewCell.swift in Sources */,
