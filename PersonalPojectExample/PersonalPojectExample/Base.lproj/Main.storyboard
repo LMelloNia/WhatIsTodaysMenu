@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -880,19 +880,13 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samgyeopsal1" translatesAutoresizingMaskIntoConstraints="NO" id="DBO-Fc-Brq">
                                                     <rect key="frame" x="0.0" y="0.0" width="384" height="724"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kwl-bz-Oza">
-                                                    <rect key="frame" x="125" y="197" width="47" height="35"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5V-IE-DSd">
+                                                    <rect key="frame" x="23" y="573" width="337" height="79"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="tintColor" systemColor="systemRedColor"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="minus" catalog="system"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-t2-pC5">
-                                                    <rect key="frame" x="249" y="226" width="47" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
-                                                </button>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="DBO-Fc-Brq" secondAttribute="bottom" id="9VG-Y6-mzd"/>
@@ -903,7 +897,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="384" height="724"/>
                                         <connections>
-                                            <outlet property="foodListAddButton" destination="aDa-t2-pC5" id="BCs-7M-42H"/>
+                                            <outlet property="nameLabel" destination="w5V-IE-DSd" id="U90-lY-0Xr"/>
                                             <outlet property="randomMenuImageView" destination="DBO-Fc-Brq" id="dMS-ph-Lcc"/>
                                         </connections>
                                     </collectionViewCell>
@@ -913,9 +907,9 @@
                                     <outlet property="delegate" destination="Ycz-fd-agd" id="N5M-7i-SvM"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Jy-VK4">
-                                <rect key="frame" x="67" y="713" width="88" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yP-Jy-VK4">
+                                <rect key="frame" x="152.66666666666666" y="728" width="88" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="메뉴 추천"/>
                                 <connections>
@@ -930,11 +924,14 @@
                             <constraint firstItem="9hu-I9-MZH" firstAttribute="top" secondItem="uBt-pW-p2U" secondAttribute="top" id="P6C-P0-upc"/>
                             <constraint firstItem="4X0-Vf-JgB" firstAttribute="bottom" secondItem="9hu-I9-MZH" secondAttribute="bottom" id="Uoy-2H-YBm"/>
                             <constraint firstItem="4X0-Vf-JgB" firstAttribute="trailing" secondItem="9hu-I9-MZH" secondAttribute="trailing" id="YwJ-rH-SR5"/>
+                            <constraint firstItem="2yP-Jy-VK4" firstAttribute="centerX" secondItem="uBt-pW-p2U" secondAttribute="centerX" id="uNA-bZ-dJd"/>
+                            <constraint firstItem="4X0-Vf-JgB" firstAttribute="bottom" secondItem="2yP-Jy-VK4" secondAttribute="bottom" constant="30" id="zdS-az-Hut"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Pff-aE-8Gq"/>
                     <connections>
                         <outlet property="randomFoodsCollectionView" destination="9hu-I9-MZH" id="V1c-dv-oVH"/>
+                        <outlet property="randomMenuButton" destination="2yP-Jy-VK4" id="AFt-R1-Qjl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoB-0B-t3Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1066,10 +1063,8 @@
         <image name="homekit" catalog="system" width="128" height="104"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="list.bullet.clipboard.fill" catalog="system" width="103" height="128"/>
-        <image name="minus" catalog="system" width="128" height="26"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="questionmark" catalog="system" width="94" height="128"/>
@@ -1085,9 +1080,6 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

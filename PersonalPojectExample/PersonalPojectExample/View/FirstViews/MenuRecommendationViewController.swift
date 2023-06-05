@@ -24,9 +24,8 @@ class MenuRecommendationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        randomMenuImageView.clipsToBounds = true
-//        randomMenuImageView.layer.cornerRadius = 20
+        randomMenuButton.clipsToBounds = true
+        randomMenuButton.layer.cornerRadius = 10
         
         // MARK: 옵저버 두번째 추가한 부분
         NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
@@ -56,6 +55,7 @@ class MenuRecommendationViewController: UIViewController {
             }
         }
     }
+
     func createBasicListLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                              heightDimension: .fractionalHeight(1.0))
@@ -72,17 +72,9 @@ class MenuRecommendationViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
-    // MARK: 랜덤 버튼을 눌렀을때 isAllRandom이 설정되어있는 것들중에서 랜덤으로 추천
+    // MARK: 랜덤 버튼을 눌렀을때 룰렛이 돌아가듯이 설정되어있는 것들중에서 랜덤으로 추천
     @IBAction func pressedRandomMenuButton(_ sender: Any) {
         randomFoodsCollectionView.scrollToItem(at: IndexPath(item: Int.random(in: 500 - (randomFoods.count * 3)...500 + (randomFoods.count * 3)), section: 0), at: .bottom, animated: true)
-//        randomMenuImageView.stopAnimating()
-//        randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }
-//
-//        if let target = randomFoods.randomElement() {
-//            if let imageName = target.imageName.randomElement() {
-//                randomMenuImageView.image = UIImage(named: imageName)
-//            }
-//        }
     }
     
     // MARK: isAllRandom속성을 false로 만들어 전체 랜덤에서 추천되지 않게 하는것
@@ -94,7 +86,6 @@ class MenuRecommendationViewController: UIViewController {
 //            print(target.isAllRandom)
 //        }
 //    }
-
     override func viewWillAppear(_ animated: Bool) {
 //        if let foodRecommendationListEntity {
 //            CoreDataManager.shared.fetchWithFoodRecommendationListEntity(target: foodRecommendationListEntity)
@@ -125,6 +116,7 @@ extension MenuRecommendationViewController: UICollectionViewDataSource {
         if let imageName = target.imageName.randomElement() {
             cell.randomMenuImageView.image = UIImage(named: imageName)
         }
+        cell.nameLabel.text = target.name
 
         return cell
     }

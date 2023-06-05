@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
         if let cell = sender as? CategoryCollectionViewCell {
             if let vc = segue.destination as? MenuRecommendationViewController {
                 guard let category = cell.nameLabel.text else { return }
+                // MARK: 카테고리가 랜덤이 아니라면 카테고리로 인스턴스 생성, 카테고리가 랜덤이라면 전체 음식을 대상으로 인스턴스 생성
                 guard category != "랜덤" else {
                     CoreDataManager.shared.fetchIsAllRandom()
                     vc.randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }

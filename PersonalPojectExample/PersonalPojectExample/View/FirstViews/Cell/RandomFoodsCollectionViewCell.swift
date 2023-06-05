@@ -12,6 +12,7 @@ class RandomFoodsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var randomMenuImageView: UIImageView!
 //    @IBOutlet weak var randomMenuButton: UIButton!
     @IBOutlet weak var foodListAddButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
 
     var category: String?
     var target: Food?
@@ -22,15 +23,15 @@ class RandomFoodsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        randomMenuImageView.animationImages = CoreDataManager.shared.foodEntitys.map({ foodEntity in
-            guard let imageName = foodEntity.imageName?.components(separatedBy: ", ").randomElement() else {
-                return UIImage(systemName: "star")!
-            }
-            return UIImage(named: imageName)!
-        })
-        randomMenuImageView.animationDuration = 2.0
-        randomMenuImageView.animationRepeatCount = 0
-        randomMenuImageView.startAnimating()
+//        randomMenuImageView.animationImages = CoreDataManager.shared.foodEntitys.map({ foodEntity in
+//            guard let imageName = foodEntity.imageName?.components(separatedBy: ", ").randomElement() else {
+//                return UIImage(systemName: "star")!
+//            }
+//            return UIImage(named: imageName)!
+//        })
+//        randomMenuImageView.animationDuration = 2.0
+//        randomMenuImageView.animationRepeatCount = 0
+//        randomMenuImageView.startAnimating()
     }
 
     // MARK: 랜덤 버튼을 눌렀을때 isAllRandom이 설정되어있는 것들중에서 랜덤으로 추천
