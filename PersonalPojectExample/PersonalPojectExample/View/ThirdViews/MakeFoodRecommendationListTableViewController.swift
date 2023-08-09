@@ -37,10 +37,8 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 editTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
                 editTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
                 editTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
-                print("키보드는 안성공ㄹ")
                 if let cell = editTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FoodRecommendationListMainTableViewCell {
                     cell.titleField.becomeFirstResponder()
-                    print("키보드 성공")
                 }
                 navigationItem.rightBarButtonItem = completeButton
             },
@@ -63,7 +61,6 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis"),  menu: menu)
         }
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
-            print("send")
             if let listInfo = Notification.userInfo?["name"] as? [Food] {
                 self.list.append(contentsOf: listInfo)
                 self.editTableView.reloadSections([1], with: .automatic)
@@ -81,27 +78,22 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
     }
 
     @IBAction func completeButtonTapped(_ sender: Any) {
-        print("asdasd-------------------")
         //  1      foodRecommendationList.foodList = list
         
         // MARK: 이름 저장
         if let cell = editTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FoodRecommendationListMainTableViewCell {
-            print("1")
             guard let name = cell.titleField.text, name != "" else { return }
             if let foodRecommendationEntity {
                 foodRecommendationEntity.name = name
-                print("2")
             }
             // 1           foodRecommendationList.name = name
             self.name = name
         }
         // MARK: 설명 저장
         if let cell = editTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? FoodRecommendationListDescriptionTableViewCell {
-            print("3")
             guard let description = cell.descriptionField.text else { return }
             if let foodRecommendationEntity {
                 foodRecommendationEntity.listDescription = description
-                print("3")
             }
             //  1          foodRecommendationList.description =  description
             self.listDescription = description
@@ -221,8 +213,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 
                 return cell
             } else {
-                let target = list[indexPath.row ]
-                print(#function, list.count)
+                let target = list[indexPath.row]
                 
                 if let imageName = target.imageName.randomElement() {
                     cell.foodImageView.image = UIImage(named: imageName)!

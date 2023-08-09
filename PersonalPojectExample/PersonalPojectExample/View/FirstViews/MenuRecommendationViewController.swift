@@ -83,7 +83,6 @@ class MenuRecommendationViewController: UIViewController {
 //            Food.name == target?.name
 //        }) {
 //            target.isAllRandom = false
-//            print(target.isAllRandom)
 //        }
 //    }
     override func viewWillAppear(_ animated: Bool) {
@@ -108,11 +107,8 @@ extension MenuRecommendationViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomFoodsCollectionViewCell", for: indexPath) as! RandomFoodsCollectionViewCell
-        print(randomFoods.count)
         let realIndex = indexPath.row % randomFoods.count
-        print(realIndex, "찐 인덱스")
         let target = randomFoods[realIndex]
-        print(target.imageName.first!, "뭘까")
         if let imageName = target.imageName.randomElement() {
             cell.randomMenuImageView.image = UIImage(named: imageName)
         }
@@ -122,12 +118,4 @@ extension MenuRecommendationViewController: UICollectionViewDataSource {
     }
 
 
-}
-
-
-
-extension MenuRecommendationViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(indexPath, "지금 보이는 화면의 인덱스 패스?")
-    }
 }

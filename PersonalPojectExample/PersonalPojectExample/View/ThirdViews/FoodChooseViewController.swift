@@ -81,7 +81,6 @@ class FoodChooseViewController: UIViewController {
 
 extension FoodChooseViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(filteredFoods.count)
         return filteredFoods.count
     }
 

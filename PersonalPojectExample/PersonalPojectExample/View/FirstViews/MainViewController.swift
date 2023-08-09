@@ -43,14 +43,12 @@ class MainViewController: UIViewController {
                 guard category != "랜덤" else {
                     CoreDataManager.shared.fetchIsAllRandom()
                     vc.randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }
-                    print(vc.randomFoods.count)
                     return
                 }
                 vc.category = category
                 CoreDataManager.shared.fetchCategory(category: category)
                 // MARK: 랜덤으로 돌릴 음식들의 목록을 인스턴스로 만들기
                 vc.randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }
-                print(vc.randomFoods.count)
             }
         }
     }

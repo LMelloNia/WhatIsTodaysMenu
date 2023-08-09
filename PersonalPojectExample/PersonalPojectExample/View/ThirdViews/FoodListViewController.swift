@@ -68,7 +68,6 @@ extension FoodListViewController: UITableViewDataSource {
             cell.foodListNameLabel.text = target.name
             cell.foodListDescriptionLabel.text = target.listDescription
         }
-        
         return cell
     }
     

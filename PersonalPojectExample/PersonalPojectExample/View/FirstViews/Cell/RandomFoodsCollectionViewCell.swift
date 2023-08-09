@@ -52,7 +52,6 @@ class RandomFoodsCollectionViewCell: UICollectionViewCell {
             Food.name == target?.name
         }) {
             target.isAllRandom = false
-            print(target.isAllRandom)
         }
     }
 }
