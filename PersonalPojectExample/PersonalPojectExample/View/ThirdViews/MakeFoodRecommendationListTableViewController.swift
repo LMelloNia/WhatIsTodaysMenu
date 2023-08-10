@@ -52,6 +52,9 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if CoreDataManager.shared.foodRecommendationEntityList.count == 0 {
+            editeMode = true
+        }
         entitysChangeToInstance()
         foods.forEach {
             $0.isChecked = false
