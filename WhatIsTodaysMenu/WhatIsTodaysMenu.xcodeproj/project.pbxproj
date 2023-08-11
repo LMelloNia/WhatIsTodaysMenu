@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */; };
-		DD2951EC29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2951EA29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld */; };
+		DD2951EC29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2951EA29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld */; };
 		DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */; };
 		DD37543F2A131E94001C414D /* FoodChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD37543E2A131E94001C414D /* FoodChooseViewController.swift */; };
 		DD3754412A131ECC001C414D /* FoodChooseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3754402A131ECC001C414D /* FoodChooseCollectionViewCell.swift */; };
@@ -51,7 +51,7 @@
 		DD6F1CE029BB063200CDAD54 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		DD6F1CE229BB0E6E00CDAD54 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DD6F1CE429BB0FAD00CDAD54 /* FoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
-		DD927C7829B0993200467EE9 /* PersonalPojectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalPojectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD927C7829B0993200467EE9 /* WhatIsTodaysMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatIsTodaysMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD927C7B29B0993200467EE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD927C7D29B0993200467EE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD927C8229B0993200467EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		DD927C6F29B0993200467EE9 = {
 			isa = PBXGroup;
 			children = (
-				DD927C7A29B0993200467EE9 /* PersonalPojectExample */,
+				DD927C7A29B0993200467EE9 /* WhatIsTodaysMenu */,
 				DD927C7929B0993200467EE9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,12 +147,12 @@
 		DD927C7929B0993200467EE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD927C7829B0993200467EE9 /* PersonalPojectExample.app */,
+				DD927C7829B0993200467EE9 /* WhatIsTodaysMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DD927C7A29B0993200467EE9 /* PersonalPojectExample */ = {
+		DD927C7A29B0993200467EE9 /* WhatIsTodaysMenu */ = {
 			isa = PBXGroup;
 			children = (
 				DD6F1CE629BB100E00CDAD54 /* View */,
@@ -163,10 +163,10 @@
 				DD927C8429B0993400467EE9 /* Assets.xcassets */,
 				DD927C8629B0993400467EE9 /* LaunchScreen.storyboard */,
 				DD927C8929B0993400467EE9 /* Info.plist */,
-				DD2951EA29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld */,
+				DD2951EA29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld */,
 				DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */,
 			);
-			path = PersonalPojectExample;
+			path = WhatIsTodaysMenu;
 			sourceTree = "<group>";
 		};
 		DDC4A09029BF406400E5C973 /* Cell */ = {
@@ -214,9 +214,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD927C7729B0993200467EE9 /* PersonalPojectExample */ = {
+		DD927C7729B0993200467EE9 /* WhatIsTodaysMenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD927C8C29B0993400467EE9 /* Build configuration list for PBXNativeTarget "PersonalPojectExample" */;
+			buildConfigurationList = DD927C8C29B0993400467EE9 /* Build configuration list for PBXNativeTarget "WhatIsTodaysMenu" */;
 			buildPhases = (
 				DD927C7429B0993200467EE9 /* Sources */,
 				DD927C7529B0993200467EE9 /* Frameworks */,
@@ -226,9 +226,9 @@
 			);
 			dependencies = (
 			);
-			name = PersonalPojectExample;
+			name = WhatIsTodaysMenu;
 			productName = PersonalPojectExample;
-			productReference = DD927C7829B0993200467EE9 /* PersonalPojectExample.app */;
+			productReference = DD927C7829B0993200467EE9 /* WhatIsTodaysMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -246,7 +246,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD927C7329B0993200467EE9 /* Build configuration list for PBXProject "PersonalPojectExample" */;
+			buildConfigurationList = DD927C7329B0993200467EE9 /* Build configuration list for PBXProject "WhatIsTodaysMenu" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -259,7 +259,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD927C7729B0993200467EE9 /* PersonalPojectExample */,
+				DD927C7729B0993200467EE9 /* WhatIsTodaysMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +305,7 @@
 				DDF458FD29B8B89900F3A29E /* FoodRecommendationList.swift in Sources */,
 				DD6F1CDF29BB061300CDAD54 /* Category.swift in Sources */,
 				DDE1DEF029F65C7D00F3D737 /* FoodsViewController.swift in Sources */,
-				DD2951EC29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld in Sources */,
+				DD2951EC29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld in Sources */,
 				DD3754412A131ECC001C414D /* FoodChooseCollectionViewCell.swift in Sources */,
 				DDC4A08F29BF381000E5C973 /* MenuRecommendationViewController.swift in Sources */,
 				DD6F1CE329BB0E6E00CDAD54 /* MainViewController.swift in Sources */,
@@ -457,7 +457,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F945448FS3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PersonalPojectExample/Info.plist;
+				INFOPLIST_FILE = WhatIsTodaysMenu/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘의 메뉴는?";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -492,7 +492,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F945448FS3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PersonalPojectExample/Info.plist;
+				INFOPLIST_FILE = WhatIsTodaysMenu/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "오늘의 메뉴는?";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -521,7 +521,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD927C7329B0993200467EE9 /* Build configuration list for PBXProject "PersonalPojectExample" */ = {
+		DD927C7329B0993200467EE9 /* Build configuration list for PBXProject "WhatIsTodaysMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD927C8A29B0993400467EE9 /* Debug */,
@@ -530,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD927C8C29B0993400467EE9 /* Build configuration list for PBXNativeTarget "PersonalPojectExample" */ = {
+		DD927C8C29B0993400467EE9 /* Build configuration list for PBXNativeTarget "WhatIsTodaysMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD927C8D29B0993400467EE9 /* Debug */,
@@ -542,13 +542,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DD2951EA29D5A520000830D9 /* PersonalPojectExample.xcdatamodeld */ = {
+		DD2951EA29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */,
 			);
 			currentVersion = DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */;
-			path = PersonalPojectExample.xcdatamodeld;
+			path = WhatIsTodaysMenu.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
