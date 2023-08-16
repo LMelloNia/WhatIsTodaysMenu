@@ -63,8 +63,8 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis"),  menu: menu)
         }
-        NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { Notification in
-            if let listInfo = Notification.userInfo?["name"] as? [Food] {
+        NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { noti in
+            if let listInfo = noti.userInfo?["name"] as? [Food] {
                 self.list.append(contentsOf: listInfo)
                 self.editTableView.reloadSections([1], with: .automatic)
                 dump(self.list)
@@ -103,9 +103,9 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         }
         
         // MARK: 음식추천리스트 엔티티 생성
-        list.forEach { Food in
-            let foodEntity = CoreDataManager.shared.foodEntitys.first { FoodEntity in
-                FoodEntity.name == Food.name
+        list.forEach { food in
+            let foodEntity = CoreDataManager.shared.foodEntitys.first { foodEntity in
+                foodEntity.name == food.name
             }
             guard let foodEntity else { return }
             entityList.append(foodEntity)
@@ -141,7 +141,9 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             vc.foodRecommendationListEntity = foodRecommendationEntity
             if let foodRecommendationEntity {
                 CoreDataManager.shared.fetchWithFoodRecommendationListEntity(target: foodRecommendationEntity)
-                vc.randomFoods = CoreDataManager.shared.isAllRandomFoods.map { Food(image: ($0.imageName?.components(separatedBy: ", "))!, name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }
+                vc.randomFoods = CoreDataManager.shared.isAllRandomFoods.map {
+                    Food(image: ($0.imageName?.components(separatedBy: ", "))!,
+                         name: $0.name!, country: [Country.chinese], isAllRandom: $0.favorite) }
             }
         }
 

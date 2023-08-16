@@ -28,8 +28,8 @@ class MenuRecommendationViewController: UIViewController {
         randomMenuButton.layer.cornerRadius = 10
         
         // MARK: 옵저버 두번째 추가한 부분
-        NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
-            if let foodList = Notification.userInfo?["name"] as? FoodRecommendationList {
+        NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { noti in
+            if let foodList = noti.userInfo?["name"] as? FoodRecommendationList {
                 self.foodListList.append(foodList)
             }
         }

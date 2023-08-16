@@ -48,8 +48,8 @@ class RandomFoodsCollectionViewCell: UICollectionViewCell {
 
     // MARK: isAllRandom속성을 false로 만들어 전체 랜덤에서 추천되지 않게 하는것
     @IBAction func removeAllRandom(_ sender: Any) {
-        if let target = foods.first(where: { Food in
-            Food.name == target?.name
+        if let target = foods.first(where: { food in
+            food.name == target?.name
         }) {
             target.isAllRandom = false
         }
