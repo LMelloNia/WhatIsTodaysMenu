@@ -9,4 +9,4 @@
 + 기능 추가중
 
 ## 프로젝트 주요 기능
-<img width="300" height="360" src="https://i.ibb.co/Wz2BgSs/Simulator-Screenshot-i-Phone-14-2023-08-09-at-20-27-51.png"> 
+<img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2c30d95f-4d53-41ac-9071-ea9031dee291"> 
