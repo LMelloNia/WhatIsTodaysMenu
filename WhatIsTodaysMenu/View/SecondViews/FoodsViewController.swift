@@ -139,7 +139,11 @@ extension FoodsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HashTagCollectionViewCell", for: indexPath) as! HashTagCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "HashTagCollectionViewCell",
+                for: indexPath
+            ) as? HashTagCollectionViewCell
+            else { return UICollectionViewCell() }
 
             cell.hashTagLabel.text = "# \(Category.allCases[indexPath.item].rawValue)     "
 
@@ -147,7 +151,11 @@ extension FoodsViewController: UICollectionViewDataSource {
 
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodsCollectionViewCell", for: indexPath) as! FoodsCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "FoodsCollectionViewCell",
+                for: indexPath
+            ) as? FoodsCollectionViewCell
+            else { return UICollectionViewCell() }
 
             let target = hashTagItems[indexPath.item]
 

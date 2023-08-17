@@ -169,7 +169,12 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         // MARK: 저장된 이름과 설명 텍스트 필드에 띄우기
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListMainTableViewCell", for: indexPath) as! FoodRecommendationListMainTableViewCell
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "FoodRecommendationListMainTableViewCell",
+                    for: indexPath
+                ) as? FoodRecommendationListMainTableViewCell
+                else { return UITableViewCell() }
+
                 // MARK: 이름과 설명의 텍스트가 초기화 되는 현상을 방지하기 위해서 새로만드는게 아닌 만들어놨던걸로 전달하는 경우에만 텍스트 초기화
                 if editeMode {
                     cell.titleField.isEnabled = true
@@ -184,7 +189,12 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 cell.titleField.text = foodRecommendationEntity?.name
                 return cell
             } else if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListDescriptionTableViewCell", for: indexPath) as! FoodRecommendationListDescriptionTableViewCell
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "FoodRecommendationListDescriptionTableViewCell",
+                    for: indexPath
+                ) as? FoodRecommendationListDescriptionTableViewCell
+                else { return UITableViewCell() }
+
                 if editeMode {
                     cell.descriptionField.isEnabled = true
                 } else {
@@ -193,7 +203,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 cell.descriptionField.text = foodRecommendationEntity?.listDescription
                 return cell
             } else {
-                //#MARK: 편집 모드일때만 음식추가 버튼 보이기
+                // MARK: 편집 모드일때만 음식추가 버튼 보이기
                 if editeMode {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListAddTableViewCell", for: indexPath)
                     return cell
@@ -203,9 +213,14 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 }
             }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListFoodTableViewCell", for: indexPath) as! FoodRecommendationListFoodTableViewCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "FoodRecommendationListFoodTableViewCell",
+                for: indexPath
+            ) as? FoodRecommendationListFoodTableViewCell
+            else { return UITableViewCell() }
+
             if false {
-                let set = foodRecommendationEntity?.foods as! Set<FoodEntity>
+                let set = foodRecommendationEntity?.foods as? Set<FoodEntity> ?? []
                 
                 let target = Array(set)[indexPath.row]
 

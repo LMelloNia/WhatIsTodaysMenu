@@ -193,7 +193,11 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "CategoryCollectionViewCell",
+                for: indexPath
+            ) as? CategoryCollectionViewCell
+            else { return UICollectionViewCell() }
 
             if indexPath.item == 0 {
                 cell.categoryImageView.image = UIImage(systemName: "questionmark")
@@ -209,7 +213,11 @@ extension MainViewController: UICollectionViewDataSource {
                 return cell
             }
         } else if indexPath.section == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFoodCollectionViewCell", for: indexPath) as! FavoriteFoodCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "FavoriteFoodCollectionViewCell",
+                for: indexPath
+            ) as? FavoriteFoodCollectionViewCell
+            else { return UICollectionViewCell() }
 
             let target = CoreDataManager.shared.favoriteFoods[indexPath.item]
 
@@ -229,7 +237,11 @@ extension MainViewController: UICollectionViewDataSource {
 
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFoodCollectionViewCell", for: indexPath) as! FavoriteFoodCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "FavoriteFoodCollectionViewCell",
+                for: indexPath
+            ) as? FavoriteFoodCollectionViewCell
+            else { return UICollectionViewCell() }
 
             let target = CoreDataManager.shared.recommendedFoods[indexPath.item]
 
@@ -253,7 +265,12 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! CategoryHeaderCollectionReusableView
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: "header",
+            for: indexPath
+        ) as? CategoryHeaderCollectionReusableView
+        else { return UICollectionReusableView() }
 
         if indexPath.section == 0 {
             header.categoryTitle.text = "카테고리를 고르세요"

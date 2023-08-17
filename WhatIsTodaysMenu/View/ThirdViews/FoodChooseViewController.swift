@@ -85,7 +85,11 @@ extension FoodChooseViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodChooseCollectionViewCell", for: indexPath) as! FoodChooseCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "FoodChooseCollectionViewCell",
+            for: indexPath
+        ) as? FoodChooseCollectionViewCell
+        else { return UICollectionViewCell() }
 
         if !filteredFoods.isEmpty {
             let target = filteredFoods[indexPath.item]

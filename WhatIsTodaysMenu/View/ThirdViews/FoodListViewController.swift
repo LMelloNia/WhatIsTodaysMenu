@@ -56,7 +56,12 @@ extension FoodListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodListFirstTableViewCell", for: indexPath) as! FoodListFirstTableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "FoodListFirstTableViewCell",
+            for: indexPath
+        ) as? FoodListFirstTableViewCell
+        else { return UITableViewCell() }
+
         cell.contentView.backgroundColor = view.backgroundColor
         if !CoreDataManager.shared.foodRecommendationEntityList.isEmpty {
             let target = CoreDataManager.shared.foodRecommendationEntityList[indexPath.row]

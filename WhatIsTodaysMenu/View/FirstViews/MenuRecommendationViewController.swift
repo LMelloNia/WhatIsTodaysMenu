@@ -98,15 +98,21 @@ class MenuRecommendationViewController: UIViewController {
     }
 }
 
-
-
 extension MenuRecommendationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1000
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RandomFoodsCollectionViewCell", for: indexPath) as! RandomFoodsCollectionViewCell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "RandomFoodsCollectionViewCell",
+            for: indexPath
+        ) as? RandomFoodsCollectionViewCell
+        else { return UICollectionViewCell() }
+
         let realIndex = indexPath.row % randomFoods.count
         let target = randomFoods[realIndex]
         if let imageName = target.imageName.randomElement() {
@@ -116,6 +122,4 @@ extension MenuRecommendationViewController: UICollectionViewDataSource {
 
         return cell
     }
-
-
 }
