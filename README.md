@@ -11,7 +11,7 @@
 
 <br/>
 
-| <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2cecb4ef-18ae-4d27-953a-fad44407ad26"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/5e318e65-5f44-4c44-a9df-3b5d6f78f122"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2044d387-498b-4c9d-9f31-b970e07eb1c2"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/987411d2-3265-425f-b080-c0fa09fe9397"> | 
+| <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2cecb4ef-18ae-4d27-953a-fad44407ad26"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/5e318e65-5f44-4c44-a9df-3b5d6f78f122"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2044d387-498b-4c9d-9f31-b970e07eb1c2"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2c483c06-4aa2-40ed-b4a5-626297b12263"> | 
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |  `랜덤추천`   |  `카테고리`  | `즐겨찾기`  | `음식목록 만들기` | `검색 및 추가` |
 
