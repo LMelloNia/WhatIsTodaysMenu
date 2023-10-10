@@ -22,7 +22,7 @@ class FoodListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CoreDataManager.shared.fetchFoodRecommendationList()
-        NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { Notification in
+        NotificationCenter.default.addObserver(forName: .list, object: nil, queue: .main) { _ in
             CoreDataManager.shared.fetchFoodRecommendationList()
             self.tableView.reloadData()
 

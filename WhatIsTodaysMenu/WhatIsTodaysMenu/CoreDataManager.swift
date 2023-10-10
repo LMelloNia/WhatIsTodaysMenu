@@ -36,7 +36,13 @@ class CoreDataManager {
         
         do {
             if try mainContext.count(for: request) == 0 {
-                foods.forEach { createFood(imageName: $0.imageName.joined(separator: ", "), name: $0.name, country: $0.country ?? [], numberOfPeople: $0.numberOfPeoPle, categories: $0.categoryList, isAllRandom: $0.isAllRandom, isChecked: $0.isChecked, favorite: $0.favorite) }
+                foods.forEach { createFood(
+                    imageName: $0.imageName.joined(separator: ", "),
+                    name: $0.name, country: $0.country ?? [],
+                    numberOfPeople: $0.numberOfPeoPle,
+                    categories: $0.categoryList,
+                    isAllRandom: $0.isAllRandom,
+                    isChecked: $0.isChecked, favorite: $0.favorite) }
             }
         } catch {
             print(error)
@@ -124,7 +130,12 @@ class CoreDataManager {
 //    }
     
     
-    func createFood(imageName: String, name: String, country: [Country] = [], numberOfPeople: [NumberOfPeople] = [], categories: String? = nil, isAllRandom: Bool = true, isChecked: Bool = false, favorite: Bool = false, likeCount: Int = 0) {
+    func createFood(imageName: String, name: String,
+                    country: [Country] = [],
+                    numberOfPeople: [NumberOfPeople] = [],
+                    categories: String? = nil,
+                    isAllRandom: Bool = true, isChecked: Bool = false,
+                    favorite: Bool = false, likeCount: Int = 0) {
         let newEntity = FoodEntity(context: mainContext)
         newEntity.imageName = imageName
         newEntity.name = name
@@ -189,15 +200,15 @@ class CoreDataManager {
         mainContext.delete(target)
         do {
             try mainContext.save()
-            foodRecommendationEntityList.removeAll { FoodRecommendationListEntity in
-                FoodRecommendationListEntity == target
+            foodRecommendationEntityList.removeAll { foodRecommendationListEntity in
+                foodRecommendationListEntity == target
             }
         } catch {
             print(error)
         }
     }
     
-    func RecommenedFoodArray() {
+    func recommenedFoodArray() {
         var set = Set<FoodEntity>()
         while set.count < 5 {
             set.insert(foodEntitys.randomElement()!)

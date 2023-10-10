@@ -116,7 +116,7 @@ extension FoodChooseViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let target = filteredFoods[indexPath.item]
         // MARK: 중복선택시 다시추가할지 말지
-        if let a = alreadyHaveFoods.first(where: { food in
+        if let firstFood = alreadyHaveFoods.first(where: { food in
             food.name == target.name
         }) {
             actionSheet { title in

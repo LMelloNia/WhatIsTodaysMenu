@@ -177,8 +177,8 @@ extension FoodsViewController: UICollectionViewDelegate {
                 cell.contentView.layer.borderWidth = 0
             }
             let name = Category.allCases[indexPath.item].rawValue
-            hashTagItems = CoreDataManager.shared.foodEntitys.filter { FoodEntity in
-                FoodEntity.categories?.contains(name) ?? false
+            hashTagItems = CoreDataManager.shared.foodEntitys.filter { foodEntity in
+                foodEntity.categories?.contains(name) ?? false
             }
             foodsCollectionView.reloadSections([1])
 
