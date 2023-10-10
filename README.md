@@ -6,7 +6,6 @@
 
 ## 개발 기간
 2023.03 ~ 2023.06
-+ 기능 추가중
 
 ## 프로젝트 주요 기능
-<img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2c30d95f-4d53-41ac-9071-ea9031dee291"> 
+| <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | 
