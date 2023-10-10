@@ -13,7 +13,7 @@
 
 | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | 
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|  `애플로그인`   |  `프로필 등록`  | `산책 기록`  | `오늘의 꿀팁` | `앨범 연동` |
+|  `랜덤 추천`   |  `프로필 등록`  | `산책 기록`  | `오늘의 꿀팁` | `앨범 연동` |
 
 <br/>
 
