@@ -17,3 +17,12 @@
 
 <br/>
 
+### 기능 
+
+<br/>
+
+| <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|  `애플로그인`   |  `프로필 등록`  | `산책 기록`  | `오늘의 꿀팁` | `앨범 연동` |
+
+<br/>
