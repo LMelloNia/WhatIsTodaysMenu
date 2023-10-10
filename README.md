@@ -11,18 +11,8 @@
 
 <br/>
 
-| <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2cecb4ef-18ae-4d27-953a-fad44407ad26"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | 
+| <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/2cecb4ef-18ae-4d27-953a-fad44407ad26"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/5e318e65-5f44-4c44-a9df-3b5d6f78f122"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | <img width="292" height="633" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/b594505e-f1f3-4968-8f6d-74ed40a35d7f"> | 
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|  `랜덤 추천`   |  `카테고리`  | `산책 기록`  | `오늘의 꿀팁` | `앨범 연동` |
-
-<br/>
-
-### 기능 
-
-<br/>
-
-| <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/5e318e65-5f44-4c44-a9df-3b5d6f78f122"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> | <img width="300" height="360" src="https://github.com/LMelloNia/WhatIsTodaysMenu/assets/96280575/7f00b64d-b313-4dfd-a594-2363c9df5e5f"> |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|  `애플로그인`   |  `프로필 등록`  | `즐겨찾기`  | `오늘의 꿀팁` | `앨범 연동` |
+|  `랜덤추천`   |  `카테고리`  | `즐겨찾기`  | `오늘의 꿀팁` | `앨범 연동` |
 
 <br/>
