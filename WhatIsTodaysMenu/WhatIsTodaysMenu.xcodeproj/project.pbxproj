@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9369B95A6D16B829831F3FB7 /* Pods_WhatIsTodaysMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108FDBDAEA8931BD151B258B /* Pods_WhatIsTodaysMenu.framework */; };
-		DD0865B22ADD817700DAE9F6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DD0865B12ADD817700DAE9F6 /* .gitignore */; };
 		DD0DB85A29CAFB6A00072878 /* FoodListFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */; };
 		DD2951EC29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD2951EA29D5A520000830D9 /* WhatIsTodaysMenu.xcdatamodeld */; };
 		DD2951EE29D5A54F000830D9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */; };
@@ -46,7 +45,6 @@
 		108FDBDAEA8931BD151B258B /* Pods_WhatIsTodaysMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatIsTodaysMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BCF7BA32CA6769F7B118A32 /* Pods-WhatIsTodaysMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatIsTodaysMenu.debug.xcconfig"; path = "Target Support Files/Pods-WhatIsTodaysMenu/Pods-WhatIsTodaysMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		A190CCA3CD021817B3102FD9 /* Pods-WhatIsTodaysMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatIsTodaysMenu.release.xcconfig"; path = "Target Support Files/Pods-WhatIsTodaysMenu/Pods-WhatIsTodaysMenu.release.xcconfig"; sourceTree = "<group>"; };
-		DD0865B12ADD817700DAE9F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DD0DB85929CAFB6A00072878 /* FoodListFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListFirstTableViewCell.swift; sourceTree = "<group>"; };
 		DD2951EB29D5A520000830D9 /* FoodList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodList.xcdatamodel; sourceTree = "<group>"; };
 		DD2951ED29D5A54F000830D9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 		DD927C6F29B0993200467EE9 = {
 			isa = PBXGroup;
 			children = (
-				DD0865B12ADD817700DAE9F6 /* .gitignore */,
 				DDE527AE2A88B92800A3A4C7 /* .swiftlint.yml */,
 				DD927C7A29B0993200467EE9 /* WhatIsTodaysMenu */,
 				DD927C7929B0993200467EE9 /* Products */,
@@ -301,7 +298,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0865B22ADD817700DAE9F6 /* .gitignore in Resources */,
 				DDE527AF2A88B92800A3A4C7 /* .swiftlint.yml in Resources */,
 				DD927C8829B0993400467EE9 /* LaunchScreen.storyboard in Resources */,
 				DD927C8529B0993400467EE9 /* Assets.xcassets in Resources */,
