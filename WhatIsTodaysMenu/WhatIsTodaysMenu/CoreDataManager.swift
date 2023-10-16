@@ -195,7 +195,7 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
     func removeFoodRecommendationList(target: FoodRecommendationListEntity) {
         mainContext.delete(target)
         do {
@@ -207,7 +207,7 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
     func recommenedFoodArray() {
         var set = Set<FoodEntity>()
         while set.count < 5 {
