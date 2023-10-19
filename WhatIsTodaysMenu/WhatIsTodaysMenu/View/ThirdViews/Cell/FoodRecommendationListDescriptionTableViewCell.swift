@@ -10,7 +10,7 @@ import UIKit
 class FoodRecommendationListDescriptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var descriptionField: UITextField!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

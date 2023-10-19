@@ -9,17 +9,17 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
-    
+
     static let shared = CoreDataManager()
-    
+
     var mainContext: NSManagedObjectContext {
         persistentContainer.viewContext
     }
-    
+
     private init() {
         insertDefaultData()
     }
-    
+
     var foodEntitys = [FoodEntity]() {
         didSet {
         }
@@ -30,10 +30,10 @@ class CoreDataManager {
     var foodRecommendationEntityList = [FoodRecommendationListEntity]()
     var recommendedFoods = [FoodEntity]()
 //    var categoryList = [CategoryEntity]()
-    
+
     func insertDefaultData() {
         let request = FoodEntity.fetchRequest()
-        
+
         do {
             if try mainContext.count(for: request) == 0 {
                 foods.forEach { createFood(
@@ -48,7 +48,7 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
     func fetchFoods() {
         let request = FoodEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -119,17 +119,7 @@ class CoreDataManager {
             print(error)
         }
     }
-//    func fetchCategory() {
-//        let request = CategoryEntity.fetchRequest()
-//        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-//        do {
-//            categoryList = try mainContext.fetch(request)
-//        } catch {
-//            print(error)
-//        }
-//    }
-    
-    
+
     func createFood(imageName: String, name: String,
                     country: [Country] = [],
                     numberOfPeople: [NumberOfPeople] = [],
@@ -152,13 +142,13 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
     func createFoodRecommendationList(name: String, description: String, foods: [FoodEntity]) {
         let newEntity = FoodRecommendationListEntity(context: mainContext)
         newEntity.name = name
         newEntity.listDescription = description
         newEntity.foods = Set(foods) as NSSet
-        
+
         do {
             try mainContext.save()
         } catch {

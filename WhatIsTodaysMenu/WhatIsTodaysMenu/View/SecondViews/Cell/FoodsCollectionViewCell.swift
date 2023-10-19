@@ -35,7 +35,7 @@ class FoodsCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 20
 
@@ -44,11 +44,11 @@ class FoodsCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowRadius = 1
         contentView.layer.shadowOffset = CGSize(width: 10, height: 10)
         contentView.layer.shadowPath = nil
-        
+
         gradation(view: gradationView)
         gradationView.alpha = 0.8
     }
-    
+
     @IBAction func removeFromListButtonTapped(_ sender: UIButton) {
         guard let foodEntity else { return }
         guard let favorite else { return }
