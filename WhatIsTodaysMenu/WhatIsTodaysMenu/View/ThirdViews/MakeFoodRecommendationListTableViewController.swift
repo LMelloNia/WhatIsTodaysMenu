@@ -13,7 +13,7 @@ extension Notification.Name {
 }
 
 class MakeFoodRecommendationListTableViewController: UITableViewController {
-    
+
     @IBOutlet var editTableView: UITableView!
 
     var list = [Food]()
@@ -82,7 +82,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
 
     @IBAction func completeButtonTapped(_ sender: Any) {
         //  1      foodRecommendationList.foodList = list
-        
+
         // MARK: 이름 저장
         if let cell = editTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? FoodRecommendationListMainTableViewCell {
             guard let name = cell.titleField.text, name != "" else { return }
@@ -101,7 +101,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             //  1          foodRecommendationList.description =  description
             self.listDescription = description
         }
-        
+
         // MARK: 음식추천리스트 엔티티 생성
         list.forEach { food in
             let foodEntity = CoreDataManager.shared.foodEntitys.first { foodEntity in
@@ -116,12 +116,12 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         } else {
             CoreDataManager.shared.createFoodRecommendationList(name: name, description: listDescription, foods: entityList)
         }
-        
+
         NotificationCenter.default.post(name: .list, object: nil)
         
         self.presentingViewController?.dismiss(animated: true)
     }
-    
+
     func entitysChangeToInstance() {
         guard let foodEntitys = foodRecommendationEntity?.foods as? Set<FoodEntity> else { return }
         
@@ -152,11 +152,11 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             vc.alreadyHaveFoods = list
         }
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3

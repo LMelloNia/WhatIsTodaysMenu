@@ -28,7 +28,6 @@ class FoodsViewController: UIViewController {
         foodsCollectionView.collectionViewLayout = createLayout()
     }
 
-
     func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { section, layoutEnv in
             switch section {
@@ -44,14 +43,11 @@ class FoodsViewController: UIViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                subitems: [item])
 
-//                group.interItemSpacing = .flexible(100)
-
                 let section = NSCollectionLayoutSection(group: group)
 
                 section.interGroupSpacing = 15
 
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 0)
-
 
                 section.orthogonalScrollingBehavior = .continuous
 
@@ -135,8 +131,7 @@ extension FoodsViewController: UICollectionViewDataSource {
             return hashTagItems.count
         }
     }
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HashTagCollectionViewCell", for: indexPath) as! HashTagCollectionViewCell

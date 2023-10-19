@@ -30,7 +30,7 @@ class FoodListViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
+
         guard !CoreDataManager.shared.foodRecommendationEntityList.isEmpty else { return }
         if segue.identifier == "cellToFoodList" {
             if let cell = sender as? FoodListFirstTableViewCell {
