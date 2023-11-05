@@ -32,13 +32,13 @@ class MenuRecommendationViewController: UIViewController {
 
         randomFoodsCollectionView.collectionViewLayout = createBasicListLayout()
     }
-    
+
     // MARK: 추천한 메뉴를 음식추천목록에 추가
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recommendToFoodListList" {
-            if let vc = segue.destination.children.first as? FoodListViewController {
-                vc.foodRecommendationListList = self.foodListList
-                vc.target = target
+            if let viewCon = segue.destination.children.first as? FoodListViewController {
+                viewCon.foodRecommendationListList = self.foodListList
+                viewCon.target = target
             }
         }
     }
@@ -64,8 +64,6 @@ class MenuRecommendationViewController: UIViewController {
         randomFoodsCollectionView.scrollToItem(at: IndexPath(item: Int.random(in: 500 - (randomFoods.count * 3)...500 + (randomFoods.count * 3)), section: 0), at: .bottom, animated: true)
     }
 }
-
-
 
 extension MenuRecommendationViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

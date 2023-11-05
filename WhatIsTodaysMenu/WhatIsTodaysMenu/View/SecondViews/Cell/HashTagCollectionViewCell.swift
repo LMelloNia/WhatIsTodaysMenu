@@ -9,7 +9,6 @@ import UIKit
 
 class HashTagCollectionViewCell: UICollectionViewCell {
 
-
     @IBOutlet weak var hashTagLabel: UILabel!
     @IBOutlet weak var hashTagContentView: UIView!
 

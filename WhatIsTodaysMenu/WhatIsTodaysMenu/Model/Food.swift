@@ -25,7 +25,7 @@ class Food {
         }
         return categoryList.sorted().joined(separator: " ").trimmingCharacters(in: characterSet)
     }
-    
+
     //    func returnCategoryList() -> String {
     //        var categoryList = [""]
     //        let characterSet: CharacterSet = [" "]
@@ -34,7 +34,7 @@ class Food {
     //        }
     //        return categoryList.sorted().joined(separator: " ").trimmingCharacters(in: characterSet)
     //    }
-    
+
     init(image: [String] = [], name: String, country: [Country], numberOfPeoPle: [NumberOfPeople] = [.alone], category: [Category] = [.spicy], isAllRandom: Bool = true, favorite: Bool = false) {
         self.imageName = image
         self.name = name
@@ -46,19 +46,15 @@ class Food {
     }
 }
 
-
-
-
-
 var foods = [
     Food(image: ["samgyeopsal1", "samgyeopsal2", "samgyeopsal3"]
-         ,name: "삼겹살", country: [.korean], numberOfPeoPle: [.couple, .family], category: [.meat], favorite: true),
+         , name: "삼겹살", country: [.korean], numberOfPeoPle: [.couple, .family], category: [.meat], favorite: true),
     Food(image: ["jajangmyeon1", "jajangmyeon2", "jajangmyeon3"],
          name: "짜장면", country: [.chinese], numberOfPeoPle: [.alone, .couple, .family], category: [.noodle], favorite: true),
     Food(image: ["ramen1", "ramen2", "ramen3"],
          name: "라멘", country: [.japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.noodle, .meat, .spicy, .soup], favorite: true),
     Food(image: ["tonkatsu1", "tonkatsu2", "tonkatsu3"]
-         ,name: "돈까스", country: [.korean, .japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.meat, .friedFood]),
+         , name: "돈까스", country: [.korean, .japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.meat, .friedFood]),
     Food(image: ["cheesetonkatsu1", "cheesetonkatsu2", "cheesetonkatsu3"],
          name: "치즈돈까스", country: [.korean, .japanese], numberOfPeoPle: [.alone, .couple, .family], category: [.meat, .friedFood, .cheese]),
     Food(image: ["bibimbap1", "bibimbap2", "bibimbap3"],

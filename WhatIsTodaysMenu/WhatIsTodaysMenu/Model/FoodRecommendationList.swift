@@ -13,7 +13,7 @@ class FoodRecommendationList {
     var name: String
     var description: String
     var foodList: [Food]
-    
+
     init(imgae: UIImage, name: String, description: String, foodList: [Food]) {
         self.imgae = imgae
         self.name = name
@@ -21,4 +21,3 @@ class FoodRecommendationList {
         self.foodList = foodList
     }
 }
-

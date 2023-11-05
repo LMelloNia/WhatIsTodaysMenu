@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+
     @IBOutlet weak var randomButton: UIButton!
     @IBOutlet weak var chooseListButton: UIButton!
     @IBOutlet weak var mainCollectionView: UICollectionView!
@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         mainCollectionView.collectionViewLayout = createLayout()
         CoreDataManager.shared.fetchFoods()
         CoreDataManager.shared.fetchfavorite()
@@ -175,8 +175,6 @@ class MainViewController: UIViewController {
     }
 }
 
-
-
 extension MainViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -251,7 +249,7 @@ extension MainViewController: UICollectionViewDataSource {
             return cell
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! CategoryHeaderCollectionReusableView
 

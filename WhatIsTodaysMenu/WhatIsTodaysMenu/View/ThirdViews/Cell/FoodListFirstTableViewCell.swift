@@ -12,7 +12,7 @@ class FoodListFirstTableViewCell: UITableViewCell {
     @IBOutlet weak var foodListImageView: UIImageView!
     @IBOutlet weak var foodListNameLabel: UILabel!
     @IBOutlet weak var foodListDescriptionLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

@@ -78,12 +78,12 @@ class CoreDataManager {
             print(error)
         }
     }
-    
+
     func fetchIsAllRandom() {
         let request = FoodEntity.fetchRequest()
-        
+
         request.predicate = NSPredicate(format: "isAllRandom == TRUE")
-        
+
         do {
             isAllRandomFoods = try mainContext.fetch(request)
         } catch {
@@ -168,7 +168,7 @@ class CoreDataManager {
         }
     }
 
-    func updateIsAllRandom(food:FoodEntity, isAllRandom: Bool) {
+    func updateIsAllRandom(food: FoodEntity, isAllRandom: Bool) {
         food.favorite = isAllRandom
         do {
             try mainContext.save()
@@ -177,7 +177,7 @@ class CoreDataManager {
         }
     }
 
-    func updatefavorite(food:FoodEntity, favorite: Bool) {
+    func updatefavorite(food: FoodEntity, favorite: Bool) {
         food.favorite = favorite
         do {
             try mainContext.save()
@@ -210,7 +210,7 @@ class CoreDataManager {
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "WhatIsTodaysMenu")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

@@ -29,7 +29,7 @@ class FoodsViewController: UIViewController {
     }
 
     func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { section, layoutEnv in
+        UICollectionViewCompositionalLayout { section, _ in
             switch section {
             case 0:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50),
@@ -115,9 +115,6 @@ class FoodsViewController: UIViewController {
         }
     }
 }
-
-
-
 
 extension FoodsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {

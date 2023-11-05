@@ -48,8 +48,6 @@ class FoodListViewController: UIViewController {
     }
 }
 
-
-
 extension FoodListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CoreDataManager.shared.foodRecommendationEntityList.count
@@ -77,8 +75,6 @@ extension FoodListViewController: UITableViewDataSource {
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
-
-
 
 extension FoodListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
