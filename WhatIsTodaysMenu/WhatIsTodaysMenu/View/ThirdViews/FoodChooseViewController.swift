@@ -43,18 +43,16 @@ class FoodChooseViewController: UIViewController {
         dismiss(animated: true)
     }
 
-    func actionSheet(complition: @escaping (String?) -> ()) {
+    func actionSheet(complition: @escaping (String?) -> Void) {
         let alertController = UIAlertController(title: nil, message: "이 음식은 이미 추가되어 있습니다.", preferredStyle: .alert)
         let skip = UIAlertAction(title: "확인", style: .default) { action in complition(action.title) }
         alertController.addAction(skip)
-
-
 
         present(alertController, animated: true)
     }
 
     func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { section, layoutEnv in
+        UICollectionViewCompositionalLayout { section, _ in
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                                   heightDimension: .fractionalHeight(1))
 
@@ -76,8 +74,6 @@ class FoodChooseViewController: UIViewController {
         }
     }
 }
-
-
 
 extension FoodChooseViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -110,8 +106,6 @@ extension FoodChooseViewController: UICollectionViewDataSource {
     }
 }
 
-
-
 extension FoodChooseViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let target = filteredFoods[indexPath.item]
@@ -119,14 +113,8 @@ extension FoodChooseViewController: UICollectionViewDelegate {
         if let firstFood = alreadyHaveFoods.first(where: { food in
             food.name == target.name
         }) {
-            actionSheet { title in
-//                if let title, title == "확인" {
+            actionSheet { _ in
                     return
-//                } else if title == "다시 추가" {
-//                    target.isChecked = true
-//                    collectionView.reloadItems(at: [indexPath])
-//                    return
-//                }
             }
         } else {
             target.isChecked.toggle()
@@ -134,8 +122,6 @@ extension FoodChooseViewController: UICollectionViewDelegate {
         }
     }
 }
-
-
 
 extension FoodChooseViewController: UISearchBarDelegate {
     func filter(with keyword: String) {
@@ -156,4 +142,3 @@ extension FoodChooseViewController: UISearchBarDelegate {
         searchBar.text = nil
     }
 }
-

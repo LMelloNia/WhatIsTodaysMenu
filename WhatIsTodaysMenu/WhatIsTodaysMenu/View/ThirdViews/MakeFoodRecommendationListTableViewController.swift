@@ -30,7 +30,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         return btn
     }()
 
-    lazy var actions : [UIAction] = {
+    lazy var actions: [UIAction] = {
         return [
             UIAction(title: "편집", image: UIImage(systemName: "pencil")) { [self] _ in
                 self.editeMode = true
@@ -61,7 +61,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         }
         if editeMode {
         } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis"),  menu: menu)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", image: UIImage(systemName: "ellipsis"), menu: menu)
         }
         NotificationCenter.default.addObserver(forName: .select, object: nil, queue: .main) { noti in
             if let listInfo = noti.userInfo?["name"] as? [Food] {
@@ -118,18 +118,18 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         }
 
         NotificationCenter.default.post(name: .list, object: nil)
-        
+
         self.presentingViewController?.dismiss(animated: true)
     }
 
     func entitysChangeToInstance() {
         guard let foodEntitys = foodRecommendationEntity?.foods as? Set<FoodEntity> else { return }
-        
+
         foodEntitys.forEach { foodEntity in
             let food = foods.first { food in
                 food.name == foodEntity.name
             }
-            
+
             guard let food else { return }
             list.append(food)
         }
@@ -193,7 +193,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
                 cell.descriptionField.text = foodRecommendationEntity?.listDescription
                 return cell
             } else {
-                //#MARK: 편집 모드일때만 음식추가 버튼 보이기
+                // MARK: 편집 모드일때만 음식추가 버튼 보이기
                 if editeMode {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListAddTableViewCell", for: indexPath)
                     return cell
@@ -204,30 +204,15 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FoodRecommendationListFoodTableViewCell", for: indexPath) as! FoodRecommendationListFoodTableViewCell
-            if false {
-                let set = foodRecommendationEntity?.foods as! Set<FoodEntity>
-                
-                let target = Array(set)[indexPath.row]
+            let target = list[indexPath.row]
 
-                
-                if let imageName = target.imageName?.components(separatedBy: ", ").randomElement() {
-                    cell.foodImageView.image = UIImage(named: imageName)!
-                }
-                
-                cell.foodNameLabel.text = target.name
-                
-                return cell
-            } else {
-                let target = list[indexPath.row]
-                
-                if let imageName = target.imageName.randomElement() {
-                    cell.foodImageView.image = UIImage(named: imageName)!
-                }
-                
-                cell.foodNameLabel.text = target.name
-                
-                return cell
+            if let imageName = target.imageName.randomElement() {
+                cell.foodImageView.image = UIImage(named: imageName)!
             }
+
+            cell.foodNameLabel.text = target.name
+
+            return cell
         }
     }
 
@@ -240,7 +225,7 @@ class MakeFoodRecommendationListTableViewController: UITableViewController {
         if editeMode && indexPath.section == 1 {
             return true
         } else {
-             return false
+            return false
         }
     }
 }

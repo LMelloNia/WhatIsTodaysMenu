@@ -11,7 +11,7 @@ class FoodRecommendationListFoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

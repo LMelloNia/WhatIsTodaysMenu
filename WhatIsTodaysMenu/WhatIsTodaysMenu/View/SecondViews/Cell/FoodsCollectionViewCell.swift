@@ -8,7 +8,7 @@
 import UIKit
 
 class FoodsCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     @IBOutlet weak var foodCategoryLabel: UILabel!
